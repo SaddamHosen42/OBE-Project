@@ -475,27 +475,27 @@ obe-system/
 ### Step 3.16: Student Module
 
 #### Step 3.16.1: Student Model
-- [ ] Create `models/Student.js`
-- [ ] Add method `getByDepartment()`
-- [ ] Add method `getByDegree()`
-- [ ] Add method `getEnrollments()`
-- [ ] Add method `getCGPA()`
-- [ ] Add method `getCLOAttainment()`
-- [ ] Add method `getPLOAttainment()`
+- [x] Create `models/Student.js`
+- [x] Add method `getByDepartment()`
+- [x] Add method `getByDegree()`
+- [x] Add method `getEnrollments()`
+- [x] Add method `getCGPA()`
+- [x] Add method `getCLOAttainment()`
+- [x] Add method `getPLOAttainment()`
 
 #### Step 3.16.2: Student Controller
-- [ ] Create `controllers/StudentController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `getEnrollments()` method
-- [ ] Implement `getResults()` method
-- [ ] Implement `getAttainmentReport()` method
+- [x] Create `controllers/StudentController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `getEnrollments()` method
+- [x] Implement `getResults()` method
+- [x] Implement `getAttainmentReport()` method
 
 #### Step 3.16.3: Student Routes
-- [ ] Create `routes/studentRoutes.js`
-- [ ] Add CRUD routes
-- [ ] Add GET `/api/students/:id/enrollments`
-- [ ] Add GET `/api/students/:id/results`
-- [ ] Add GET `/api/students/:id/attainment`
+- [x] Create `routes/studentRoutes.js`
+- [x] Add CRUD routes
+- [x] Add GET `/api/students/:id/enrollments`
+- [x] Add GET `/api/students/:id/results`
+- [x] Add GET `/api/students/:id/attainment`
 
 ### Step 3.17: Teacher Module
 

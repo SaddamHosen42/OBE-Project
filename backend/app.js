@@ -32,6 +32,7 @@ const cloRoutes = require('./routes/cloRoutes');
 const ploRoutes = require('./routes/ploRoutes');
 const peoRoutes = require('./routes/peoRoutes');
 const bloomRoutes = require('./routes/bloomRoutes');
+const studentRoutes = require('./routes/studentRoutes');
 
 // Mount routes
 app.use('/api/auth', authRoutes);
@@ -47,6 +48,7 @@ app.use('/api/clos', cloRoutes);
 app.use('/api/plos', ploRoutes);
 app.use('/api/peos', peoRoutes);
 app.use('/api/bloom-taxonomy', bloomRoutes);
+app.use('/api/students', studentRoutes);
 
 // Additional routes will be imported here
 // app.use('/api/courses', require('./routes/courseRoutes'));
