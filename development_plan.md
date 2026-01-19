@@ -267,12 +267,12 @@ obe-system/
 - [x] Implement `updateProfile()` - update own profile
 
 #### Step 3.4.3: User Routes
-- [ ] Create `routes/userRoutes.js`
-- [ ] Add GET `/api/users`
-- [ ] Add GET `/api/users/:id`
-- [ ] Add PUT `/api/users/:id`
-- [ ] Add DELETE `/api/users/:id`
-- [ ] Add PUT `/api/users/profile`
+- [x] Create `routes/userRoutes.js`
+- [x] Add GET `/api/users`
+- [x] Add GET `/api/users/:id`
+- [x] Add PUT `/api/users/:id`
+- [x] Add DELETE `/api/users/:id`
+- [x] Add PUT `/api/users/profile`
 
 ### Step 3.5: Faculty Module
 
