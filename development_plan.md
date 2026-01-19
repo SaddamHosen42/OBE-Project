@@ -112,24 +112,24 @@ obe-system/
 - [x] Run migrations and test
 
 ### Step 2.5: OBE Framework Tables
-- [ ] Create migration for `bloom_taxonomy_levels` table
-- [ ] Create migration for `program_educational_objectives` table
-- [ ] Create migration for `program_learning_outcomes` table
-- [ ] Create migration for `peo_plo_mapping` table
-- [ ] Create migration for `course_learning_outcome_program_learning_outcome` table
-- [ ] Create migration for `clo_co_mapping` table
-- [ ] Run migrations and test
+- [x ] Create migration for `bloom_taxonomy_levels` table
+- [x ] Create migration for `program_educational_objectives` table
+- [ x] Create migration for `program_learning_outcomes` table
+- [x ] Create migration for `peo_plo_mapping` table
+- [x ] Create migration for `course_learning_outcome_program_learning_outcome` table
+- [x ] Create migration for `clo_co_mapping` table
+- [x ] Run migrations and test
 
-### Step 2.6: Assessment Tables
-- [ ] Create migration for `assessment_types` table
-- [ ] Create migration for `assessment_components` table
-- [ ] Create migration for `assessment_clo_mapping` table
-- [ ] Create migration for `rubrics` table
-- [ ] Create migration for `rubric_criteria` table
-- [ ] Create migration for `rubric_levels` table
-- [ ] Create migration for `questions` table
-- [ ] Create migration for `question_clo_mapping` table
-- [ ] Run migrations and test
+### Step 2.6: Assessment Tables ✅
+- [x] Create migration for `assessment_types` table
+- [x] Create migration for `assessment_components` table
+- [x] Create migration for `assessment_clo_mapping` table
+- [x] Create migration for `rubrics` table
+- [x] Create migration for `rubric_criteria` table
+- [x] Create migration for `rubric_levels` table
+- [x] Create migration for `questions` table
+- [x] Create migration for `question_clo_mapping` table
+- [x] Run migrations and test
 
 ### Step 2.7: Results & Grades Tables
 - [ ] Create migration for `grade_scales` table
