@@ -131,16 +131,16 @@ obe-system/
 - [x] Create migration for `question_clo_mapping` table
 - [x] Run migrations and test
 
-### Step 2.7: Results & Grades Tables
-- [ ] Create migration for `grade_scales` table
-- [ ] Create migration for `grade_points` table
-- [ ] Create migration for `student_assessment_marks` table
-- [ ] Create migration for `student_question_marks` table
-- [ ] Create migration for `student_rubric_scores` table
-- [ ] Create migration for `course_results` table
-- [ ] Create migration for `semester_results` table
-- [ ] Create migration for `improvement_retake_records` table
-- [ ] Run migrations and test
+### Step 2.7: Results & Grades Tables ✅
+- [x] Create migration for `grade_scales` table
+- [x] Create migration for `grade_points` table
+- [x] Create migration for `student_assessment_marks` table
+- [x] Create migration for `student_question_marks` table
+- [x] Create migration for `student_rubric_scores` table
+- [x] Create migration for `course_results` table
+- [x] Create migration for `semester_results` table
+- [x] Create migration for `improvement_retake_records` table
+- [x] Run migrations and test
 
 ### Step 2.8: OBE Attainment Tables
 - [ ] Create migration for `student_clo_attainment` table
