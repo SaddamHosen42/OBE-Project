@@ -736,16 +736,16 @@ obe-system/
 ### Step 3.29: Attainment Threshold Module
 
 #### Step 3.29.1: Attainment Threshold Model
-- [ ] Create `models/AttainmentThreshold.js`
-- [ ] Add method `getByDegree()`
+- [x] Create `models/AttainmentThreshold.js`
+- [x] Add method `getByDegree()`
 
 #### Step 3.29.2: Attainment Threshold Controller
-- [ ] Create `controllers/AttainmentThresholdController.js`
-- [ ] Implement CRUD methods
+- [x] Create `controllers/AttainmentThresholdController.js`
+- [x] Implement CRUD methods
 
 #### Step 3.29.3: Attainment Threshold Routes
-- [ ] Create `routes/attainmentThresholdRoutes.js`
-- [ ] Add CRUD routes
+- [x] Create `routes/attainmentThresholdRoutes.js`
+- [x] Add CRUD routes
 
 ### Step 3.30: Survey Module
 
