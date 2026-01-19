@@ -373,13 +373,8 @@ obe-system/
 #### Step 3.10.3: Course Routes
 - [x] Create `routes/courseRoutes.js`
 - [x] Add CRUD routes
-- [ ] Implement `getObjectives()` method
-
-#### Step 3.10.3: Course Routes
-- [ ] Create `routes/courseRoutes.js`
-- [ ] Add CRUD routes
-- [ ] Add GET `/api/courses/:id/clos`
-- [ ] Add GET `/api/courses/:id/objectives`
+- [x] Add GET `/api/courses/:id/clos`
+- [x] Add GET `/api/courses/:id/objectives`
 
 ### Step 3.11: Course Offering Module
 
