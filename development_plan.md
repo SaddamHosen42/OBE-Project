@@ -277,8 +277,8 @@ obe-system/
 ### Step 3.5: Faculty Module
 
 #### Step 3.5.1: Faculty Model
-- [ ] Create `models/Faculty.js`
-- [ ] Add method `getAllWithDepartments()`
+- [x] Create `models/Faculty.js`
+- [x] Add method `getAllWithDepartments()`
 
 #### Step 3.5.2: Faculty Controller
 - [ ] Create `controllers/FacultyController.js`
