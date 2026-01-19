@@ -160,11 +160,11 @@ obe-system/
 - [x] Create migration for `indirect_attainment_results` table
 - [x] Run migrations and test
 
-### Step 2.10: Continuous Improvement Tables
-- [ ] Create migration for `action_plans` table
-- [ ] Create migration for `action_plan_outcomes` table
-- [ ] Create migration for `obe_review_cycles` table
-- [ ] Run migrations and test
+### Step 2.10: Continuous Improvement Tables ✅
+- [x] Create migration for `action_plans` table
+- [x] Create migration for `action_plan_outcomes` table
+- [x] Create migration for `obe_review_cycles` table
+- [x] Run migrations and test
 
 ### Step 2.11: Student & Teacher Tables ✅
 - [x] Create migration for `students` table
