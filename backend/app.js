@@ -49,6 +49,7 @@ const attainmentThresholdRoutes = require('./routes/attainmentThresholdRoutes');
 const actionPlanRoutes = require('./routes/actionPlanRoutes');
 const obeReviewCycleRoutes = require('./routes/obeReviewCycleRoutes');
 const reportRoutes = require('./routes/reportRoutes');
+const auditLogRoutes = require('./routes/auditLogRoutes');
 
 // Mount routes
 app.use('/api/auth', authRoutes);
@@ -81,6 +82,7 @@ app.use('/api/attainment-thresholds', attainmentThresholdRoutes);
 app.use('/api/action-plans', actionPlanRoutes);
 app.use('/api/obe-review-cycles', obeReviewCycleRoutes);
 app.use('/api/reports', reportRoutes);
+app.use('/api/audit-logs', auditLogRoutes);
 
 // Additional routes will be imported here
 // app.use('/api/courses', require('./routes/courseRoutes'));

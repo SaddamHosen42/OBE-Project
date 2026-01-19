@@ -849,22 +849,22 @@ obe-system/
 ### Step 3.35: Audit Log Module
 
 #### Step 3.35.1: Audit Log Model
-- [ ] Create `models/AuditLog.js`
-- [ ] Add method `log()`
-- [ ] Add method `getByUser()`
-- [ ] Add method `getByTable()`
+- [x] Create `models/AuditLog.js`
+- [x] Add method `log()`
+- [x] Add method `getByUser()`
+- [x] Add method `getByTable()`
 
 #### Step 3.35.2: Audit Middleware
-- [ ] Create `middlewares/auditMiddleware.js`
-- [ ] Implement automatic logging
+- [x] Create `middlewares/auditMiddleware.js`
+- [x] Implement automatic logging
 
 #### Step 3.35.3: Audit Controller
-- [ ] Create `controllers/AuditLogController.js`
-- [ ] Implement `getLogs()` method
+- [x] Create `controllers/AuditLogController.js`
+- [x] Implement `getLogs()` method
 
 #### Step 3.35.4: Audit Routes
-- [ ] Create `routes/auditLogRoutes.js`
-- [ ] Add log retrieval routes
+- [x] Create `routes/auditLogRoutes.js`
+- [x] Add log retrieval routes
 
 ### Step 3.36: Building/Hall Module
 
