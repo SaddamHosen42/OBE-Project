@@ -18,7 +18,13 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Routes will be imported here
+// Routes
+const authRoutes = require('./routes/authRoutes');
+
+// Mount routes
+app.use('/api/auth', authRoutes);
+
+// Additional routes will be imported here
 // app.use('/api/users', require('./routes/userRoutes'));
 // app.use('/api/courses', require('./routes/courseRoutes'));
 // ... other routes

@@ -242,14 +242,14 @@ obe-system/
 - [x] Create `middlewares/roleMiddleware.js`
 
 #### Step 3.3.4: Auth Routes
-- [ ] Create `routes/authRoutes.js`
-- [ ] Add POST `/api/auth/register`
-- [ ] Add POST `/api/auth/login`
-- [ ] Add POST `/api/auth/logout`
-- [ ] Add POST `/api/auth/refresh`
-- [ ] Add POST `/api/auth/forgot-password`
-- [ ] Add POST `/api/auth/reset-password`
-- [ ] Add GET `/api/auth/me`
+- [x] Create `routes/authRoutes.js`
+- [x] Add POST `/api/auth/register`
+- [x] Add POST `/api/auth/login`
+- [x] Add POST `/api/auth/logout`
+- [x] Add POST `/api/auth/refresh`
+- [x] Add POST `/api/auth/forgot-password`
+- [x] Add POST `/api/auth/reset-password`
+- [x] Add GET `/api/auth/me`
 
 ### Step 3.4: User Management Module
 
