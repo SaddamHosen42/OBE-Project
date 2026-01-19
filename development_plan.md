@@ -332,13 +332,13 @@ obe-system/
 - [x] Add method `getWithSemesters()`
 
 #### Step 3.8.2: Academic Session Controller
-- [ ] Create `controllers/AcademicSessionController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `setActive()` method
+- [x] Create `controllers/AcademicSessionController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `setActive()` method
 
 #### Step 3.8.3: Academic Session Routes
-- [ ] Create `routes/academicSessionRoutes.js`
-- [ ] Add CRUD routes
+- [x] Create `routes/academicSessionRoutes.js`
+- [x] Add CRUD routes
 
 ### Step 3.9: Semester Module
 
