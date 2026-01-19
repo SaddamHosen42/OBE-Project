@@ -2,7 +2,7 @@
 -- Description: Stores OBE review cycles for periodic program evaluation and improvement
 -- Dependencies: degrees table
 
-USE obe_database;
+USE obe_system;
 
 CREATE TABLE IF NOT EXISTS obe_review_cycles (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,

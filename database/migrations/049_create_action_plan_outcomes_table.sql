@@ -2,7 +2,7 @@
 -- Description: Stores the outcomes/results of implemented action plans
 -- Dependencies: action_plans, users tables
 
-USE obe_database;
+USE obe_system;
 
 CREATE TABLE IF NOT EXISTS action_plan_outcomes (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,

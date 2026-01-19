@@ -2,7 +2,7 @@
 -- Description: Stores action plans for continuous improvement based on outcome attainment gaps
 -- Dependencies: degrees, course_offerings, academic_sessions, users tables
 
-USE obe_database;
+USE obe_system;
 
 CREATE TABLE IF NOT EXISTS action_plans (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
