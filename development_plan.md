@@ -573,25 +573,25 @@ obe-system/
 ### Step 3.21: Rubric Module
 
 #### Step 3.21.1: Rubric Model
-- [ ] Create `models/Rubric.js`
-- [ ] Add method `getWithCriteria()`
+- [x] Create `models/Rubric.js`
+- [x] Add method `getWithCriteria()`
 
 #### Step 3.21.2: Rubric Criteria Model
-- [ ] Create `models/RubricCriteria.js`
-- [ ] Add method `getWithLevels()`
+- [x] Create `models/RubricCriteria.js`
+- [x] Add method `getWithLevels()`
 
 #### Step 3.21.3: Rubric Level Model
-- [ ] Create `models/RubricLevel.js`
+- [x] Create `models/RubricLevel.js`
 
 #### Step 3.21.4: Rubric Controller
-- [ ] Create `controllers/RubricController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `addCriteria()` method
-- [ ] Implement `addLevel()` method
+- [x] Create `controllers/RubricController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `addCriteria()` method
+- [x] Implement `addLevel()` method
 
 #### Step 3.21.5: Rubric Routes
-- [ ] Create `routes/rubricRoutes.js`
-- [ ] Add CRUD routes
+- [x] Create `routes/rubricRoutes.js`
+- [x] Add CRUD routes
 
 ### Step 3.22: Marks Entry Module
 
