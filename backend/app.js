@@ -41,6 +41,8 @@ const rubricRoutes = require('./routes/rubricRoutes');
 const marksRoutes = require('./routes/marksRoutes');
 const rubricScoreRoutes = require('./routes/rubricScoreRoutes');
 const gradeRoutes = require('./routes/gradeRoutes');
+const courseResultRoutes = require('./routes/courseResultRoutes');
+const semesterResultRoutes = require('./routes/semesterResultRoutes');
 
 // Mount routes
 app.use('/api/auth', authRoutes);
@@ -65,6 +67,8 @@ app.use('/api/rubrics', rubricRoutes);
 app.use('/api/marks', marksRoutes);
 app.use('/api/rubric-scores', rubricScoreRoutes);
 app.use('/api/grades', gradeRoutes);
+app.use('/api/course-results', courseResultRoutes);
+app.use('/api/semester-results', semesterResultRoutes);
 
 // Additional routes will be imported here
 // app.use('/api/courses', require('./routes/courseRoutes'));

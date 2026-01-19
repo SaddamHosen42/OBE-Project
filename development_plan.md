@@ -657,36 +657,36 @@ obe-system/
 ### Step 3.25: Course Results Module
 
 #### Step 3.25.1: Course Result Model
-- [ ] Create `models/CourseResult.js`
-- [ ] Add method `calculateResult()`
-- [ ] Add method `getByStudent()`
-- [ ] Add method `getByCourseOffering()`
+- [x ] Create `models/CourseResult.js`
+- [ x] Add method `calculateResult()`
+- [ x] Add method `getByStudent()`
+- [ x] Add method `getByCourseOffering()`
 
 #### Step 3.25.2: Course Result Controller
-- [ ] Create `controllers/CourseResultController.js`
-- [ ] Implement `calculateResults()` method
-- [ ] Implement `publishResults()` method
-- [ ] Implement `getResults()` method
+- [x ] Create `controllers/CourseResultController.js`
+- [x ] Implement `calculateResults()` method
+- [ x] Implement `publishResults()` method
+- [ x] Implement `getResults()` method
 
 #### Step 3.25.3: Course Result Routes
-- [ ] Create `routes/courseResultRoutes.js`
-- [ ] Add result routes
+- [x] Create `routes/courseResultRoutes.js`
+- [x] Add result routes
 
 ### Step 3.26: Semester Results Module
 
 #### Step 3.26.1: Semester Result Model
-- [ ] Create `models/SemesterResult.js`
-- [ ] Add method `calculateSGPA()`
-- [ ] Add method `calculateCGPA()`
+- [x] Create `models/SemesterResult.js`
+- [x] Add method `calculateSGPA()`
+- [x] Add method `calculateCGPA()`
 
 #### Step 3.26.2: Semester Result Controller
-- [ ] Create `controllers/SemesterResultController.js`
-- [ ] Implement `calculateResults()` method
-- [ ] Implement `publishResults()` method
+- [x] Create `controllers/SemesterResultController.js`
+- [x] Implement `calculateResults()` method
+- [x] Implement `publishResults()` method
 
 #### Step 3.26.3: Semester Result Routes
-- [ ] Create `routes/semesterResultRoutes.js`
-- [ ] Add result routes
+- [x] Create `routes/semesterResultRoutes.js`
+- [x] Add result routes
 
 ### Step 3.27: CLO Attainment Module
 
