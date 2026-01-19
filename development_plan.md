@@ -207,14 +207,14 @@ obe-system/
 - [x] Create `.env` file with environment variables
 - [x] Create `.env.example` template
 
-### Step 3.2: Base Model Setup
-- [ ] Create `models/BaseModel.js` with CRUD operations
-- [ ] Implement `findAll()` method
-- [ ] Implement `findById()` method
-- [ ] Implement `create()` method
-- [ ] Implement `update()` method
-- [ ] Implement `delete()` method
-- [ ] Implement `findWhere()` method
+### Step 3.2: Base Model Setup ✅
+- [x] Create `models/BaseModel.js` with CRUD operations
+- [x] Implement `findAll()` method
+- [x] Implement `findById()` method
+- [x] Implement `create()` method
+- [x] Implement `update()` method
+- [x] Implement `delete()` method
+- [x] Implement `findWhere()` method
 
 ### Step 3.3: Authentication Module
 
