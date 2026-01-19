@@ -447,17 +447,17 @@ obe-system/
 ### Step 3.14: PEO Module
 
 #### Step 3.14.1: PEO Model
-- [ ] Create `models/ProgramEducationalObjective.js`
-- [ ] Add method `getByDegree()`
-- [ ] Add method `getMappedPLOs()`
+- [x] Create `models/ProgramEducationalObjective.js`
+- [x] Add method `getByDegree()`
+- [x] Add method `getMappedPLOs()`
 
 #### Step 3.14.2: PEO Controller
-- [ ] Create `controllers/PEOController.js`
-- [ ] Implement all CRUD methods
+- [x] Create `controllers/PEOController.js`
+- [x] Implement all CRUD methods
 
 #### Step 3.14.3: PEO Routes
-- [ ] Create `routes/peoRoutes.js`
-- [ ] Add CRUD routes
+- [x] Create `routes/peoRoutes.js`
+- [x] Add CRUD routes
 
 ### Step 3.15: Bloom's Taxonomy Module
 
