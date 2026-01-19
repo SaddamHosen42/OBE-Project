@@ -295,10 +295,10 @@ obe-system/
 
 ### Step 3.6: Department Module
 
-#### Step 3.6.1: Department Model
-- [ ] Create `models/Department.js`
-- [ ] Add method `getByFaculty()`
-- [ ] Add method `getWithDegrees()`
+#### Step 3.6.1: Department Model ✅
+- [x] Create `models/Department.js`
+- [x] Add method `getByFaculty()`
+- [x] Add method `getWithDegrees()`
 
 #### Step 3.6.2: Department Controller
 - [ ] Create `controllers/DepartmentController.js`

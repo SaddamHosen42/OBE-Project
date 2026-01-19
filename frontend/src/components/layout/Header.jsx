@@ -10,7 +10,7 @@ import {
   FiChevronDown
 } from 'react-icons/fi';
 
-const Header = ({ toggleSidebar, sidebarOpen }) => {
+const Header = ({ toggleSidebar }) => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
