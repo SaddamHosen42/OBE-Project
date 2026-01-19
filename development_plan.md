@@ -795,22 +795,22 @@ obe-system/
 ### Step 3.32: Action Plan Module
 
 #### Step 3.32.1: Action Plan Model
-- [ ] Create `models/ActionPlan.js`
-- [ ] Add method `getByDegree()`
-- [ ] Add method `getByStatus()`
+- [x] Create `models/ActionPlan.js`
+- [x] Add method `getByDegree()`
+- [x] Add method `getByStatus()`
 
 #### Step 3.32.2: Action Plan Outcome Model
-- [ ] Create `models/ActionPlanOutcome.js`
+- [x] Create `models/ActionPlanOutcome.js`
 
 #### Step 3.32.3: Action Plan Controller
-- [ ] Create `controllers/ActionPlanController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `addOutcome()` method
-- [ ] Implement `updateStatus()` method
+- [x] Create `controllers/ActionPlanController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `addOutcome()` method
+- [x] Implement `updateStatus()` method
 
 #### Step 3.32.4: Action Plan Routes
-- [ ] Create `routes/actionPlanRoutes.js`
-- [ ] Add CRUD routes
+- [x] Create `routes/actionPlanRoutes.js`
+- [x] Add CRUD routes
 
 ### Step 3.33: OBE Review Cycle Module
 
