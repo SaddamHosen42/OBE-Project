@@ -1,114 +1,117 @@
+/**
+ * Main Application File
+ * OBE (Outcome-Based Education) Management System
+ */
+
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
+const { registerRoutes } = require('./routes');
+
 const app = express();
 
-// Middleware
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// ===========================================
+// MIDDLEWARE CONFIGURATION
+// ===========================================
 
-// Health check route
+// CORS Configuration
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN || '*',
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
+// Body Parser Middleware
+app.use(express.json({ limit: '10mb' })); // JSON payload limit
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Request Logging Middleware (Development)
+if (process.env.NODE_ENV === 'development') {
+  app.use((req, res, next) => {
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+    next();
+  });
+}
+
+// ===========================================
+// HEALTH CHECK ROUTE
+// ===========================================
+
 app.get('/api/health', (req, res) => {
   res.status(200).json({ 
     status: 'OK', 
     message: 'OBE System API is running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
+// ===========================================
+// API ROUTES
+// ===========================================
+
+// Register all application routes
+registerRoutes(app);
+
+// ===========================================
+// ERROR HANDLING MIDDLEWARE
+// ===========================================
+
+// 404 Handler - Must come before error handler
+app.use((req, res, next) => {
+  res.status(404).json({ 
+    success: false,
+    error: 'Route not found',
+    path: req.path,
+    method: req.method
+  });
+});
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+  // Log error details
+  console.error('Error occurred:', {
+    message: err.message,
+    stack: process.env.NODE_ENV === 'development' ? err.stack : undefined,
+    path: req.path,
+    method: req.method,
     timestamp: new Date().toISOString()
   });
-});
 
-// Routes
-const authRoutes = require('./routes/authRoutes');
-const userRoutes = require('./routes/userRoutes');
-const facultyRoutes = require('./routes/facultyRoutes');
-const departmentRoutes = require('./routes/departmentRoutes');
-const degreeRoutes = require('./routes/degreeRoutes');
-const academicSessionRoutes = require('./routes/academicSessionRoutes');
-const semesterRoutes = require('./routes/semesterRoutes');
-const courseRoutes = require('./routes/courseRoutes');
-const courseOfferingRoutes = require('./routes/courseOfferingRoutes');
-const cloRoutes = require('./routes/cloRoutes');
-const ploRoutes = require('./routes/ploRoutes');
-const peoRoutes = require('./routes/peoRoutes');
-const bloomRoutes = require('./routes/bloomRoutes');
-const studentRoutes = require('./routes/studentRoutes');
-const teacherRoutes = require('./routes/teacherRoutes');
-const enrollmentRoutes = require('./routes/enrollmentRoutes');
-const assessmentRoutes = require('./routes/assessmentRoutes');
-const questionRoutes = require('./routes/questionRoutes');
-const rubricRoutes = require('./routes/rubricRoutes');
-const marksRoutes = require('./routes/marksRoutes');
-const rubricScoreRoutes = require('./routes/rubricScoreRoutes');
-const gradeRoutes = require('./routes/gradeRoutes');
-const courseResultRoutes = require('./routes/courseResultRoutes');
-const semesterResultRoutes = require('./routes/semesterResultRoutes');
-const cloAttainmentRoutes = require('./routes/cloAttainmentRoutes');
-const ploAttainmentRoutes = require('./routes/ploAttainmentRoutes');
-const attainmentThresholdRoutes = require('./routes/attainmentThresholdRoutes');
-const actionPlanRoutes = require('./routes/actionPlanRoutes');
-const obeReviewCycleRoutes = require('./routes/obeReviewCycleRoutes');
-const reportRoutes = require('./routes/reportRoutes');
-const auditLogRoutes = require('./routes/auditLogRoutes');
-const seatAllocationRoutes = require('./routes/seatAllocationRoutes');
+  // Determine status code
+  const statusCode = err.statusCode || err.status || 500;
 
-// Mount routes
-app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/faculties', facultyRoutes);
-app.use('/api/departments', departmentRoutes);
-app.use('/api/degrees', degreeRoutes);
-app.use('/api/academic-sessions', academicSessionRoutes);
-app.use('/api/semesters', semesterRoutes);
-app.use('/api/courses', courseRoutes);
-app.use('/api/course-offerings', courseOfferingRoutes);
-app.use('/api/clos', cloRoutes);
-app.use('/api/plos', ploRoutes);
-app.use('/api/peos', peoRoutes);
-app.use('/api/bloom-taxonomy', bloomRoutes);
-app.use('/api/students', studentRoutes);
-app.use('/api/teachers', teacherRoutes);
-app.use('/api/enrollments', enrollmentRoutes);
-app.use('/api/assessments', assessmentRoutes);
-app.use('/api/questions', questionRoutes);
-app.use('/api/rubrics', rubricRoutes);
-app.use('/api/marks', marksRoutes);
-app.use('/api/rubric-scores', rubricScoreRoutes);
-app.use('/api/grades', gradeRoutes);
-app.use('/api/course-results', courseResultRoutes);
-app.use('/api/semester-results', semesterResultRoutes);
-app.use('/api/clo-attainment', cloAttainmentRoutes);
-app.use('/api/plo-attainment', ploAttainmentRoutes);
-app.use('/api/attainment-thresholds', attainmentThresholdRoutes);
-app.use('/api/action-plans', actionPlanRoutes);
-app.use('/api/obe-review-cycles', obeReviewCycleRoutes);
-app.use('/api/reports', reportRoutes);
-app.use('/api/audit-logs', auditLogRoutes);
-app.use('/api/seat-allocations', seatAllocationRoutes);
-
-// Additional routes will be imported here
-// app.use('/api/courses', require('./routes/courseRoutes'));
-// ... other routes
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ 
-    error: 'Something went wrong!',
-    message: err.message 
+  // Send error response
+  res.status(statusCode).json({
+    success: false,
+    error: err.message || 'Internal Server Error',
+    ...(process.env.NODE_ENV === 'development' && { 
+      stack: err.stack,
+      details: err.details 
+    })
   });
 });
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ error: 'Route not found' });
-});
+// ===========================================
+// SERVER INITIALIZATION
+// ===========================================
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server is running on port ${PORT}`);
-  console.log(`📍 Health check: http://localhost:${PORT}/api/health`);
-});
+// Only start server if not in test mode
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log('='.repeat(50));
+    console.log('🚀 OBE Management System Server');
+    console.log('='.repeat(50));
+    console.log(`📍 Server running on port: ${PORT}`);
+    console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`🏥 Health check: http://localhost:${PORT}/api/health`);
+    console.log(`📅 Started at: ${new Date().toISOString()}`);
+    console.log('='.repeat(50));
+  });
+}
 
 module.exports = app;
