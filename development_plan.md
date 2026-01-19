@@ -358,16 +358,21 @@ obe-system/
 ### Step 3.10: Course Module
 
 #### Step 3.10.1: Course Model
-- [ ] Create `models/Course.js`
-- [ ] Add method `getByDepartment()`
-- [ ] Add method `getByDegree()`
-- [ ] Add method `getWithCLOs()`
-- [ ] Add method `getWithObjectives()`
+- [x] Create `models/Course.js`
+- [x] Add method `getByDepartment()`
+- [x] Add method `getByDegree()`
+- [x] Add method `getWithCLOs()`
+- [x] Add method `getWithObjectives()`
 
 #### Step 3.10.2: Course Controller
-- [ ] Create `controllers/CourseController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `getCLOs()` method
+- [x] Create `controllers/CourseController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `getCLOs()` method
+- [x] Implement `getObjectives()` method
+
+#### Step 3.10.3: Course Routes
+- [x] Create `routes/courseRoutes.js`
+- [x] Add CRUD routes
 - [ ] Implement `getObjectives()` method
 
 #### Step 3.10.3: Course Routes
