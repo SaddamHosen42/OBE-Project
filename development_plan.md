@@ -74,42 +74,42 @@ obe-system/
 - [x] Install Chart.js: `npm install chart.js react-chartjs-2`
 
 ### Step 1.6: Database Setup
-- [ ] Create MySQL database named `obe_system`
-- [ ] Create `database/migrations` folder
-- [ ] Create migration files for all tables
+- [ x] Create MySQL database named `obe_system`
+- [ x] Create `database/migrations` folder
+- [x ] Create migration files for all tables
 
 ---
 
 ## 🗄️ Phase 2: Database Implementation
 
 ### Step 2.1: Core User Tables
-- [ ] Create migration for `users` table
-- [ ] Create migration for `sessions` table
-- [ ] Create migration for `password_reset_tokens` table
-- [ ] Run migrations and test
+- [x] Create migration for `users` table
+- [x] Create migration for `sessions` table
+- [x] Create migration for `password_reset_tokens` table
+- [x] Run migrations and test
 
 ### Step 2.2: Personal Information Tables
-- [ ] Create migration for `addresses` table
-- [ ] Create migration for `genders` table
-- [ ] Run migrations and test
+- [x ] Create migration for `addresses` table
+- [x ] Create migration for `genders` table
+- [x ] Run migrations and test
 
 ### Step 2.3: Academic Structure Tables
-- [ ] Create migration for `faculties` table
-- [ ] Create migration for `departments` table
-- [ ] Create migration for `degrees` table
-- [ ] Create migration for `academic_sessions` table
-- [ ] Create migration for `semesters` table
-- [ ] Run migrations and test
+- [ x] Create migration for `faculties` table
+- [ x] Create migration for `departments` table
+- [ x] Create migration for `degrees` table
+- [ x] Create migration for `academic_sessions` table
+- [ x] Create migration for `semesters` table
+- [x] Run migrations and test
 
-### Step 2.4: Course Tables
-- [ ] Create migration for `courses` table
-- [ ] Create migration for `course_offerings` table
-- [ ] Create migration for `course_enrollments` table
-- [ ] Create migration for `course_objectives` table
-- [ ] Create migration for `course_learning_outcomes` table
-- [ ] Create migration for `course_contents` table
-- [ ] Create migration for `weekly_lesson_plans` table
-- [ ] Run migrations and test
+### Step 2.4: Course Tables ✅
+- [x] Create migration for `courses` table
+- [x] Create migration for `course_offerings` table
+- [x] Create migration for `course_enrollments` table
+- [x] Create migration for `course_objectives` table
+- [x] Create migration for `course_learning_outcomes` table
+- [x] Create migration for `course_contents` table
+- [x] Create migration for `weekly_lesson_plans` table
+- [x] Run migrations and test
 
 ### Step 2.5: OBE Framework Tables
 - [ ] Create migration for `bloom_taxonomy_levels` table
