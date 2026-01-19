@@ -500,19 +500,19 @@ obe-system/
 ### Step 3.17: Teacher Module
 
 #### Step 3.17.1: Teacher Model
-- [ ] Create `models/Teacher.js`
-- [ ] Add method `getByDepartment()`
-- [ ] Add method `getCourses()`
+- [x] Create `models/Teacher.js`
+- [x] Add method `getByDepartment()`
+- [x] Add method `getCourses()`
 
 #### Step 3.17.2: Teacher Controller
-- [ ] Create `controllers/TeacherController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `assignCourse()` method
-- [ ] Implement `getCourses()` method
+- [x] Create `controllers/TeacherController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `assignCourse()` method
+- [x] Implement `getCourses()` method
 
 #### Step 3.17.3: Teacher Routes
-- [ ] Create `routes/teacherRoutes.js`
-- [ ] Add CRUD routes
+- [x] Create `routes/teacherRoutes.js`
+- [x] Add CRUD routes
 
 ### Step 3.18: Enrollment Module
 
