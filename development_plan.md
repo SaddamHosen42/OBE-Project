@@ -959,11 +959,11 @@ obe-system/
 
 ### Step 4.3: Layout Components
 
-#### Step 4.3.1: Create Base Layout
-- [ ] Create `src/components/layout/MainLayout.jsx`
-- [ ] Create `src/components/layout/Sidebar.jsx`
-- [ ] Create `src/components/layout/Header.jsx`
-- [ ] Create `src/components/layout/Footer.jsx`
+#### Step 4.3.1: Create Base Layout ✅
+- [x] Create `src/components/layout/MainLayout.jsx`
+- [x] Create `src/components/layout/Sidebar.jsx`
+- [x] Create `src/components/layout/Header.jsx`
+- [x] Create `src/components/layout/Footer.jsx`
 
 #### Step 4.3.2: Create Auth Layout
 - [ ] Create `src/components/layout/AuthLayout.jsx`
