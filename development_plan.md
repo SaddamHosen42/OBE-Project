@@ -289,8 +289,9 @@ obe-system/
 - [x] Implement `destroy()`
 
 #### Step 3.5.3: Faculty Routes
-- [ ] Create `routes/facultyRoutes.js`
-- [ ] Add CRUD routes for faculties
+- [x] Create `routes/facultyRoutes.js`
+- [x] Add CRUD routes for faculties
+- [x] Integrate faculty routes in app.js
 
 ### Step 3.6: Department Module
 
