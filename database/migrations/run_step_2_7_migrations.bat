@@ -6,7 +6,7 @@ echo.
 
 set MYSQL_USER=root
 set MYSQL_PASS=admin1433
-set DB_NAME=obe_db
+set DB_NAME=obe_system
 
 echo Creating grade_scales table...
 mysql -u %MYSQL_USER% -p%MYSQL_PASS% %DB_NAME% < 039_create_grade_scales_table.sql
