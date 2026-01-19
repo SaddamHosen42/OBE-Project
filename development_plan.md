@@ -259,12 +259,12 @@ obe-system/
 - [x] Add method `uploadProfileImage()`
 
 #### Step 3.4.2: User Controller
-- [ ] Create `controllers/UserController.js`
-- [ ] Implement `index()` - list all users
-- [ ] Implement `show()` - get single user
-- [ ] Implement `update()` - update user
-- [ ] Implement `destroy()` - delete user
-- [ ] Implement `updateProfile()` - update own profile
+- [x] Create `controllers/UserController.js`
+- [x] Implement `index()` - list all users
+- [x] Implement `show()` - get single user
+- [x] Implement `update()` - update user
+- [x] Implement `destroy()` - delete user
+- [x] Implement `updateProfile()` - update own profile
 
 #### Step 3.4.3: User Routes
 - [ ] Create `routes/userRoutes.js`
