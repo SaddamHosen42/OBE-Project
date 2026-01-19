@@ -557,18 +557,18 @@ obe-system/
 ### Step 3.20: Question Module
 
 #### Step 3.20.1: Question Model
-- [ ] Create `models/Question.js`
-- [ ] Add method `getByAssessment()`
-- [ ] Add method `getCLOMapping()`
+- [x] Create `models/Question.js`
+- [x] Add method `getByAssessment()`
+- [x] Add method `getCLOMapping()`
 
 #### Step 3.20.2: Question Controller
-- [ ] Create `controllers/QuestionController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `mapToCLO()` method
+- [x] Create `controllers/QuestionController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `mapToCLO()` method
 
 #### Step 3.20.3: Question Routes
-- [ ] Create `routes/questionRoutes.js`
-- [ ] Add CRUD routes
+- [x] Create `routes/questionRoutes.js`
+- [x] Add CRUD routes
 
 ### Step 3.21: Rubric Module
 
