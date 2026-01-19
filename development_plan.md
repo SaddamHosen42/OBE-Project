@@ -866,24 +866,66 @@ obe-system/
 - [x] Create `routes/auditLogRoutes.js`
 - [x] Add log retrieval routes
 
-### Step 3.36: Building/Hall Module
+### Step 3.36: Building/Hall Module ✅
 
-#### Step 3.36.1: Building Model
-- [ ] Create `models/Building.js`
+#### Step 3.36.1: Building Model ✅
+- [x] Create `models/Building.js`
+- [x] Implement CRUD operations
+- [x] Implement getWithFloorCount() method
+- [x] Implement getWithFloorsAndRooms() method
+- [x] Implement getBuildingWithDetails() method
+- [x] Implement findByCode() method
+- [x] Implement codeExists() validation method
+- [x] Implement getBuildingCapacity() method
+- [x] Implement search() method
 
-#### Step 3.36.2: Floor Model
-- [ ] Create `models/Floor.js`
+#### Step 3.36.2: Floor Model ✅
+- [x] Create `models/Floor.js`
+- [x] Implement CRUD operations
+- [x] Implement getByBuilding() method
+- [x] Implement getWithRoomCount() method
+- [x] Implement getFloorWithRooms() method
+- [x] Implement floorNumberExists() validation method
+- [x] Implement getFloorCapacity() method
+- [x] Implement countByBuilding() method
+- [x] Implement search() method
 
-#### Step 3.36.3: Room Model
-- [ ] Create `models/Room.js`
+#### Step 3.36.3: Room Model ✅
+- [x] Create `models/Room.js`
+- [x] Implement CRUD operations
+- [x] Implement getByFloor() method
+- [x] Implement getByBuilding() method
+- [x] Implement getAvailableRooms() method with filters
+- [x] Implement getByType() method
+- [x] Implement findByRoomNumberAndFloor() method
+- [x] Implement roomNumberExists() validation method
+- [x] Implement countByType() method
+- [x] Implement getFloorRoomStats() method
+- [x] Implement getBuildingRoomStats() method
+- [x] Implement search() method
+- [x] Implement updateAvailability() method
 
-#### Step 3.36.4: Building Controller
-- [ ] Create `controllers/BuildingController.js`
-- [ ] Implement all CRUD methods
+#### Step 3.36.4: Building Controller ✅
+- [x] Create `controllers/BuildingController.js`
+- [x] Implement all Building CRUD methods (index, show, store, update, destroy)
+- [x] Implement getByCode() method
+- [x] Implement getCapacity() method
+- [x] Implement all Floor CRUD methods (indexFloors, showFloor, storeFloor, updateFloor, destroyFloor)
+- [x] Implement getFloorCapacity() method
+- [x] Implement all Room CRUD methods (indexRooms, showRoom, storeRoom, updateRoom, destroyRoom)
+- [x] Implement updateRoomAvailability() method
+- [x] Implement getRoomStatsByType() method
 
-#### Step 3.36.5: Building Routes
-- [ ] Create `routes/buildingRoutes.js`
-- [ ] Add CRUD routes
+#### Step 3.36.5: Building Routes ✅
+- [x] Create `routes/buildingRoutes.js`
+- [x] Add all Building CRUD routes
+- [x] Add all Floor CRUD routes
+- [x] Add all Room CRUD routes
+- [x] Add capacity statistics routes
+- [x] Add room availability update route
+- [x] Add room statistics route
+- [x] Implement authentication middleware
+- [x] Implement role-based authorization
 
 ### Step 3.37: Seat Allocation Module
 
