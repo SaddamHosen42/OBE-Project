@@ -44,6 +44,7 @@ const gradeRoutes = require('./routes/gradeRoutes');
 const courseResultRoutes = require('./routes/courseResultRoutes');
 const semesterResultRoutes = require('./routes/semesterResultRoutes');
 const cloAttainmentRoutes = require('./routes/cloAttainmentRoutes');
+const ploAttainmentRoutes = require('./routes/ploAttainmentRoutes');
 
 // Mount routes
 app.use('/api/auth', authRoutes);
@@ -71,6 +72,7 @@ app.use('/api/grades', gradeRoutes);
 app.use('/api/course-results', courseResultRoutes);
 app.use('/api/semester-results', semesterResultRoutes);
 app.use('/api/clo-attainment', cloAttainmentRoutes);
+app.use('/api/plo-attainment', ploAttainmentRoutes);
 
 // Additional routes will be imported here
 // app.use('/api/courses', require('./routes/courseRoutes'));
