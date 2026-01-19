@@ -379,20 +379,32 @@ obe-system/
 ### Step 3.11: Course Offering Module
 
 #### Step 3.11.1: Course Offering Model
-- [ ] Create `models/CourseOffering.js`
-- [ ] Add method `getBySemester()`
-- [ ] Add method `getByTeacher()`
-- [ ] Add method `getEnrollments()`
+- [x] Create `models/CourseOffering.js`
+- [x] Add method `getBySemester()`
+- [x] Add method `getByTeacher()`
+- [x] Add method `getEnrollments()`
+- [x] Add method `getFullDetails()`
+- [x] Add method `assignTeacher()`
+- [x] Add method `updateTeacherAssignment()`
+- [x] Add method `removeTeacherAssignment()`
+- [x] Add method `getByCourse()`
 
 #### Step 3.11.2: Course Offering Controller
-- [ ] Create `controllers/CourseOfferingController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `getEnrollments()` method
-- [ ] Implement `assignTeacher()` method
+- [x] Create `controllers/CourseOfferingController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `getEnrollments()` method
+- [x] Implement `assignTeacher()` method
+- [x] Implement `updateTeacherAssignment()` method
+- [x] Implement `removeTeacherAssignment()` method
 
 #### Step 3.11.3: Course Offering Routes
-- [ ] Create `routes/courseOfferingRoutes.js`
-- [ ] Add CRUD routes
+- [x] Create `routes/courseOfferingRoutes.js`
+- [x] Add CRUD routes
+- [x] Add GET `/api/course-offerings/:id/enrollments`
+- [x] Add POST `/api/course-offerings/:id/assign-teacher`
+- [x] Add PUT `/api/course-offerings/teacher-assignments/:assignmentId`
+- [x] Add DELETE `/api/course-offerings/teacher-assignments/:assignmentId`
+- [x] Integrate routes in `app.js`
 
 ### Step 3.12: CLO Module
 
