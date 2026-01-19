@@ -38,6 +38,7 @@ const enrollmentRoutes = require('./routes/enrollmentRoutes');
 const assessmentRoutes = require('./routes/assessmentRoutes');
 const questionRoutes = require('./routes/questionRoutes');
 const rubricRoutes = require('./routes/rubricRoutes');
+const marksRoutes = require('./routes/marksRoutes');
 
 // Mount routes
 app.use('/api/auth', authRoutes);
@@ -59,6 +60,7 @@ app.use('/api/enrollments', enrollmentRoutes);
 app.use('/api/assessments', assessmentRoutes);
 app.use('/api/questions', questionRoutes);
 app.use('/api/rubrics', rubricRoutes);
+app.use('/api/marks', marksRoutes);
 
 // Additional routes will be imported here
 // app.use('/api/courses', require('./routes/courseRoutes'));

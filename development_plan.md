@@ -596,28 +596,28 @@ obe-system/
 ### Step 3.22: Marks Entry Module
 
 #### Step 3.22.1: Student Assessment Marks Model
-- [ ] Create `models/StudentAssessmentMark.js`
-- [ ] Add method `enterMarks()`
-- [ ] Add method `bulkEnterMarks()`
-- [ ] Add method `getByStudent()`
-- [ ] Add method `getByAssessment()`
+- [x] Create `models/StudentAssessmentMark.js`
+- [x] Add method `enterMarks()`
+- [x] Add method `bulkEnterMarks()`
+- [x] Add method `getByStudent()`
+- [x] Add method `getByAssessment()`
 
 #### Step 3.22.2: Student Question Marks Model
-- [ ] Create `models/StudentQuestionMark.js`
-- [ ] Add method `enterMarks()`
-- [ ] Add method `bulkEnterMarks()`
+- [x] Create `models/StudentQuestionMark.js`
+- [x] Add method `enterMarks()`
+- [x] Add method `bulkEnterMarks()`
 
 #### Step 3.22.3: Marks Controller
-- [ ] Create `controllers/MarksController.js`
-- [ ] Implement `enterAssessmentMarks()` method
-- [ ] Implement `enterQuestionMarks()` method
-- [ ] Implement `bulkEnterMarks()` method
-- [ ] Implement `getMarksByAssessment()` method
-- [ ] Implement `getMarksByStudent()` method
+- [x] Create `controllers/MarksController.js`
+- [x] Implement `enterAssessmentMarks()` method
+- [x] Implement `enterQuestionMarks()` method
+- [x] Implement `bulkEnterMarks()` method
+- [x] Implement `getMarksByAssessment()` method
+- [x] Implement `getMarksByStudent()` method
 
 #### Step 3.22.4: Marks Routes
-- [ ] Create `routes/marksRoutes.js`
-- [ ] Add marks entry routes
+- [x] Create `routes/marksRoutes.js`
+- [x] Add marks entry routes
 
 ### Step 3.23: Rubric Scoring Module
 
