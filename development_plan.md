@@ -316,20 +316,20 @@ obe-system/
 - [x] Add method `getWithPLOs()`
 - [x] Add method `getWithPEOs()`
 
-#### Step 3.7.2: Degree Controller
-- [ ] Create `controllers/DegreeController.js`
-- [ ] Implement all CRUD methods
+#### Step 3.7.2: Degree Controller ✅
+- [x] Create `controllers/DegreeController.js`
+- [x] Implement all CRUD methods
 
-#### Step 3.7.3: Degree Routes
-- [ ] Create `routes/degreeRoutes.js`
-- [ ] Add CRUD routes for degrees
+#### Step 3.7.3: Degree Routes ✅
+- [x] Create `routes/degreeRoutes.js`
+- [x] Add CRUD routes for degrees
 
 ### Step 3.8: Academic Session Module
 
-#### Step 3.8.1: Academic Session Model
-- [ ] Create `models/AcademicSession.js`
-- [ ] Add method `getActive()`
-- [ ] Add method `getWithSemesters()`
+#### Step 3.8.1: Academic Session Model ✅
+- [x] Create `models/AcademicSession.js`
+- [x] Add method `getActive()`
+- [x] Add method `getWithSemesters()`
 
 #### Step 3.8.2: Academic Session Controller
 - [ ] Create `controllers/AcademicSessionController.js`
