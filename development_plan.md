@@ -638,21 +638,21 @@ obe-system/
 ### Step 3.24: Grade Module
 
 #### Step 3.24.1: Grade Scale Model
-- [ ] Create `models/GradeScale.js`
-- [ ] Add method `getActive()`
+- [x] Create `models/GradeScale.js`
+- [x] Add method `getActive()`
 
 #### Step 3.24.2: Grade Point Model
-- [ ] Create `models/GradePoint.js`
-- [ ] Add method `getByScale()`
-- [ ] Add method `calculateGrade()`
+- [x] Create `models/GradePoint.js`
+- [x] Add method `getByScale()`
+- [x] Add method `calculateGrade()`
 
 #### Step 3.24.3: Grade Controller
-- [ ] Create `controllers/GradeController.js`
-- [ ] Implement CRUD methods
+- [x] Create `controllers/GradeController.js`
+- [x] Implement CRUD methods
 
 #### Step 3.24.4: Grade Routes
-- [ ] Create `routes/gradeRoutes.js`
-- [ ] Add CRUD routes
+- [x] Create `routes/gradeRoutes.js`
+- [x] Add CRUD routes
 
 ### Step 3.25: Course Results Module
 
