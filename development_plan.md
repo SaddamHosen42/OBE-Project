@@ -622,18 +622,18 @@ obe-system/
 ### Step 3.23: Rubric Scoring Module
 
 #### Step 3.23.1: Student Rubric Score Model
-- [ ] Create `models/StudentRubricScore.js`
-- [ ] Add method `enterScore()`
-- [ ] Add method `getByStudent()`
+- [x] Create `models/StudentRubricScore.js`
+- [x] Add method `enterScore()`
+- [x] Add method `getByStudent()`
 
 #### Step 3.23.2: Rubric Score Controller
-- [ ] Create `controllers/RubricScoreController.js`
-- [ ] Implement `enterScore()` method
-- [ ] Implement `getScoresByAssessment()` method
+- [x] Create `controllers/RubricScoreController.js`
+- [x] Implement `enterScore()` method
+- [x] Implement `getScoresByAssessment()` method
 
 #### Step 3.23.3: Rubric Score Routes
-- [ ] Create `routes/rubricScoreRoutes.js`
-- [ ] Add scoring routes
+- [x] Create `routes/rubricScoreRoutes.js`
+- [x] Add scoring routes
 
 ### Step 3.24: Grade Module
 
