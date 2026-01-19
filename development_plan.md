@@ -175,12 +175,12 @@ obe-system/
 - [x] Create migration for `teacher_course` table
 - [x] Run migrations and test
 
-### Step 2.12: Infrastructure Tables
-- [ ] Create migration for `buildings` table
-- [ ] Create migration for `floors` table
-- [ ] Create migration for `rooms` table
-- [ ] Create migration for `seat_allocations` table
-- [ ] Run migrations and test
+### Step 2.12: Infrastructure Tables ✅
+- [x] Create migration for `buildings` table
+- [x] Create migration for `floors` table
+- [x] Create migration for `rooms` table
+- [x] Create migration for `seat_allocations` table
+- [x] Run migrations and test
 
 ### Step 2.13: Reports & Audit Tables
 - [ ] Create migration for `obe_reports` table
