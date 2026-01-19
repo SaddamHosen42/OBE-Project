@@ -990,11 +990,11 @@ obe-system/
 ### Step 3.39: Utility Functions
 
 #### Step 3.39.1: Create Utilities
-- [ ] Create `utils/pagination.js`
-- [ ] Create `utils/validation.js`
-- [ ] Create `utils/fileUpload.js`
-- [ ] Create `utils/dateHelper.js`
-- [ ] Create `utils/mathHelper.js` (for attainment calculations)
+- [x] Create `utils/pagination.js`
+- [x] Create `utils/validation.js`
+- [x] Create `utils/fileUpload.js`
+- [x] Create `utils/dateHelper.js`
+- [x] Create `utils/mathHelper.js` (for attainment calculations)
 
 ### Step 3.40: Services Layer
 
