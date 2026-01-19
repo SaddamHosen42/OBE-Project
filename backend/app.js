@@ -35,6 +35,7 @@ const bloomRoutes = require('./routes/bloomRoutes');
 const studentRoutes = require('./routes/studentRoutes');
 const teacherRoutes = require('./routes/teacherRoutes');
 const enrollmentRoutes = require('./routes/enrollmentRoutes');
+const assessmentRoutes = require('./routes/assessmentRoutes');
 
 // Mount routes
 app.use('/api/auth', authRoutes);
@@ -53,6 +54,7 @@ app.use('/api/bloom-taxonomy', bloomRoutes);
 app.use('/api/students', studentRoutes);
 app.use('/api/teachers', teacherRoutes);
 app.use('/api/enrollments', enrollmentRoutes);
+app.use('/api/assessments', assessmentRoutes);
 
 // Additional routes will be imported here
 // app.use('/api/courses', require('./routes/courseRoutes'));

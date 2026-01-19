@@ -536,23 +536,23 @@ obe-system/
 ### Step 3.19: Assessment Module
 
 #### Step 3.19.1: Assessment Type Model
-- [ ] Create `models/AssessmentType.js`
+- [x] Create `models/AssessmentType.js`
 
 #### Step 3.19.2: Assessment Component Model
-- [ ] Create `models/AssessmentComponent.js`
-- [ ] Add method `getByCourseOffering()`
-- [ ] Add method `getCLOMapping()`
+- [x] Create `models/AssessmentComponent.js`
+- [x] Add method `getByCourseOffering()`
+- [x] Add method `getCLOMapping()`
 
 #### Step 3.19.3: Assessment Controller
-- [ ] Create `controllers/AssessmentController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `mapToCLO()` method
-- [ ] Implement `unmapFromCLO()` method
+- [x] Create `controllers/AssessmentController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `mapToCLO()` method
+- [x] Implement `unmapFromCLO()` method
 
 #### Step 3.19.4: Assessment Routes
-- [ ] Create `routes/assessmentRoutes.js`
-- [ ] Add CRUD routes
-- [ ] Add CLO mapping routes
+- [x] Create `routes/assessmentRoutes.js`
+- [x] Add CRUD routes
+- [x] Add CLO mapping routes
 
 ### Step 3.20: Question Module
 
