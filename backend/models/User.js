@@ -228,6 +228,180 @@ class User extends BaseModel {
       throw new Error(`Error marking email as verified: ${error.message}`);
     }
   }
+
+  /**
+   * Get all users with pagination support
+   * @param {Object} options - Pagination and filter options
+   * @param {number} options.page - Current page number (default: 1)
+   * @param {number} options.limit - Number of records per page (default: 10)
+   * @param {string} options.role - Optional role filter
+   * @param {string} options.search - Optional search term (searches name, email, username)
+   * @param {string} options.orderBy - Column to order by (default: 'created_at')
+   * @param {string} options.order - Order direction 'ASC' or 'DESC' (default: 'DESC')
+   * @returns {Promise<Object>} Object containing users array and pagination metadata
+   */
+  async getAllWithPagination(options = {}) {
+    try {
+      const {
+        page = 1,
+        limit = 10,
+        role = null,
+        search = null,
+        orderBy = 'created_at',
+        order = 'DESC'
+      } = options;
+
+      // Calculate offset
+      const offset = (page - 1) * limit;
+
+      // Build WHERE conditions
+      let whereClause = '';
+      const params = [];
+
+      const conditions = [];
+      
+      if (role) {
+        conditions.push('role = ?');
+        params.push(role);
+      }
+
+      if (search) {
+        conditions.push('(name LIKE ? OR email LIKE ? OR username LIKE ?)');
+        const searchTerm = `%${search}%`;
+        params.push(searchTerm, searchTerm, searchTerm);
+      }
+
+      if (conditions.length > 0) {
+        whereClause = ' WHERE ' + conditions.join(' AND ');
+      }
+
+      // Get total count
+      const countQuery = `SELECT COUNT(*) as total FROM ${this.tableName}${whereClause}`;
+      const [countResult] = await this.db.execute(countQuery, params);
+      const total = countResult[0].total;
+
+      // Get paginated users (excluding password field)
+      const dataQuery = `
+        SELECT id, name, email, username, role, phone, profile_image, 
+               dob, nationality, nid_no, blood_group, email_verified_at, 
+               status, created_at, updated_at 
+        FROM ${this.tableName}${whereClause} 
+        ORDER BY ${orderBy} ${order} 
+        LIMIT ? OFFSET ?
+      `;
+      const [users] = await this.db.execute(dataQuery, [...params, limit, offset]);
+
+      // Calculate pagination metadata
+      const totalPages = Math.ceil(total / limit);
+
+      return {
+        users,
+        pagination: {
+          currentPage: page,
+          totalPages,
+          totalRecords: total,
+          limit,
+          hasNextPage: page < totalPages,
+          hasPrevPage: page > 1
+        }
+      };
+    } catch (error) {
+      throw new Error(`Error getting users with pagination: ${error.message}`);
+    }
+  }
+
+  /**
+   * Update user profile information
+   * @param {number|string} userId - User ID
+   * @param {Object} profileData - Profile data to update
+   * @param {string} [profileData.name] - User's full name
+   * @param {string} [profileData.phone] - Phone number
+   * @param {string} [profileData.dob] - Date of birth
+   * @param {string} [profileData.nationality] - Nationality
+   * @param {string} [profileData.nid_no] - National ID number
+   * @param {string} [profileData.blood_group] - Blood group
+   * @returns {Promise<Object>} Updated user object
+   */
+  async updateProfile(userId, profileData) {
+    try {
+      if (!userId) {
+        throw new Error('User ID is required');
+      }
+
+      // Check if user exists
+      const user = await this.findById(userId);
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      // Allowed fields for profile update (security measure)
+      const allowedFields = ['name', 'phone', 'dob', 'nationality', 'nid_no', 'blood_group'];
+      const updateData = {};
+
+      // Filter only allowed fields
+      for (const field of allowedFields) {
+        if (profileData.hasOwnProperty(field)) {
+          updateData[field] = profileData[field];
+        }
+      }
+
+      if (Object.keys(updateData).length === 0) {
+        throw new Error('No valid fields to update');
+      }
+
+      // Add updated_at timestamp
+      updateData.updated_at = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
+      // Update the profile
+      await this.update(updateData, { id: userId });
+
+      // Return updated user (without password)
+      const updatedUser = await this.findById(userId);
+      delete updatedUser.password;
+      return updatedUser;
+    } catch (error) {
+      throw new Error(`Error updating profile: ${error.message}`);
+    }
+  }
+
+  /**
+   * Update user's profile image
+   * @param {number|string} userId - User ID
+   * @param {string} imageUrl - URL or path to the profile image
+   * @returns {Promise<Object>} Updated user object
+   */
+  async uploadProfileImage(userId, imageUrl) {
+    try {
+      if (!userId) {
+        throw new Error('User ID is required');
+      }
+
+      if (!imageUrl) {
+        throw new Error('Image URL is required');
+      }
+
+      // Check if user exists
+      const user = await this.findById(userId);
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      // Update profile image
+      const updateData = {
+        profile_image: imageUrl,
+        updated_at: new Date().toISOString().slice(0, 19).replace('T', ' ')
+      };
+
+      await this.update(updateData, { id: userId });
+
+      // Return updated user (without password)
+      const updatedUser = await this.findById(userId);
+      delete updatedUser.password;
+      return updatedUser;
+    } catch (error) {
+      throw new Error(`Error uploading profile image: ${error.message}`);
+    }
+  }
 }
 
 module.exports = User;

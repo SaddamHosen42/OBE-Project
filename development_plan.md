@@ -254,9 +254,9 @@ obe-system/
 ### Step 3.4: User Management Module
 
 #### Step 3.4.1: User Model Enhancement
-- [ ] Add method `getAllWithPagination()`
-- [ ] Add method `updateProfile()`
-- [ ] Add method `uploadProfileImage()`
+- [x] Add method `getAllWithPagination()`
+- [x] Add method `updateProfile()`
+- [x] Add method `uploadProfileImage()`
 
 #### Step 3.4.2: User Controller
 - [ ] Create `controllers/UserController.js`
