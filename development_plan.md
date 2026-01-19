@@ -219,27 +219,27 @@ obe-system/
 ### Step 3.3: Authentication Module
 
 #### Step 3.3.1: Auth Models
-- [ ] Create `models/User.js`
-- [ ] Add method `findByEmail()`
-- [ ] Add method `findByUsername()`
-- [ ] Add method `createUser()`
-- [ ] Add method `updatePassword()`
+- [x] Create `models/User.js`
+- [x] Add method `findByEmail()`
+- [x] Add method `findByUsername()`
+- [x] Add method `createUser()`
+- [x] Add method `updatePassword()`
 
 #### Step 3.3.2: Auth Controller
-- [ ] Create `controllers/AuthController.js`
-- [ ] Implement `register()` method
-- [ ] Implement `login()` method
-- [ ] Implement `logout()` method
-- [ ] Implement `refreshToken()` method
-- [ ] Implement `forgotPassword()` method
-- [ ] Implement `resetPassword()` method
-- [ ] Implement `getCurrentUser()` method
+- [x] Create `controllers/AuthController.js`
+- [x] Implement `register()` method
+- [x] Implement `login()` method
+- [x] Implement `logout()` method
+- [x] Implement `refreshToken()` method
+- [x] Implement `forgotPassword()` method
+- [x] Implement `resetPassword()` method
+- [x] Implement `getCurrentUser()` method
 
 #### Step 3.3.3: Auth Middleware
-- [ ] Create `middlewares/authMiddleware.js`
-- [ ] Implement JWT verification
-- [ ] Implement role-based authorization
-- [ ] Create `middlewares/roleMiddleware.js`
+- [x] Create `middlewares/authMiddleware.js`
+- [x] Implement JWT verification
+- [x] Implement role-based authorization
+- [x] Create `middlewares/roleMiddleware.js`
 
 #### Step 3.3.4: Auth Routes
 - [ ] Create `routes/authRoutes.js`
