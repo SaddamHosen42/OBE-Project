@@ -780,17 +780,17 @@ obe-system/
 ### Step 3.31: Indirect Attainment Module
 
 #### Step 3.31.1: Indirect Attainment Model
-- [ ] Create `models/IndirectAttainmentResult.js`
-- [ ] Add method `calculateFromSurvey()`
+- [x] Create `models/IndirectAttainmentResult.js`
+- [x] Add method `calculateFromSurvey()`
 
 #### Step 3.31.2: Indirect Attainment Controller
-- [ ] Create `controllers/IndirectAttainmentController.js`
-- [ ] Implement `calculateAttainment()` method
-- [ ] Implement `getReport()` method
+- [x] Create `controllers/IndirectAttainmentController.js`
+- [x] Implement `calculateAttainment()` method
+- [x] Implement `getReport()` method
 
 #### Step 3.31.3: Indirect Attainment Routes
-- [ ] Create `routes/indirectAttainmentRoutes.js`
-- [ ] Add attainment routes
+- [x] Create `routes/indirectAttainmentRoutes.js`
+- [x] Add attainment routes
 
 ### Step 3.32: Action Plan Module
 
