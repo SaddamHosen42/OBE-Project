@@ -750,32 +750,32 @@ obe-system/
 ### Step 3.30: Survey Module
 
 #### Step 3.30.1: Survey Model
-- [ ] Create `models/Survey.js`
-- [ ] Add method `getActive()`
-- [ ] Add method `getWithQuestions()`
+- [x] Create `models/Survey.js`
+- [x] Add method `getActive()`
+- [x] Add method `getWithQuestions()`
 
 #### Step 3.30.2: Survey Question Model
-- [ ] Create `models/SurveyQuestion.js`
+- [x] Create `models/SurveyQuestion.js`
 
 #### Step 3.30.3: Survey Response Model
-- [ ] Create `models/SurveyResponse.js`
-- [ ] Add method `submitResponse()`
+- [x] Create `models/SurveyResponse.js`
+- [x] Add method `submitResponse()`
 
 #### Step 3.30.4: Survey Answer Model
-- [ ] Create `models/SurveyAnswer.js`
+- [x] Create `models/SurveyAnswer.js`
 
 #### Step 3.30.5: Survey Controller
-- [ ] Create `controllers/SurveyController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `addQuestion()` method
-- [ ] Implement `submitResponse()` method
-- [ ] Implement `getResponses()` method
-- [ ] Implement `getAnalytics()` method
+- [x] Create `controllers/SurveyController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `addQuestion()` method
+- [x] Implement `submitResponse()` method
+- [x] Implement `getResponses()` method
+- [x] Implement `getAnalytics()` method
 
 #### Step 3.30.6: Survey Routes
-- [ ] Create `routes/surveyRoutes.js`
-- [ ] Add CRUD routes
-- [ ] Add response routes
+- [x] Create `routes/surveyRoutes.js`
+- [x] Add CRUD routes
+- [x] Add response routes
 
 ### Step 3.31: Indirect Attainment Module
 
