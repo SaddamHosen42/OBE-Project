@@ -182,19 +182,19 @@ obe-system/
 - [x] Create migration for `seat_allocations` table
 - [x] Run migrations and test
 
-### Step 2.13: Reports & Audit Tables
-- [ ] Create migration for `obe_reports` table
-- [ ] Create migration for `audit_logs` table
-- [ ] Create migration for `result_publications` table
-- [ ] Run migrations and test
+### Step 2.13: Reports & Audit Tables ✅
+- [x] Create migration for `obe_reports` table
+- [x] Create migration for `audit_logs` table
+- [x] Create migration for `result_publications` table
+- [x] Run migrations and test
 
-### Step 2.14: Seed Data
-- [ ] Create seeder for `bloom_taxonomy_levels` (6 levels)
-- [ ] Create seeder for `assessment_types`
-- [ ] Create seeder for `grade_scales` and `grade_points`
-- [ ] Create seeder for `designations`
-- [ ] Create seeder for admin user
-- [ ] Run all seeders
+### Step 2.14: Seed Data ✅
+- [x] Create seeder for `bloom_taxonomy_levels` (6 levels)
+- [x] Create seeder for `assessment_types`
+- [x] Create seeder for `grade_scales` and `grade_points`
+- [x] Create seeder for `designations`
+- [x] Create seeder for admin user
+- [x] Run all seeders
 
 ---
 
