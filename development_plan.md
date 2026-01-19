@@ -409,22 +409,22 @@ obe-system/
 ### Step 3.12: CLO Module
 
 #### Step 3.12.1: CLO Model
-- [ ] Create `models/CourseLearningOutcome.js`
-- [ ] Add method `getByCourse()`
-- [ ] Add method `getMappedPLOs()`
-- [ ] Add method `getAttainment()`
+- [x] Create `models/CourseLearningOutcome.js`
+- [x] Add method `getByCourse()`
+- [x] Add method `getMappedPLOs()`
+- [x] Add method `getAttainment()`
 
 #### Step 3.12.2: CLO Controller
-- [ ] Create `controllers/CLOController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `mapToPLO()` method
-- [ ] Implement `unmapFromPLO()` method
+- [x] Create `controllers/CLOController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `mapToPLO()` method
+- [x] Implement `unmapFromPLO()` method
 
 #### Step 3.12.3: CLO Routes
-- [ ] Create `routes/cloRoutes.js`
-- [ ] Add CRUD routes
-- [ ] Add POST `/api/clos/:id/map-plo`
-- [ ] Add DELETE `/api/clos/:id/unmap-plo/:ploId`
+- [x] Create `routes/cloRoutes.js`
+- [x] Add CRUD routes
+- [x] Add POST `/api/clos/:id/map-plo`
+- [x] Add DELETE `/api/clos/:id/unmap-plo/:ploId`
 
 ### Step 3.13: PLO Module
 
