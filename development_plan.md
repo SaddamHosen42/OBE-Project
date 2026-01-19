@@ -281,12 +281,12 @@ obe-system/
 - [x] Add method `getAllWithDepartments()`
 
 #### Step 3.5.2: Faculty Controller
-- [ ] Create `controllers/FacultyController.js`
-- [ ] Implement `index()`
-- [ ] Implement `show()`
-- [ ] Implement `store()`
-- [ ] Implement `update()`
-- [ ] Implement `destroy()`
+- [x] Create `controllers/FacultyController.js`
+- [x] Implement `index()`
+- [x] Implement `show()`
+- [x] Implement `store()`
+- [x] Implement `update()`
+- [x] Implement `destroy()`
 
 #### Step 3.5.3: Faculty Routes
 - [ ] Create `routes/facultyRoutes.js`
