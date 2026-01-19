@@ -462,15 +462,15 @@ obe-system/
 ### Step 3.15: Bloom's Taxonomy Module
 
 #### Step 3.15.1: Bloom Model
-- [ ] Create `models/BloomTaxonomyLevel.js`
+- [x] Create `models/BloomTaxonomyLevel.js`
 
 #### Step 3.15.2: Bloom Controller
-- [ ] Create `controllers/BloomTaxonomyController.js`
-- [ ] Implement `index()` method
+- [x] Create `controllers/BloomTaxonomyController.js`
+- [x] Implement `index()` method
 
 #### Step 3.15.3: Bloom Routes
-- [ ] Create `routes/bloomRoutes.js`
-- [ ] Add GET `/api/bloom-taxonomy`
+- [x] Create `routes/bloomRoutes.js`
+- [x] Add GET `/api/bloom-taxonomy`
 
 ### Step 3.16: Student Module
 
