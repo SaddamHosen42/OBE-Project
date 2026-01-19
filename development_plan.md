@@ -300,21 +300,21 @@ obe-system/
 - [x] Add method `getByFaculty()`
 - [x] Add method `getWithDegrees()`
 
-#### Step 3.6.2: Department Controller
-- [ ] Create `controllers/DepartmentController.js`
-- [ ] Implement all CRUD methods
+#### Step 3.6.2: Department Controller ✅
+- [x] Create `controllers/DepartmentController.js`
+- [x] Implement all CRUD methods
 
-#### Step 3.6.3: Department Routes
-- [ ] Create `routes/departmentRoutes.js`
-- [ ] Add CRUD routes for departments
+#### Step 3.6.3: Department Routes ✅
+- [x] Create `routes/departmentRoutes.js`
+- [x] Add CRUD routes for departments
 
 ### Step 3.7: Degree Module
 
-#### Step 3.7.1: Degree Model
-- [ ] Create `models/Degree.js`
-- [ ] Add method `getByDepartment()`
-- [ ] Add method `getWithPLOs()`
-- [ ] Add method `getWithPEOs()`
+#### Step 3.7.1: Degree Model ✅
+- [x] Create `models/Degree.js`
+- [x] Add method `getByDepartment()`
+- [x] Add method `getWithPLOs()`
+- [x] Add method `getWithPEOs()`
 
 #### Step 3.7.2: Degree Controller
 - [ ] Create `controllers/DegreeController.js`
