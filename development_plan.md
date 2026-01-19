@@ -343,17 +343,17 @@ obe-system/
 ### Step 3.9: Semester Module
 
 #### Step 3.9.1: Semester Model
-- [ ] Create `models/Semester.js`
-- [ ] Add method `getBySession()`
-- [ ] Add method `getActive()`
+- [x] Create `models/Semester.js`
+- [x] Add method `getBySession()`
+- [x] Add method `getActive()`
 
 #### Step 3.9.2: Semester Controller
-- [ ] Create `controllers/SemesterController.js`
-- [ ] Implement all CRUD methods
+- [x] Create `controllers/SemesterController.js`
+- [x] Implement all CRUD methods
 
 #### Step 3.9.3: Semester Routes
-- [ ] Create `routes/semesterRoutes.js`
-- [ ] Add CRUD routes
+- [x] Create `routes/semesterRoutes.js`
+- [x] Add CRUD routes
 
 ### Step 3.10: Course Module
 

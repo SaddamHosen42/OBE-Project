@@ -25,6 +25,7 @@ const facultyRoutes = require('./routes/facultyRoutes');
 const departmentRoutes = require('./routes/departmentRoutes');
 const degreeRoutes = require('./routes/degreeRoutes');
 const academicSessionRoutes = require('./routes/academicSessionRoutes');
+const semesterRoutes = require('./routes/semesterRoutes');
 
 // Mount routes
 app.use('/api/auth', authRoutes);
@@ -33,6 +34,7 @@ app.use('/api/faculties', facultyRoutes);
 app.use('/api/departments', departmentRoutes);
 app.use('/api/degrees', degreeRoutes);
 app.use('/api/academic-sessions', academicSessionRoutes);
+app.use('/api/semesters', semesterRoutes);
 
 // Additional routes will be imported here
 // app.use('/api/courses', require('./routes/courseRoutes'));
