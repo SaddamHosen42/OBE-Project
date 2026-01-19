@@ -29,6 +29,7 @@ const semesterRoutes = require('./routes/semesterRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const courseOfferingRoutes = require('./routes/courseOfferingRoutes');
 const cloRoutes = require('./routes/cloRoutes');
+const ploRoutes = require('./routes/ploRoutes');
 
 // Mount routes
 app.use('/api/auth', authRoutes);
@@ -41,6 +42,7 @@ app.use('/api/semesters', semesterRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/course-offerings', courseOfferingRoutes);
 app.use('/api/clos', cloRoutes);
+app.use('/api/plos', ploRoutes);
 
 // Additional routes will be imported here
 // app.use('/api/courses', require('./routes/courseRoutes'));

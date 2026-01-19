@@ -429,20 +429,20 @@ obe-system/
 ### Step 3.13: PLO Module
 
 #### Step 3.13.1: PLO Model
-- [ ] Create `models/ProgramLearningOutcome.js`
-- [ ] Add method `getByDegree()`
-- [ ] Add method `getMappedCLOs()`
-- [ ] Add method `getMappedPEOs()`
-- [ ] Add method `getAttainment()`
+- [x] Create `models/ProgramLearningOutcome.js`
+- [x] Add method `getByDegree()`
+- [x] Add method `getMappedCLOs()`
+- [x] Add method `getMappedPEOs()`
+- [x] Add method `getAttainment()`
 
 #### Step 3.13.2: PLO Controller
-- [ ] Create `controllers/PLOController.js`
-- [ ] Implement all CRUD methods
-- [ ] Implement `mapToPEO()` method
+- [x] Create `controllers/PLOController.js`
+- [x] Implement all CRUD methods
+- [x] Implement `mapToPEO()` method
 
 #### Step 3.13.3: PLO Routes
-- [ ] Create `routes/ploRoutes.js`
-- [ ] Add CRUD routes
+- [x] Create `routes/ploRoutes.js`
+- [x] Add CRUD routes
 
 ### Step 3.14: PEO Module
 
