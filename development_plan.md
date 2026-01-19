@@ -142,15 +142,15 @@ obe-system/
 - [x] Create migration for `improvement_retake_records` table
 - [x] Run migrations and test
 
-### Step 2.8: OBE Attainment Tables
-- [ ] Create migration for `student_clo_attainment` table
-- [ ] Create migration for `course_clo_attainment_summary` table
-- [ ] Create migration for `student_plo_attainment` table
-- [ ] Create migration for `program_plo_attainment_summary` table
-- [ ] Create migration for `attainment_thresholds` table
-- [ ] Create migration for `direct_attainment_methods` table
-- [ ] Create migration for `indirect_attainment_methods` table
-- [ ] Run migrations and test
+### Step 2.8: OBE Attainment Tables ✅
+- [x] Create migration for `student_clo_attainment` table
+- [x] Create migration for `course_clo_attainment_summary` table
+- [x] Create migration for `student_plo_attainment` table
+- [x] Create migration for `program_plo_attainment_summary` table
+- [x] Create migration for `attainment_thresholds` table
+- [x] Create migration for `direct_attainment_methods` table
+- [x] Create migration for `indirect_attainment_methods` table
+- [x] Run migrations and test
 
 ### Step 2.9: Survey Tables
 - [ ] Create migration for `surveys` table
@@ -166,14 +166,14 @@ obe-system/
 - [ ] Create migration for `obe_review_cycles` table
 - [ ] Run migrations and test
 
-### Step 2.11: Student & Teacher Tables
-- [ ] Create migration for `students` table
-- [ ] Create migration for `cgpas` table
-- [ ] Create migration for `guardians` table
-- [ ] Create migration for `teachers` table
-- [ ] Create migration for `designations` table
-- [ ] Create migration for `teacher_course` table
-- [ ] Run migrations and test
+### Step 2.11: Student & Teacher Tables ✅
+- [x] Create migration for `students` table
+- [x] Create migration for `cgpas` table
+- [x] Create migration for `guardians` table
+- [x] Create migration for `teachers` table
+- [x] Create migration for `designations` table
+- [x] Create migration for `teacher_course` table
+- [x] Run migrations and test
 
 ### Step 2.12: Infrastructure Tables
 - [ ] Create migration for `buildings` table
