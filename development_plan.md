@@ -517,21 +517,21 @@ obe-system/
 ### Step 3.18: Enrollment Module
 
 #### Step 3.18.1: Enrollment Model
-- [ ] Create `models/CourseEnrollment.js`
-- [ ] Add method `enrollStudent()`
-- [ ] Add method `dropStudent()`
-- [ ] Add method `getByStudent()`
-- [ ] Add method `getByCourseOffering()`
+- [x] Create `models/CourseEnrollment.js`
+- [x] Add method `enrollStudent()`
+- [x] Add method `dropStudent()`
+- [x] Add method `getByStudent()`
+- [x] Add method `getByCourseOffering()`
 
 #### Step 3.18.2: Enrollment Controller
-- [ ] Create `controllers/EnrollmentController.js`
-- [ ] Implement `enroll()` method
-- [ ] Implement `drop()` method
-- [ ] Implement `getByOffering()` method
+- [x] Create `controllers/EnrollmentController.js`
+- [x] Implement `enroll()` method
+- [x] Implement `drop()` method
+- [x] Implement `getByOffering()` method
 
 #### Step 3.18.3: Enrollment Routes
-- [ ] Create `routes/enrollmentRoutes.js`
-- [ ] Add enrollment routes
+- [x] Create `routes/enrollmentRoutes.js`
+- [x] Add enrollment routes
 
 ### Step 3.19: Assessment Module
 
