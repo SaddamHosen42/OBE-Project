@@ -1067,17 +1067,17 @@ obe-system/
   - [x] Create `src/components/ui/DataTable.jsx` (enhanced table with sorting/filtering)
 
 #### Step 4.4.2: Create Form Components
-- [ ] Create `src/components/form/FormInput.jsx`
-- [ ] Create `src/components/form/FormSelect.jsx`
-- [ ] Create `src/components/form/FormTextarea.jsx`
-- [ ] Create `src/components/form/FormCheckbox.jsx`
-- [ ] Create `src/components/form/FormDatePicker.jsx`
+- [x] Create `src/components/form/FormInput.jsx`
+- [x] Create `src/components/form/FormSelect.jsx`
+- [x] Create `src/components/form/FormTextarea.jsx`
+- [x] Create `src/components/form/FormCheckbox.jsx`
+- [x] Create `src/components/form/FormDatePicker.jsx`
 
 #### Step 4.4.3: Create Data Components
-- [ ] Create `src/components/data/DataTable.jsx`
-- [ ] Create `src/components/data/SearchBar.jsx`
-- [ ] Create `src/components/data/FilterPanel.jsx`
-- [ ] Create `src/components/data/ExportButton.jsx`
+- [x] Create `src/components/data/DataTable.jsx`
+- [x] Create `src/components/data/SearchBar.jsx`
+- [x] Create `src/components/data/FilterPanel.jsx`
+- [x] Create `src/components/data/ExportButton.jsx`
 
 ### Step 4.5: Chart Components
 
