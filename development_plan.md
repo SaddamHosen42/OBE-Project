@@ -1375,23 +1375,24 @@ obe-system/
 #### Step 4.25.3: Create Rubric Hooks ✅
 - [x] Create `src/hooks/useRubrics.js`
 
-### Step 4.26: Marks Entry Pages
+### Step 4.26: Marks Entry Pages ✅
 
-#### Step 4.26.1: Create Marks Pages
-- [ ] Create `src/pages/marks/MarksEntry.jsx`
-- [ ] Create `src/pages/marks/BulkMarksEntry.jsx`
-- [ ] Create `src/pages/marks/QuestionWiseMarks.jsx`
-- [ ] Create `src/pages/marks/MarksSheet.jsx`
+#### Step 4.26.1: Create Marks Pages ✅
+- [x] Create `src/pages/marks/MarksEntry.jsx`
+- [x] Create `src/pages/marks/BulkMarksEntry.jsx`
+- [x] Create `src/pages/marks/QuestionWiseMarks.jsx`
+- [x] Create `src/pages/marks/MarksSheet.jsx`
 
-#### Step 4.26.2: Create Marks Components
-- [ ] Create `src/components/marks/MarksTable.jsx`
-- [ ] Create `src/components/marks/MarksEntryForm.jsx`
-- [ ] Create `src/components/marks/BulkUpload.jsx`
-- [ ] Create `src/components/marks/MarksImport.jsx`
+#### Step 4.26.2: Create Marks Components ✅
+- [x] Create `src/components/marks/MarksTable.jsx`
+- [x] Create `src/components/marks/MarksEntryForm.jsx`
+- [x] Create `src/components/marks/BulkUpload.jsx`
+- [x] Create `src/components/marks/MarksImport.jsx`
 
-#### Step 4.26.3: Create Marks Hooks
-- [ ] Create `src/hooks/useMarks.js`
-- [ ] Create `src/hooks/useEnterMarks.js`
+#### Step 4.26.3: Create Marks Hooks ✅
+- [x] Create `src/hooks/useMarks.js`
+- [x] Create `src/hooks/useEnterMarks.js`
+- [x] Create `src/services/marksService.js`
 
 ### Step 4.27: Rubric Scoring Pages
 
