@@ -1112,10 +1112,10 @@ obe-system/
 ### Step 4.8: User Management Pages
 
 #### Step 4.8.1: Create User Pages
-- [ ] Create `src/pages/users/UserList.jsx`
-- [ ] Create `src/pages/users/UserCreate.jsx`
-- [ ] Create `src/pages/users/UserEdit.jsx`
-- [ ] Create `src/pages/users/UserProfile.jsx`
+- [x] Create `src/pages/users/UserList.jsx`
+- [x] Create `src/pages/users/UserCreate.jsx`
+- [x] Create `src/pages/users/UserEdit.jsx`
+- [x] Create `src/pages/users/UserProfile.jsx`
 
 #### Step 4.8.2: Create User Hooks
 - [ ] Create `src/hooks/useUsers.js`
