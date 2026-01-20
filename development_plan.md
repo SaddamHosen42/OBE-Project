@@ -1645,8 +1645,8 @@ obe-system/
 ### Step 4.43: Seat Allocation Pages
 
 #### Step 4.43.1: Create Seat Allocation Pages
-- [ ] Create `src/pages/allocation/SeatAllocationList.jsx`
-- [ ] Create `src/pages/allocation/SeatAllocationManage.jsx`
+- [x] Create `src/pages/allocation/SeatAllocationList.jsx`
+- [x] Create `src/pages/allocation/SeatAllocationManage.jsx`
 
 ### Step 4.44: Router Configuration
 
