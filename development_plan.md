@@ -1236,18 +1236,18 @@ obe-system/
 ### Step 4.17: PLO Management Pages
 
 #### Step 4.17.1: Create PLO Pages
-- [ ] Create `src/pages/plos/PLOList.jsx`
-- [ ] Create `src/pages/plos/PLOCreate.jsx`
-- [ ] Create `src/pages/plos/PLOEdit.jsx`
-- [ ] Create `src/pages/plos/PLOMapping.jsx`
+- [x] Create `src/pages/plos/PLOList.jsx`
+- [x] Create `src/pages/plos/PLOCreate.jsx`
+- [x] Create `src/pages/plos/PLOEdit.jsx`
+- [x] Create `src/pages/plos/PLOMapping.jsx`
 
 #### Step 4.17.2: Create PLO Components
-- [ ] Create `src/components/plo/PLOCard.jsx`
-- [ ] Create `src/components/plo/PLOMappingMatrix.jsx`
-- [ ] Create `src/components/plo/CLO_PLO_Matrix.jsx`
+- [x] Create `src/components/plo/PLOCard.jsx`
+- [x] Create `src/components/plo/PLOMappingMatrix.jsx`
+- [x] Create `src/components/plo/CLO_PLO_Matrix.jsx`
 
 #### Step 4.17.3: Create PLO Hooks
-- [ ] Create `src/hooks/usePLOs.js`
+- [x] Create `src/hooks/usePLOs.js`
 
 ### Step 4.18: PEO Management Pages
 
