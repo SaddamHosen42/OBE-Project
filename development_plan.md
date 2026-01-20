@@ -1421,21 +1421,21 @@ obe-system/
 #### Step 4.28.3: Create Grade Hooks ✅
 - [x] Create `src/hooks/useGradeScales.js`
 
-### Step 4.29: Course Results Pages
+### Step 4.29: Course Results Pages ✅
 
-#### Step 4.29.1: Create Course Result Pages
-- [ ] Create `src/pages/results/CourseResultList.jsx`
-- [ ] Create `src/pages/results/CourseResultCalculate.jsx`
-- [ ] Create `src/pages/results/CourseResultPublish.jsx`
-- [ ] Create `src/pages/results/CourseResultView.jsx`
+#### Step 4.29.1: Create Course Result Pages ✅
+- [x] Create `src/pages/results/CourseResultList.jsx` ✅
+- [x] Create `src/pages/results/CourseResultCalculate.jsx` ✅
+- [x] Create `src/pages/results/CourseResultPublish.jsx` ✅
+- [x] Create `src/pages/results/CourseResultView.jsx` ✅
 
-#### Step 4.29.2: Create Course Result Components
-- [ ] Create `src/components/results/ResultTable.jsx`
-- [ ] Create `src/components/results/GradeDistribution.jsx`
-- [ ] Create `src/components/results/ResultStats.jsx`
+#### Step 4.29.2: Create Course Result Components ✅
+- [x] Create `src/components/results/ResultTable.jsx` ✅
+- [x] Create `src/components/results/GradeDistribution.jsx` ✅
+- [x] Create `src/components/results/ResultStats.jsx` ✅
 
-#### Step 4.29.3: Create Course Result Hooks
-- [ ] Create `src/hooks/useCourseResults.js`
+#### Step 4.29.3: Create Course Result Hooks ✅
+- [x] Create `src/hooks/useCourseResults.js` ✅
 
 ### Step 4.30: Semester Results Pages
 

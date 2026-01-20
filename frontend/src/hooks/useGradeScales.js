@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import api from '../services/api';
 
 export const useGradeScales = (activeOnly = false) => {
@@ -6,7 +6,7 @@ export const useGradeScales = (activeOnly = false) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchGradeScales = async () => {
+  const fetchGradeScales = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -30,71 +30,47 @@ export const useGradeScales = (activeOnly = false) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [activeOnly]);
 
   useEffect(() => {
     fetchGradeScales();
-  }, [activeOnly]);
+  }, [fetchGradeScales]);
 
   const createGradeScale = async (gradeScaleData) => {
-    try {
-      const response = await api.post('/grades/scales', gradeScaleData);
-      await fetchGradeScales(); // Refresh the list
-      return response.data;
-    } catch (err) {
-      throw err;
-    }
+    const response = await api.post('/grades/scales', gradeScaleData);
+    await fetchGradeScales(); // Refresh the list
+    return response.data;
   };
 
   const updateGradeScale = async (id, gradeScaleData) => {
-    try {
-      const response = await api.put(`/grades/scales/${id}`, gradeScaleData);
-      await fetchGradeScales(); // Refresh the list
-      return response.data;
-    } catch (err) {
-      throw err;
-    }
+    const response = await api.put(`/grades/scales/${id}`, gradeScaleData);
+    await fetchGradeScales(); // Refresh the list
+    return response.data;
   };
 
   const deleteGradeScale = async (id) => {
-    try {
-      const response = await api.delete(`/grades/scales/${id}`);
-      await fetchGradeScales(); // Refresh the list
-      return response.data;
-    } catch (err) {
-      throw err;
-    }
+    const response = await api.delete(`/grades/scales/${id}`);
+    await fetchGradeScales(); // Refresh the list
+    return response.data;
   };
 
   const getGradeScale = async (id) => {
-    try {
-      const response = await api.get(`/grades/scales/${id}`, {
-        params: { includeGradePoints: 'true' }
-      });
-      return response.data.data;
-    } catch (err) {
-      throw err;
-    }
+    const response = await api.get(`/grades/scales/${id}`, {
+      params: { includeGradePoints: 'true' }
+    });
+    return response.data.data;
   };
 
   const activateGradeScale = async (id) => {
-    try {
-      const response = await api.post(`/grades/scales/${id}/activate`);
-      await fetchGradeScales(); // Refresh the list
-      return response.data;
-    } catch (err) {
-      throw err;
-    }
+    const response = await api.post(`/grades/scales/${id}/activate`);
+    await fetchGradeScales(); // Refresh the list
+    return response.data;
   };
 
   const deactivateGradeScale = async (id) => {
-    try {
-      const response = await api.post(`/grades/scales/${id}/deactivate`);
-      await fetchGradeScales(); // Refresh the list
-      return response.data;
-    } catch (err) {
-      throw err;
-    }
+    const response = await api.post(`/grades/scales/${id}/deactivate`);
+    await fetchGradeScales(); // Refresh the list
+    return response.data;
   };
 
   return {
