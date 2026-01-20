@@ -1249,33 +1249,33 @@ obe-system/
 #### Step 4.17.3: Create PLO Hooks
 - [x] Create `src/hooks/usePLOs.js`
 
-### Step 4.18: PEO Management Pages
+### Step 4.18: PEO Management Pages ✅
 
-#### Step 4.18.1: Create PEO Pages
-- [ ] Create `src/pages/peos/PEOList.jsx`
-- [ ] Create `src/pages/peos/PEOCreate.jsx`
-- [ ] Create `src/pages/peos/PEOEdit.jsx`
-- [ ] Create `src/pages/peos/PEOMapping.jsx`
+#### Step 4.18.1: Create PEO Pages ✅
+- [x] Create `src/pages/peos/PEOList.jsx`
+- [x] Create `src/pages/peos/PEOCreate.jsx`
+- [x] Create `src/pages/peos/PEOEdit.jsx`
+- [x] Create `src/pages/peos/PEOMapping.jsx`
 
-#### Step 4.18.2: Create PEO Components
-- [ ] Create `src/components/peo/PEOCard.jsx`
-- [ ] Create `src/components/peo/PEO_PLO_Matrix.jsx`
+#### Step 4.18.2: Create PEO Components ✅
+- [x] Create `src/components/peo/PEOCard.jsx`
+- [x] Create `src/components/peo/PEO_PLO_Matrix.jsx`
 
-#### Step 4.18.3: Create PEO Hooks
-- [ ] Create `src/hooks/usePEOs.js`
+#### Step 4.18.3: Create PEO Hooks ✅
+- [x] Create `src/hooks/usePEOs.js`
 
-### Step 4.19: OBE Mapping Dashboard
+### Step 4.19: OBE Mapping Dashboard ✅
 
-#### Step 4.19.1: Create OBE Mapping Pages
-- [ ] Create `src/pages/obe/OBEDashboard.jsx`
-- [ ] Create `src/pages/obe/PEO_PLO_Mapping.jsx`
-- [ ] Create `src/pages/obe/CLO_PLO_Mapping.jsx`
-- [ ] Create `src/pages/obe/CLO_CO_Mapping.jsx`
+#### Step 4.19.1: Create OBE Mapping Pages ✅
+- [x] Create `src/pages/obe/OBEDashboard.jsx`
+- [x] Create `src/pages/obe/PEO_PLO_Mapping.jsx`
+- [x] Create `src/pages/obe/CLO_PLO_Mapping.jsx`
+- [x] Create `src/pages/obe/CLO_CO_Mapping.jsx`
 
-#### Step 4.19.2: Create OBE Components
-- [ ] Create `src/components/obe/MappingMatrix.jsx`
-- [ ] Create `src/components/obe/OBEHierarchy.jsx`
-- [ ] Create `src/components/obe/BloomTaxonomyChart.jsx`
+#### Step 4.19.2: Create OBE Components ✅
+- [x] Create `src/components/obe/MappingMatrix.jsx`
+- [x] Create `src/components/obe/OBEHierarchy.jsx`
+- [x] Create `src/components/obe/BloomTaxonomyChart.jsx`
 
 ### Step 4.20: Student Management Pages
 
