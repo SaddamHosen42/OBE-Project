@@ -1096,9 +1096,9 @@ obe-system/
 - [x] Create `src/pages/auth/ResetPassword.jsx`
 
 #### Step 4.6.2: Create Auth Hooks
-- [ ] Create `src/hooks/useAuth.js`
-- [ ] Create `src/hooks/useLogin.js`
-- [ ] Create `src/hooks/useLogout.js`
+- [x] Create `src/hooks/useAuth.js`
+- [x] Create `src/hooks/useLogin.js`
+- [x] Create `src/hooks/useLogout.js`
 
 ### Step 4.7: Dashboard Pages
 
