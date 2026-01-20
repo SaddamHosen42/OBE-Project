@@ -1521,18 +1521,18 @@ obe-system/
 - [x] Create `src/hooks/useSurveys.js` ✅
 - [x] Create `src/hooks/useSurveyResponses.js` ✅
 
-### Step 4.35: Indirect Attainment Pages
+### Step 4.35: Indirect Attainment Pages ✅
 
 #### Step 4.35.1: Create Indirect Attainment Pages
-- [ ] Create `src/pages/attainment/IndirectAttainment.jsx`
-- [ ] Create `src/pages/attainment/IndirectAttainmentReport.jsx`
+- [x] Create `src/pages/attainment/IndirectAttainment.jsx`
+- [x] Create `src/pages/attainment/IndirectAttainmentReport.jsx`
 
 #### Step 4.35.2: Create Indirect Attainment Components
-- [ ] Create `src/components/attainment/IndirectAttainmentChart.jsx`
-- [ ] Create `src/components/attainment/SurveyAttainmentTable.jsx`
+- [x] Create `src/components/attainment/IndirectAttainmentChart.jsx`
+- [x] Create `src/components/attainment/SurveyAttainmentTable.jsx`
 
 #### Step 4.35.3: Create Indirect Attainment Hooks
-- [ ] Create `src/hooks/useIndirectAttainment.js`
+- [x] Create `src/hooks/useIndirectAttainment.js`
 
 ### Step 4.36: Action Plan Pages
 
