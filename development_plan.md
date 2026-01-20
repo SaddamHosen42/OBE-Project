@@ -1127,10 +1127,10 @@ obe-system/
 ### Step 4.9: Faculty Management Pages
 
 #### Step 4.9.1: Create Faculty Pages
-- [ ] Create `src/pages/faculties/FacultyList.jsx`
-- [ ] Create `src/pages/faculties/FacultyCreate.jsx`
-- [ ] Create `src/pages/faculties/FacultyEdit.jsx`
-- [ ] Create `src/pages/faculties/FacultyView.jsx`
+- [x] Create `src/pages/faculties/FacultyList.jsx`
+- [x] Create `src/pages/faculties/FacultyCreate.jsx`
+- [x] Create `src/pages/faculties/FacultyEdit.jsx`
+- [x] Create `src/pages/faculties/FacultyView.jsx`
 
 #### Step 4.9.2: Create Faculty Hooks
 - [ ] Create `src/hooks/useFaculties.js`
