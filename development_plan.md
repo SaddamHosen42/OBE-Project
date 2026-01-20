@@ -1142,10 +1142,10 @@ obe-system/
 ### Step 4.10: Department Management Pages
 
 #### Step 4.10.1: Create Department Pages
-- [ ] Create `src/pages/departments/DepartmentList.jsx`
-- [ ] Create `src/pages/departments/DepartmentCreate.jsx`
-- [ ] Create `src/pages/departments/DepartmentEdit.jsx`
-- [ ] Create `src/pages/departments/DepartmentView.jsx`
+- [x] Create `src/pages/departments/DepartmentList.jsx`
+- [x] Create `src/pages/departments/DepartmentCreate.jsx`
+- [x] Create `src/pages/departments/DepartmentEdit.jsx`
+- [x] Create `src/pages/departments/DepartmentView.jsx`
 
 #### Step 4.10.2: Create Department Hooks
 - [ ] Create `src/hooks/useDepartments.js`
