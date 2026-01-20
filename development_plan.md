@@ -1321,23 +1321,23 @@ obe-system/
 #### Step 4.22.2: Create Enrollment Hooks ✅
 - [x] Create `src/hooks/useEnrollments.js`
 
-### Step 4.23: Assessment Management Pages
+### Step 4.23: Assessment Management Pages ✅
 
-#### Step 4.23.1: Create Assessment Pages
-- [ ] Create `src/pages/assessments/AssessmentList.jsx`
-- [ ] Create `src/pages/assessments/AssessmentCreate.jsx`
-- [ ] Create `src/pages/assessments/AssessmentEdit.jsx`
-- [ ] Create `src/pages/assessments/AssessmentView.jsx`
-- [ ] Create `src/pages/assessments/AssessmentCLOMapping.jsx`
+#### Step 4.23.1: Create Assessment Pages ✅
+- [x] Create `src/pages/assessments/AssessmentList.jsx`
+- [x] Create `src/pages/assessments/AssessmentCreate.jsx`
+- [x] Create `src/pages/assessments/AssessmentEdit.jsx`
+- [x] Create `src/pages/assessments/AssessmentView.jsx`
+- [x] Create `src/pages/assessments/AssessmentCLOMapping.jsx`
 
-#### Step 4.23.2: Create Assessment Components
-- [ ] Create `src/components/assessment/AssessmentCard.jsx`
-- [ ] Create `src/components/assessment/CLOMappingForm.jsx`
-- [ ] Create `src/components/assessment/AssessmentTypeSelector.jsx`
+#### Step 4.23.2: Create Assessment Components ✅
+- [x] Create `src/components/assessment/AssessmentCard.jsx`
+- [x] Create `src/components/assessment/CLOMappingForm.jsx`
+- [x] Create `src/components/assessment/AssessmentTypeSelector.jsx`
 
-#### Step 4.23.3: Create Assessment Hooks
-- [ ] Create `src/hooks/useAssessments.js`
-- [ ] Create `src/hooks/useAssessment.js`
+#### Step 4.23.3: Create Assessment Hooks ✅
+- [x] Create `src/hooks/useAssessments.js`
+- [x] Create `src/hooks/useAssessment.js`
 
 ### Step 4.24: Question Management Pages
 
