@@ -1630,17 +1630,17 @@ obe-system/
 ### Step 4.42: Building/Hall Pages
 
 #### Step 4.42.1: Create Building Pages
-- [ ] Create `src/pages/buildings/BuildingList.jsx`
-- [ ] Create `src/pages/buildings/BuildingCreate.jsx`
-- [ ] Create `src/pages/buildings/BuildingEdit.jsx`
+- [x] Create `src/pages/buildings/BuildingList.jsx`
+- [x] Create `src/pages/buildings/BuildingCreate.jsx`
+- [x] Create `src/pages/buildings/BuildingEdit.jsx`
 
 #### Step 4.42.2: Create Floor Pages
-- [ ] Create `src/pages/floors/FloorList.jsx`
-- [ ] Create `src/pages/floors/FloorManage.jsx`
+- [x] Create `src/pages/floors/FloorList.jsx`
+- [x] Create `src/pages/floors/FloorManage.jsx`
 
 #### Step 4.42.3: Create Room Pages
-- [ ] Create `src/pages/rooms/RoomList.jsx`
-- [ ] Create `src/pages/rooms/RoomManage.jsx`
+- [x] Create `src/pages/rooms/RoomList.jsx`
+- [x] Create `src/pages/rooms/RoomManage.jsx`
 
 ### Step 4.43: Seat Allocation Pages
 
