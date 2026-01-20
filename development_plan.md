@@ -1534,22 +1534,22 @@ obe-system/
 #### Step 4.35.3: Create Indirect Attainment Hooks
 - [x] Create `src/hooks/useIndirectAttainment.js`
 
-### Step 4.36: Action Plan Pages
+### Step 4.36: Action Plan Pages ✅
 
-#### Step 4.36.1: Create Action Plan Pages
-- [ ] Create `src/pages/actionplans/ActionPlanList.jsx`
-- [ ] Create `src/pages/actionplans/ActionPlanCreate.jsx`
-- [ ] Create `src/pages/actionplans/ActionPlanEdit.jsx`
-- [ ] Create `src/pages/actionplans/ActionPlanView.jsx`
+#### Step 4.36.1: Create Action Plan Pages ✅
+- [x] Create `src/pages/actionplans/ActionPlanList.jsx`
+- [x] Create `src/pages/actionplans/ActionPlanCreate.jsx`
+- [x] Create `src/pages/actionplans/ActionPlanEdit.jsx`
+- [x] Create `src/pages/actionplans/ActionPlanView.jsx`
 
-#### Step 4.36.2: Create Action Plan Components
-- [ ] Create `src/components/actionplan/ActionPlanCard.jsx`
-- [ ] Create `src/components/actionplan/ActionPlanTimeline.jsx`
-- [ ] Create `src/components/actionplan/OutcomeForm.jsx`
-- [ ] Create `src/components/actionplan/StatusBadge.jsx`
+#### Step 4.36.2: Create Action Plan Components ✅
+- [x] Create `src/components/actionplan/ActionPlanCard.jsx`
+- [x] Create `src/components/actionplan/ActionPlanTimeline.jsx`
+- [x] Create `src/components/actionplan/OutcomeForm.jsx`
+- [x] Create `src/components/actionplan/StatusBadge.jsx`
 
-#### Step 4.36.3: Create Action Plan Hooks
-- [ ] Create `src/hooks/useActionPlans.js`
+#### Step 4.36.3: Create Action Plan Hooks ✅
+- [x] Create `src/hooks/useActionPlans.js`
 
 ### Step 4.37: Continuous Improvement Dashboard
 
