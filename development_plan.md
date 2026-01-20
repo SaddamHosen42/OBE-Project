@@ -1407,19 +1407,19 @@ obe-system/
 #### Step 4.27.3: Create Scoring Hooks ✅
 - [x] Create `src/hooks/useRubricScoring.js`
 
-### Step 4.28: Grade Management Pages
+### Step 4.28: Grade Management Pages ✅
 
-#### Step 4.28.1: Create Grade Pages
-- [ ] Create `src/pages/grades/GradeScaleList.jsx`
-- [ ] Create `src/pages/grades/GradeScaleCreate.jsx`
-- [ ] Create `src/pages/grades/GradeScaleEdit.jsx`
+#### Step 4.28.1: Create Grade Pages ✅
+- [x] Create `src/pages/grades/GradeScaleList.jsx`
+- [x] Create `src/pages/grades/GradeScaleCreate.jsx`
+- [x] Create `src/pages/grades/GradeScaleEdit.jsx`
 
-#### Step 4.28.2: Create Grade Components
-- [ ] Create `src/components/grades/GradeScaleTable.jsx`
-- [ ] Create `src/components/grades/GradePointForm.jsx`
+#### Step 4.28.2: Create Grade Components ✅
+- [x] Create `src/components/grades/GradeScaleTable.jsx`
+- [x] Create `src/components/grades/GradePointForm.jsx`
 
-#### Step 4.28.3: Create Grade Hooks
-- [ ] Create `src/hooks/useGradeScales.js`
+#### Step 4.28.3: Create Grade Hooks ✅
+- [x] Create `src/hooks/useGradeScales.js`
 
 ### Step 4.29: Course Results Pages
 
