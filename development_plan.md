@@ -1437,21 +1437,21 @@ obe-system/
 #### Step 4.29.3: Create Course Result Hooks ✅
 - [x] Create `src/hooks/useCourseResults.js` ✅
 
-### Step 4.30: Semester Results Pages
+### Step 4.30: Semester Results Pages ✅
 
-#### Step 4.30.1: Create Semester Result Pages
-- [ ] Create `src/pages/results/SemesterResultList.jsx`
-- [ ] Create `src/pages/results/SemesterResultCalculate.jsx`
-- [ ] Create `src/pages/results/SemesterResultPublish.jsx`
-- [ ] Create `src/pages/results/Transcript.jsx`
+#### Step 4.30.1: Create Semester Result Pages ✅
+- [x] Create `src/pages/results/SemesterResultList.jsx` ✅
+- [x] Create `src/pages/results/SemesterResultCalculate.jsx` ✅
+- [x] Create `src/pages/results/SemesterResultPublish.jsx` ✅
+- [x] Create `src/pages/results/Transcript.jsx` ✅
 
-#### Step 4.30.2: Create Semester Result Components
-- [ ] Create `src/components/results/SGPACard.jsx`
-- [ ] Create `src/components/results/CGPAChart.jsx`
-- [ ] Create `src/components/results/TranscriptTemplate.jsx`
+#### Step 4.30.2: Create Semester Result Components ✅
+- [x] Create `src/components/results/SGPACard.jsx` ✅
+- [x] Create `src/components/results/CGPAChart.jsx` ✅
+- [x] Create `src/components/results/TranscriptTemplate.jsx` ✅
 
-#### Step 4.30.3: Create Semester Result Hooks
-- [ ] Create `src/hooks/useSemesterResults.js`
+#### Step 4.30.3: Create Semester Result Hooks ✅
+- [x] Create `src/hooks/useSemesterResults.js` ✅
 
 ### Step 4.31: CLO Attainment Pages
 
