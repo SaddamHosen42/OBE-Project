@@ -14,6 +14,22 @@ import {
   Cell
 } from 'recharts';
 
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    const data = payload[0].payload;
+    return (
+      <div className="bg-white border border-gray-200 shadow-lg rounded-lg p-3">
+        <p className="font-semibold text-gray-900">{data.name}</p>
+        <p className="text-sm text-gray-600">{data.description}</p>
+        <p className="text-sm font-medium text-blue-600 mt-1">
+          Count: {data.count} ({data.percentage}%)
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
+
 const BloomTaxonomyChart = ({ data = [], type = 'bar' }) => {
   const bloomLevels = [
     { id: 1, name: 'Remember', color: '#3B82F6', description: 'Recall facts and basic concepts' },
@@ -49,22 +65,6 @@ const BloomTaxonomyChart = ({ data = [], type = 'bar' }) => {
 
   const chartData = processData();
   const totalOutcomes = data.length;
-
-  const CustomTooltip = ({ active, payload }) => {
-    if (active && payload && payload.length) {
-      const data = payload[0].payload;
-      return (
-        <div className="bg-white border border-gray-200 shadow-lg rounded-lg p-3">
-          <p className="font-semibold text-gray-900">{data.name}</p>
-          <p className="text-sm text-gray-600">{data.description}</p>
-          <p className="text-sm font-medium text-blue-600 mt-1">
-            Count: {data.count} ({data.percentage}%)
-          </p>
-        </div>
-      );
-    }
-    return null;
-  };
 
   if (totalOutcomes === 0) {
     return (
