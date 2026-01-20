@@ -1053,8 +1053,8 @@ obe-system/
 - [x] Create `src/components/layout/Header.jsx`
 - [x] Create `src/components/layout/Footer.jsx`
 
-#### Step 4.3.2: Create Auth Layout
-- [ ] Create `src/components/layout/AuthLayout.jsx`
+#### Step 4.3.2: Create Auth Layout ✅
+- [x] Create `src/components/layout/AuthLayout.jsx`
 
 ### Step 4.4: Common Components
 
