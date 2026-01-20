@@ -1583,24 +1583,24 @@ obe-system/
 ### Step 4.39: Reports Pages
 
 #### Step 4.39.1: Create Report Pages
-- [ ] Create `src/pages/reports/ReportDashboard.jsx`
-- [ ] Create `src/pages/reports/CLOAttainmentReport.jsx`
-- [ ] Create `src/pages/reports/PLOAttainmentReport.jsx`
-- [ ] Create `src/pages/reports/CourseReport.jsx`
-- [ ] Create `src/pages/reports/ProgramReport.jsx`
-- [ ] Create `src/pages/reports/StudentReport.jsx`
-- [ ] Create `src/pages/reports/BatchReport.jsx`
+- [x] Create `src/pages/reports/ReportDashboard.jsx`
+- [x] Create `src/pages/reports/CLOAttainmentReport.jsx`
+- [x] Create `src/pages/reports/PLOAttainmentReport.jsx`
+- [x] Create `src/pages/reports/CourseReport.jsx`
+- [x] Create `src/pages/reports/ProgramReport.jsx`
+- [x] Create `src/pages/reports/StudentReport.jsx`
+- [x] Create `src/pages/reports/BatchReport.jsx`
 
 #### Step 4.39.2: Create Report Components
-- [ ] Create `src/components/reports/ReportCard.jsx`
-- [ ] Create `src/components/reports/ReportFilter.jsx`
-- [ ] Create `src/components/reports/ReportExport.jsx`
-- [ ] Create `src/components/reports/ReportTemplate.jsx`
-- [ ] Create `src/components/reports/PrintLayout.jsx`
+- [x] Create `src/components/reports/ReportCard.jsx`
+- [x] Create `src/components/reports/ReportFilter.jsx`
+- [x] Create `src/components/reports/ReportExport.jsx`
+- [x] Create `src/components/reports/ReportTemplate.jsx`
+- [x] Create `src/components/reports/PrintLayout.jsx`
 
 #### Step 4.39.3: Create Report Hooks
-- [ ] Create `src/hooks/useReports.js`
-- [ ] Create `src/hooks/useGenerateReport.js`
+- [x] Create `src/hooks/useReports.js`
+- [x] Create `src/hooks/useGenerateReport.js`
 
 ### Step 4.40: Audit Log Pages
 
