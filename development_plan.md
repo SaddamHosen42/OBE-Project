@@ -1164,22 +1164,28 @@ obe-system/
 ### Step 4.12: Academic Session Pages
 
 #### Step 4.12.1: Create Session Pages
-- [ ] Create `src/pages/sessions/SessionList.jsx`
-- [ ] Create `src/pages/sessions/SessionCreate.jsx`
-- [ ] Create `src/pages/sessions/SessionEdit.jsx`
+- [x] Create `src/pages/sessions/SessionList.jsx`
+- [x] Create `src/pages/sessions/SessionCreate.jsx`
+- [x] Create `src/pages/sessions/SessionEdit.jsx`
 
 #### Step 4.12.2: Create Session Hooks
-- [ ] Create `src/hooks/useSessions.js`
+- [x] Create `src/hooks/useSessions.js`
+
+#### Step 4.12.3: Create Session Services
+- [x] Create `src/services/sessionService.js`
 
 ### Step 4.13: Semester Pages
 
 #### Step 4.13.1: Create Semester Pages
-- [ ] Create `src/pages/semesters/SemesterList.jsx`
-- [ ] Create `src/pages/semesters/SemesterCreate.jsx`
-- [ ] Create `src/pages/semesters/SemesterEdit.jsx`
+- [x] Create `src/pages/semesters/SemesterList.jsx`
+- [x] Create `src/pages/semesters/SemesterCreate.jsx`
+- [x] Create `src/pages/semesters/SemesterEdit.jsx`
 
 #### Step 4.13.2: Create Semester Hooks
-- [ ] Create `src/hooks/useSemesters.js`
+- [x] Create `src/hooks/useSemesters.js`
+
+#### Step 4.13.3: Create Semester Services
+- [x] Create `src/services/semesterService.js`
 
 ### Step 4.14: Course Management Pages
 
