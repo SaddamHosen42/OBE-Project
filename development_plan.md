@@ -1091,9 +1091,9 @@ obe-system/
 ### Step 4.6: Authentication Pages
 
 #### Step 4.6.1: Create Auth Pages
-- [ ] Create `src/pages/auth/Login.jsx`
-- [ ] Create `src/pages/auth/ForgotPassword.jsx`
-- [ ] Create `src/pages/auth/ResetPassword.jsx`
+- [x] Create `src/pages/auth/Login.jsx`
+- [x] Create `src/pages/auth/ForgotPassword.jsx`
+- [x] Create `src/pages/auth/ResetPassword.jsx`
 
 #### Step 4.6.2: Create Auth Hooks
 - [ ] Create `src/hooks/useAuth.js`
