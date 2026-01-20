@@ -95,7 +95,7 @@ const Pagination = ({
       )}
 
       {/* Page Numbers */}
-      {visiblePages.map((page, index) => {
+      {visiblePages.map((page) => {
         if (typeof page === 'string' && page.startsWith('ellipsis')) {
           return (
             <span key={page} className="px-3 py-2 text-gray-500">

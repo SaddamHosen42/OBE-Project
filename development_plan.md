@@ -1058,20 +1058,13 @@ obe-system/
 
 ### Step 4.4: Common Components
 
-#### Step 4.4.1: Create UI Components
-- [x] Create `src/components/ui/Button.jsx`
-- [x] Create `src/components/ui/Input.jsx`
-- [x] Create `src/components/ui/Select.jsx`
-- [x] Create `src/components/ui/Modal.jsx`
-- [x] Create `src/components/ui/Table.jsx`
-- [x] Create `src/components/ui/Card.jsx`
-- [x] Create `src/components/ui/Alert.jsx`
-- [x] Create `src/components/ui/Badge.jsx`
-- [x] Create `src/components/ui/Tabs.jsx`
-- [x] Create `src/components/ui/Dropdown.jsx`
-- [x] Create `src/components/ui/Pagination.jsx`
-- [x] Create `src/components/ui/Loading.jsx`
-- [x] Create `src/components/ui/ConfirmDialog.jsx`
+#### Step 4.4.1: Setup DaisyUI Components
+- [ ] Install DaisyUI: `npm install -D daisyui@latest`
+- [ ] Configure DaisyUI in `tailwind.config.js`
+- [ ] Create thin wrapper components for custom logic:
+  - [ ] Create `src/components/ui/Pagination.jsx` (custom pagination logic)
+  - [ ] Create `src/components/ui/ConfirmDialog.jsx` (custom confirmation dialog)
+  - [ ] Create `src/components/ui/DataTable.jsx` (enhanced table with sorting/filtering)
 
 #### Step 4.4.2: Create Form Components
 - [ ] Create `src/components/form/FormInput.jsx`

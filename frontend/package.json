@@ -34,6 +34,7 @@
     "autoprefixer": "^10.4.23",
     "concurrently": "^9.1.2",
     "cross-env": "^7.0.3",
+    "daisyui": "^5.5.14",
     "electron": "^40.0.0",
     "electron-builder": "^26.4.0",
     "eslint": "^9.39.1",
@@ -46,7 +47,13 @@
     "wait-on": "^8.0.0"
   },
   "description": "OBE Management System - A comprehensive Outcome-Based Education management platform",
-  "keywords": ["obe", "education", "management", "electron", "react"],
+  "keywords": [
+    "obe",
+    "education",
+    "management",
+    "electron",
+    "react"
+  ],
   "author": "",
   "license": "ISC",
   "build": {
@@ -68,18 +75,27 @@
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64", "ia32"]
+          "arch": [
+            "x64",
+            "ia32"
+          ]
         }
       ],
       "icon": "build/icon.ico"
     },
     "mac": {
-      "target": ["dmg", "zip"],
+      "target": [
+        "dmg",
+        "zip"
+      ],
       "icon": "build/icon.icns",
       "category": "public.app-category.education"
     },
     "linux": {
-      "target": ["AppImage", "deb"],
+      "target": [
+        "AppImage",
+        "deb"
+      ],
       "icon": "build/icon.png",
       "category": "Education"
     },
