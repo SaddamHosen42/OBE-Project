@@ -1311,15 +1311,15 @@ obe-system/
 #### Step 4.21.3: Create Teacher Hooks ✅
 - [x] Create `src/hooks/useTeachers.js`
 
-### Step 4.22: Enrollment Pages
+### Step 4.22: Enrollment Pages ✅
 
-#### Step 4.22.1: Create Enrollment Pages
-- [ ] Create `src/pages/enrollments/EnrollmentList.jsx`
-- [ ] Create `src/pages/enrollments/BulkEnrollment.jsx`
-- [ ] Create `src/pages/enrollments/EnrollmentManage.jsx`
+#### Step 4.22.1: Create Enrollment Pages ✅
+- [x] Create `src/pages/enrollments/EnrollmentList.jsx`
+- [x] Create `src/pages/enrollments/BulkEnrollment.jsx`
+- [x] Create `src/pages/enrollments/EnrollmentManage.jsx`
 
-#### Step 4.22.2: Create Enrollment Hooks
-- [ ] Create `src/hooks/useEnrollments.js`
+#### Step 4.22.2: Create Enrollment Hooks ✅
+- [x] Create `src/hooks/useEnrollments.js`
 
 ### Step 4.23: Assessment Management Pages
 
