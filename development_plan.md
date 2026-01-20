@@ -1622,10 +1622,10 @@ obe-system/
 ### Step 4.41: Settings Pages
 
 #### Step 4.41.1: Create Settings Pages
-- [ ] Create `src/pages/settings/Settings.jsx`
-- [ ] Create `src/pages/settings/ProfileSettings.jsx`
-- [ ] Create `src/pages/settings/SystemSettings.jsx`
-- [ ] Create `src/pages/settings/ThemeSettings.jsx`
+- [x] Create `src/pages/settings/Settings.jsx`
+- [x] Create `src/pages/settings/ProfileSettings.jsx`
+- [x] Create `src/pages/settings/SystemSettings.jsx`
+- [x] Create `src/pages/settings/ThemeSettings.jsx`
 
 ### Step 4.42: Building/Hall Pages
 
