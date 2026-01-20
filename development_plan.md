@@ -1103,11 +1103,11 @@ obe-system/
 ### Step 4.7: Dashboard Pages
 
 #### Step 4.7.1: Create Dashboard Components
-- [ ] Create `src/pages/dashboard/Dashboard.jsx`
-- [ ] Create `src/components/dashboard/StatsCard.jsx`
-- [ ] Create `src/components/dashboard/RecentActivity.jsx`
-- [ ] Create `src/components/dashboard/AttainmentOverview.jsx`
-- [ ] Create `src/components/dashboard/CourseProgress.jsx`
+- [x] Create `src/pages/dashboard/Dashboard.jsx`
+- [x] Create `src/components/dashboard/StatsCard.jsx`
+- [x] Create `src/components/dashboard/RecentActivity.jsx`
+- [x] Create `src/components/dashboard/AttainmentOverview.jsx`
+- [x] Create `src/components/dashboard/CourseProgress.jsx`
 
 ### Step 4.8: User Management Pages
 
