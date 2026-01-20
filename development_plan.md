@@ -1133,11 +1133,11 @@ obe-system/
 - [x] Create `src/pages/faculties/FacultyView.jsx`
 
 #### Step 4.9.2: Create Faculty Hooks
-- [ ] Create `src/hooks/useFaculties.js`
-- [ ] Create `src/hooks/useFaculty.js`
-- [ ] Create `src/hooks/useCreateFaculty.js`
-- [ ] Create `src/hooks/useUpdateFaculty.js`
-- [ ] Create `src/hooks/useDeleteFaculty.js`
+- [x] Create `src/hooks/useFaculties.js`
+- [x] Create `src/hooks/useFaculty.js`
+- [x] Create `src/hooks/useCreateFaculty.js`
+- [x] Create `src/hooks/useUpdateFaculty.js`
+- [x] Create `src/hooks/useDeleteFaculty.js`
 
 ### Step 4.10: Department Management Pages
 

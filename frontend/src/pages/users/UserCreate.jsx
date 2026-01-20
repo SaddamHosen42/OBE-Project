@@ -99,7 +99,7 @@ const UserCreate = () => {
     
     try {
       // Prepare data (remove confirmPassword)
-      const { confirmPassword, ...userData } = formData;
+      const { confirmPassword: _confirmPassword, ...userData } = formData;
       
       const response = await userService.createUser(userData);
       

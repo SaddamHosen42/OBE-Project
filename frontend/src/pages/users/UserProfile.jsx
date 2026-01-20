@@ -250,7 +250,7 @@ const UserProfile = () => {
       {/* Profile Card */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
         {/* Profile Header */}
-        <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-8 rounded-t-lg">
+        <div className="bg-linear-to-r from-blue-500 to-indigo-600 p-8 rounded-t-lg">
           <div className="flex items-center space-x-6">
             <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center overflow-hidden">
               {currentUser.profile_image ? (
