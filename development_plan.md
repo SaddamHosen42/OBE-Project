@@ -1358,22 +1358,22 @@ obe-system/
 #### Step 4.24.4: Create Question Service
 - [x] Create `src/services/questionService.js`
 
-### Step 4.25: Rubric Management Pages
+### Step 4.25: Rubric Management Pages ✅
 
-#### Step 4.25.1: Create Rubric Pages
-- [ ] Create `src/pages/rubrics/RubricList.jsx`
-- [ ] Create `src/pages/rubrics/RubricCreate.jsx`
-- [ ] Create `src/pages/rubrics/RubricEdit.jsx`
-- [ ] Create `src/pages/rubrics/RubricView.jsx`
+#### Step 4.25.1: Create Rubric Pages ✅
+- [x] Create `src/pages/rubrics/RubricList.jsx`
+- [x] Create `src/pages/rubrics/RubricCreate.jsx`
+- [x] Create `src/pages/rubrics/RubricEdit.jsx`
+- [x] Create `src/pages/rubrics/RubricView.jsx`
 
-#### Step 4.25.2: Create Rubric Components
-- [ ] Create `src/components/rubric/RubricBuilder.jsx`
-- [ ] Create `src/components/rubric/RubricCriteriaForm.jsx`
-- [ ] Create `src/components/rubric/RubricLevelForm.jsx`
-- [ ] Create `src/components/rubric/RubricPreview.jsx`
+#### Step 4.25.2: Create Rubric Components ✅
+- [x] Create `src/components/rubric/RubricBuilder.jsx`
+- [x] Create `src/components/rubric/RubricCriteriaForm.jsx`
+- [x] Create `src/components/rubric/RubricLevelForm.jsx`
+- [x] Create `src/components/rubric/RubricPreview.jsx`
 
-#### Step 4.25.3: Create Rubric Hooks
-- [ ] Create `src/hooks/useRubrics.js`
+#### Step 4.25.3: Create Rubric Hooks ✅
+- [x] Create `src/hooks/useRubrics.js`
 
 ### Step 4.26: Marks Entry Pages
 
