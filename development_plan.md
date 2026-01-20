@@ -1342,18 +1342,21 @@ obe-system/
 ### Step 4.24: Question Management Pages
 
 #### Step 4.24.1: Create Question Pages
-- [ ] Create `src/pages/questions/QuestionList.jsx`
-- [ ] Create `src/pages/questions/QuestionCreate.jsx`
-- [ ] Create `src/pages/questions/QuestionEdit.jsx`
-- [ ] Create `src/pages/questions/QuestionBank.jsx`
+- [x] Create `src/pages/questions/QuestionList.jsx`
+- [x] Create `src/pages/questions/QuestionCreate.jsx`
+- [x] Create `src/pages/questions/QuestionEdit.jsx`
+- [x] Create `src/pages/questions/QuestionBank.jsx`
 
 #### Step 4.24.2: Create Question Components
-- [ ] Create `src/components/question/QuestionCard.jsx`
-- [ ] Create `src/components/question/QuestionForm.jsx`
-- [ ] Create `src/components/question/BloomLevelBadge.jsx`
+- [x] Create `src/components/question/QuestionCard.jsx`
+- [x] Create `src/components/question/QuestionForm.jsx`
+- [x] Create `src/components/question/BloomLevelBadge.jsx`
 
 #### Step 4.24.3: Create Question Hooks
-- [ ] Create `src/hooks/useQuestions.js`
+- [x] Create `src/hooks/useQuestions.js`
+
+#### Step 4.24.4: Create Question Service
+- [x] Create `src/services/questionService.js`
 
 ### Step 4.25: Rubric Management Pages
 
