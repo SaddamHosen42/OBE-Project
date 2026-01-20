@@ -67,20 +67,23 @@ const ExportButton = ({
       const fullFilename = `${filename}_${timestamp}`;
 
       switch (format) {
-        case 'csv':
+        case 'csv': {
           const csvContent = convertToCSV(data);
           downloadFile(csvContent, `${fullFilename}.csv`, 'text/csv;charset=utf-8;');
           break;
+        }
           
-        case 'json':
+        case 'json': {
           const jsonContent = JSON.stringify(data, null, 2);
           downloadFile(jsonContent, `${fullFilename}.json`, 'application/json');
           break;
+        }
           
-        case 'excel':
+        case 'excel': {
           // For Excel, you would typically use a library like xlsx
           console.warn('Excel export requires xlsx library');
           break;
+        }
           
         default:
           console.warn(`Export format "${format}" not supported`);

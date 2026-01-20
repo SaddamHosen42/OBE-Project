@@ -1082,11 +1082,11 @@ obe-system/
 ### Step 4.5: Chart Components
 
 #### Step 4.5.1: Create Chart Components
-- [ ] Create `src/components/charts/BarChart.jsx`
-- [ ] Create `src/components/charts/LineChart.jsx`
-- [ ] Create `src/components/charts/PieChart.jsx`
-- [ ] Create `src/components/charts/RadarChart.jsx`
-- [ ] Create `src/components/charts/AttainmentChart.jsx`
+- [x] Create `src/components/charts/BarChart.jsx`
+- [x] Create `src/components/charts/LineChart.jsx`
+- [x] Create `src/components/charts/PieChart.jsx`
+- [x] Create `src/components/charts/RadarChart.jsx`
+- [x] Create `src/components/charts/AttainmentChart.jsx`
 
 ### Step 4.6: Authentication Pages
 
