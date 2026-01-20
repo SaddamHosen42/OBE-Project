@@ -1190,25 +1190,31 @@ obe-system/
 ### Step 4.14: Course Management Pages
 
 #### Step 4.14.1: Create Course Pages
-- [ ] Create `src/pages/courses/CourseList.jsx`
-- [ ] Create `src/pages/courses/CourseCreate.jsx`
-- [ ] Create `src/pages/courses/CourseEdit.jsx`
-- [ ] Create `src/pages/courses/CourseView.jsx`
+- [x] Create `src/pages/courses/CourseList.jsx`
+- [x] Create `src/pages/courses/CourseCreate.jsx`
+- [x] Create `src/pages/courses/CourseEdit.jsx`
+- [x] Create `src/pages/courses/CourseView.jsx`
 
 #### Step 4.14.2: Create Course Hooks
-- [ ] Create `src/hooks/useCourses.js`
-- [ ] Create `src/hooks/useCourse.js`
+- [x] Create `src/hooks/useCourses.js`
+- [x] Create `src/hooks/useCourse.js`
+
+#### Step 4.14.3: Create Course Services
+- [x] Create `src/services/courseService.js`
 
 ### Step 4.15: Course Offering Pages
 
 #### Step 4.15.1: Create Course Offering Pages
-- [ ] Create `src/pages/offerings/OfferingList.jsx`
-- [ ] Create `src/pages/offerings/OfferingCreate.jsx`
-- [ ] Create `src/pages/offerings/OfferingEdit.jsx`
-- [ ] Create `src/pages/offerings/OfferingView.jsx`
+- [x] Create `src/pages/offerings/OfferingList.jsx`
+- [x] Create `src/pages/offerings/OfferingCreate.jsx`
+- [x] Create `src/pages/offerings/OfferingEdit.jsx`
+- [x] Create `src/pages/offerings/OfferingView.jsx`
 
 #### Step 4.15.2: Create Offering Hooks
-- [ ] Create `src/hooks/useOfferings.js`
+- [x] Create `src/hooks/useOfferings.js`
+
+#### Step 4.15.3: Create Offering Services
+- [x] Create `src/services/offeringService.js`
 
 ### Step 4.16: CLO Management Pages
 
