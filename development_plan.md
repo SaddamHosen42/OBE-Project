@@ -1148,18 +1148,18 @@ obe-system/
 - [x] Create `src/pages/departments/DepartmentView.jsx`
 
 #### Step 4.10.2: Create Department Hooks
-- [ ] Create `src/hooks/useDepartments.js`
+- [x] Create `src/hooks/useDepartments.js`
 
 ### Step 4.11: Degree Management Pages
 
 #### Step 4.11.1: Create Degree Pages
-- [ ] Create `src/pages/degrees/DegreeList.jsx`
-- [ ] Create `src/pages/degrees/DegreeCreate.jsx`
-- [ ] Create `src/pages/degrees/DegreeEdit.jsx`
-- [ ] Create `src/pages/degrees/DegreeView.jsx`
+- [x] Create `src/pages/degrees/DegreeList.jsx`
+- [x] Create `src/pages/degrees/DegreeCreate.jsx`
+- [x] Create `src/pages/degrees/DegreeEdit.jsx`
+- [x] Create `src/pages/degrees/DegreeView.jsx`
 
 #### Step 4.11.2: Create Degree Hooks
-- [ ] Create `src/hooks/useDegrees.js`
+- [x] Create `src/hooks/useDegrees.js`
 
 ### Step 4.12: Academic Session Pages
 
