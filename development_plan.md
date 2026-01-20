@@ -1118,11 +1118,11 @@ obe-system/
 - [x] Create `src/pages/users/UserProfile.jsx`
 
 #### Step 4.8.2: Create User Hooks
-- [ ] Create `src/hooks/useUsers.js`
-- [ ] Create `src/hooks/useUser.js`
-- [ ] Create `src/hooks/useCreateUser.js`
-- [ ] Create `src/hooks/useUpdateUser.js`
-- [ ] Create `src/hooks/useDeleteUser.js`
+- [x] Create `src/hooks/useUsers.js`
+- [x] Create `src/hooks/useUser.js`
+- [x] Create `src/hooks/useCreateUser.js`
+- [x] Create `src/hooks/useUpdateUser.js`
+- [x] Create `src/hooks/useDeleteUser.js`
 
 ### Step 4.9: Faculty Management Pages
 

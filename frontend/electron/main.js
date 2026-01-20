@@ -1,5 +1,10 @@
-const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron');
-const path = require('path');
+import { app, BrowserWindow, ipcMain, dialog, shell, clipboard } from 'electron';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Keep a global reference of the window object to prevent garbage collection
 let mainWindow = null;
@@ -331,13 +336,11 @@ ipcMain.handle('store:delete', (event, key) => {
  * Clipboard handlers
  */
 ipcMain.handle('clipboard:writeText', (event, text) => {
-  const { clipboard } = require('electron');
   clipboard.writeText(text);
   return true;
 });
 
 ipcMain.handle('clipboard:readText', () => {
-  const { clipboard } = require('electron');
   return clipboard.readText();
 });
 
