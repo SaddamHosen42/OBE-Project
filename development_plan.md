@@ -1059,19 +1059,19 @@ obe-system/
 ### Step 4.4: Common Components
 
 #### Step 4.4.1: Create UI Components
-- [ ] Create `src/components/ui/Button.jsx`
-- [ ] Create `src/components/ui/Input.jsx`
-- [ ] Create `src/components/ui/Select.jsx`
-- [ ] Create `src/components/ui/Modal.jsx`
-- [ ] Create `src/components/ui/Table.jsx`
-- [ ] Create `src/components/ui/Card.jsx`
-- [ ] Create `src/components/ui/Alert.jsx`
-- [ ] Create `src/components/ui/Badge.jsx`
-- [ ] Create `src/components/ui/Tabs.jsx`
-- [ ] Create `src/components/ui/Dropdown.jsx`
-- [ ] Create `src/components/ui/Pagination.jsx`
-- [ ] Create `src/components/ui/Loading.jsx`
-- [ ] Create `src/components/ui/ConfirmDialog.jsx`
+- [x] Create `src/components/ui/Button.jsx`
+- [x] Create `src/components/ui/Input.jsx`
+- [x] Create `src/components/ui/Select.jsx`
+- [x] Create `src/components/ui/Modal.jsx`
+- [x] Create `src/components/ui/Table.jsx`
+- [x] Create `src/components/ui/Card.jsx`
+- [x] Create `src/components/ui/Alert.jsx`
+- [x] Create `src/components/ui/Badge.jsx`
+- [x] Create `src/components/ui/Tabs.jsx`
+- [x] Create `src/components/ui/Dropdown.jsx`
+- [x] Create `src/components/ui/Pagination.jsx`
+- [x] Create `src/components/ui/Loading.jsx`
+- [x] Create `src/components/ui/ConfirmDialog.jsx`
 
 #### Step 4.4.2: Create Form Components
 - [ ] Create `src/components/form/FormInput.jsx`
