@@ -1394,18 +1394,18 @@ obe-system/
 - [x] Create `src/hooks/useEnterMarks.js`
 - [x] Create `src/services/marksService.js`
 
-### Step 4.27: Rubric Scoring Pages
+### Step 4.27: Rubric Scoring Pages ✅
 
-#### Step 4.27.1: Create Rubric Scoring Pages
-- [ ] Create `src/pages/scoring/RubricScoring.jsx`
-- [ ] Create `src/pages/scoring/StudentScoring.jsx`
+#### Step 4.27.1: Create Rubric Scoring Pages ✅
+- [x] Create `src/pages/scoring/RubricScoring.jsx`
+- [x] Create `src/pages/scoring/StudentScoring.jsx`
 
-#### Step 4.27.2: Create Rubric Scoring Components
-- [ ] Create `src/components/scoring/RubricScoreCard.jsx`
-- [ ] Create `src/components/scoring/ScoreLevelSelector.jsx`
+#### Step 4.27.2: Create Rubric Scoring Components ✅
+- [x] Create `src/components/scoring/RubricScoreCard.jsx`
+- [x] Create `src/components/scoring/ScoreLevelSelector.jsx`
 
-#### Step 4.27.3: Create Scoring Hooks
-- [ ] Create `src/hooks/useRubricScoring.js`
+#### Step 4.27.3: Create Scoring Hooks ✅
+- [x] Create `src/hooks/useRubricScoring.js`
 
 ### Step 4.28: Grade Management Pages
 
