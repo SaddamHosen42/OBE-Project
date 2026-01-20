@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const AuthController = require('../controllers/AuthController');
-const { authenticateToken } = require('../middlewares/authMiddleware');
+const { authenticate } = require('../middlewares/authMiddleware');
 
 /**
  * Authentication Routes
@@ -33,7 +33,7 @@ router.post('/login', AuthController.login);
  * @headers { Authorization: Bearer <token> }
  * @returns { success, message }
  */
-router.post('/logout', authenticateToken, AuthController.logout);
+router.post('/logout', authenticate, AuthController.logout);
 
 /**
  * @route   POST /api/auth/refresh
@@ -69,6 +69,6 @@ router.post('/reset-password', AuthController.resetPassword);
  * @headers { Authorization: Bearer <token> }
  * @returns { success, data: { user } }
  */
-router.get('/me', authenticateToken, AuthController.getCurrentUser);
+router.get('/me', authenticate, AuthController.getCurrentUser);
 
 module.exports = router;
