@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiFileText, FiDownload, FiBarChart2 } from 'react-icons/fi';
 import AuditLogTable from '../../components/audit/AuditLogTable';
@@ -22,7 +22,7 @@ const AuditLogList = () => {
     page: currentPage,
     limit: itemsPerPage,
     ...Object.fromEntries(
-      Object.entries(filters).filter(([_, value]) => value !== '')
+      Object.entries(filters).filter(([, value]) => value !== '')
     ),
   };
 
@@ -39,7 +39,7 @@ const AuditLogList = () => {
     data: statsData,
   } = useAuditStatistics(
     Object.fromEntries(
-      Object.entries(filters).filter(([_, value]) => value !== '')
+      Object.entries(filters).filter(([, value]) => value !== '')
     )
   );
 
