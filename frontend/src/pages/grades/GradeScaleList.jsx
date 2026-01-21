@@ -111,7 +111,7 @@ const GradeScaleList = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <div className="flex-shrink-0 bg-blue-500 rounded-md p-3">
+            <div className="shrink-0 bg-blue-500 rounded-md p-3">
               <Award className="h-6 w-6 text-white" />
             </div>
             <div className="ml-4">
@@ -123,7 +123,7 @@ const GradeScaleList = () => {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <div className="flex-shrink-0 bg-green-500 rounded-md p-3">
+            <div className="shrink-0 bg-green-500 rounded-md p-3">
               <CheckCircle className="h-6 w-6 text-white" />
             </div>
             <div className="ml-4">
@@ -135,7 +135,7 @@ const GradeScaleList = () => {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <div className="flex-shrink-0 bg-gray-500 rounded-md p-3">
+            <div className="shrink-0 bg-gray-500 rounded-md p-3">
               <XCircle className="h-6 w-6 text-white" />
             </div>
             <div className="ml-4">

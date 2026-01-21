@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { FiPlus, FiFilter, FiBookOpen, FiArrowLeft } from 'react-icons/fi';
 import { BookOpen, FileQuestion, TrendingUp, BarChart3 } from 'lucide-react';
@@ -14,7 +14,6 @@ const QuestionBank = () => {
   const courseOfferingId = searchParams.get('offeringId');
   
   const [questions, setQuestions] = useState([]);
-  const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   
@@ -27,7 +26,7 @@ const QuestionBank = () => {
   const [questionToDelete, setQuestionToDelete] = useState(null);
 
   // Fetch questions and statistics
-  const fetchQuestions = async () => {
+  const fetchQuestions = useCallback(async () => {
     setIsLoading(true);
     setError('');
     
@@ -47,18 +46,6 @@ const QuestionBank = () => {
       if (response.success) {
         setQuestions(response.data || []);
       }
-
-      // Fetch statistics
-      if (courseOfferingId) {
-        try {
-          const statsResponse = await questionService.getQuestionStats(courseOfferingId);
-          if (statsResponse.success) {
-            setStats(statsResponse.data);
-          }
-        } catch (err) {
-          console.error('Error fetching stats:', err);
-        }
-      }
     } catch (err) {
       console.error('Error fetching questions:', err);
       setError(err.response?.data?.message || 'Failed to load questions');
@@ -71,7 +58,7 @@ const QuestionBank = () => {
     if (courseOfferingId) {
       fetchQuestions();
     }
-  }, [courseOfferingId, searchQuery, questionType, difficultyLevel, bloomLevel]);
+  }, [courseOfferingId, searchQuery, questionType, difficultyLevel, bloomLevel, fetchQuestions]);
 
   // Handle search
   const handleSearch = (query) => {

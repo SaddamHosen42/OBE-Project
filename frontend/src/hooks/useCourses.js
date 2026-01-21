@@ -16,7 +16,7 @@ import courseService from '../services/courseService';
  * @param {Object} options - React Query options
  * @returns {Object} Query result with courses data
  */
-const useCourses = (params = {}, options = {}) => {
+export const useCourses = (params = {}, options = {}) => {
   return useQuery({
     queryKey: ['courses', params],
     queryFn: () => courseService.getAllCourses(params),

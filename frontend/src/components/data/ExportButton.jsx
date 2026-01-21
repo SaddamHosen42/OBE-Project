@@ -128,7 +128,7 @@ const ExportButton = ({
       </label>
       <ul 
         tabIndex={0} 
-        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 border border-base-300 mt-2"
+        className="dropdown-content z-1 menu p-2 shadow bg-base-100 rounded-box w-52 border border-base-300 mt-2"
       >
         {formats.map((format) => (
           <li key={format}>

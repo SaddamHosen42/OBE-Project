@@ -35,12 +35,12 @@ export default function IndirectAttainmentReport() {
   const { degrees, fetchDegrees } = useDegrees();
 
   const [selectedDegree, setSelectedDegree] = useState(searchParams.get('degreeId') || '');
-  const [surveyId, setSurveyId] = useState(searchParams.get('surveyId') || '');
-  const [outcomeType, setOutcomeType] = useState(searchParams.get('outcomeType') || 'PLO');
+  const surveyId = searchParams.get('surveyId') || '';
+  const outcomeType = searchParams.get('outcomeType') || 'PLO';
 
   useEffect(() => {
     fetchDegrees();
-  }, []);
+  }, [fetchDegrees]);
 
   useEffect(() => {
     if (selectedDegree) {
@@ -48,7 +48,7 @@ export default function IndirectAttainmentReport() {
     } else if (surveyId) {
       fetchBySurvey(surveyId, outcomeType);
     }
-  }, [selectedDegree, surveyId, outcomeType]);
+  }, [selectedDegree, surveyId, outcomeType, fetchProgramReport, fetchBySurvey]);
 
   const handlePrint = () => {
     window.print();
@@ -151,7 +151,7 @@ export default function IndirectAttainmentReport() {
       <div className="max-w-7xl mx-auto px-6 py-8" ref={reportRef}>
         {error && (
           <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start mb-6">
-            <AlertCircle className="w-5 h-5 text-red-600 mr-3 flex-shrink-0 mt-0.5" />
+            <AlertCircle className="w-5 h-5 text-red-600 mr-3 shrink-0 mt-0.5" />
             <div>
               <h3 className="text-sm font-semibold text-red-800">Error</h3>
               <p className="text-sm text-red-700 mt-1">{error}</p>
@@ -280,7 +280,7 @@ export default function IndirectAttainmentReport() {
               <div className="space-y-3">
                 {stats.belowTarget > 0 && (
                   <div className="flex items-start p-3 bg-yellow-50 rounded-lg">
-                    <AlertCircle className="w-5 h-5 text-yellow-600 mr-3 flex-shrink-0 mt-0.5" />
+                    <AlertCircle className="w-5 h-5 text-yellow-600 mr-3 shrink-0 mt-0.5" />
                     <div className="text-sm text-gray-700">
                       <strong>Action Required:</strong> {stats.belowTarget} outcome(s) are below the target threshold.
                       Review the specific outcomes and develop improvement strategies.
@@ -289,7 +289,7 @@ export default function IndirectAttainmentReport() {
                 )}
                 {stats.achievedTarget > 0 && (
                   <div className="flex items-start p-3 bg-green-50 rounded-lg">
-                    <CheckCircle className="w-5 h-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-green-600 mr-3 shrink-0 mt-0.5" />
                     <div className="text-sm text-gray-700">
                       <strong>Strengths:</strong> {stats.achievedTarget} outcome(s) have achieved the target.
                       Continue to maintain and enhance these areas of success.
@@ -297,7 +297,7 @@ export default function IndirectAttainmentReport() {
                   </div>
                 )}
                 <div className="flex items-start p-3 bg-blue-50 rounded-lg">
-                  <FileText className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <FileText className="w-5 h-5 text-blue-600 mr-3 shrink-0 mt-0.5" />
                   <div className="text-sm text-gray-700">
                     <strong>Continuous Improvement:</strong> Regular monitoring and assessment through surveys
                     should continue to track progress and identify emerging trends.

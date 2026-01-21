@@ -1,9 +1,8 @@
-import { lazy, Suspense } from 'react';
-import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
+import { lazy } from 'react';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import RoleBasedRoute from './RoleBasedRoute';
-import MainLayout from '../components/layout/MainLayout';
-import LoadingSpinner from '../components/common/LoadingSpinner';
+import { SuspenseLoader, LayoutWrapper, AuthLayout } from './RouteComponents';
 
 // Lazy load pages
 // Auth Pages
@@ -15,23 +14,23 @@ const ResetPassword = lazy(() => import('../pages/auth/ResetPassword'));
 const Dashboard = lazy(() => import('../pages/dashboard/Dashboard'));
 
 // Admin Pages
-const Users = lazy(() => import('../pages/users/Users'));
-const Departments = lazy(() => import('../pages/departments/Departments'));
-const Faculties = lazy(() => import('../pages/faculties/Faculties'));
-const Degrees = lazy(() => import('../pages/degrees/Degrees'));
-const Buildings = lazy(() => import('../pages/buildings/Buildings'));
-const Floors = lazy(() => import('../pages/floors/Floors'));
-const Rooms = lazy(() => import('../pages/rooms/Rooms'));
-const Sessions = lazy(() => import('../pages/sessions/Sessions'));
-const Semesters = lazy(() => import('../pages/semesters/Semesters'));
+const Users = lazy(() => import('../pages/users/UserList'));
+const Departments = lazy(() => import('../pages/departments/DepartmentList'));
+const Faculties = lazy(() => import('../pages/faculties/FacultyList'));
+const Degrees = lazy(() => import('../pages/degrees/DegreeList'));
+const Buildings = lazy(() => import('../pages/buildings/BuildingList'));
+const Floors = lazy(() => import('../pages/floors/FloorList'));
+const Rooms = lazy(() => import('../pages/rooms/RoomList'));
+const Sessions = lazy(() => import('../pages/sessions/SessionList'));
+const Semesters = lazy(() => import('../pages/semesters/SemesterList'));
 const Settings = lazy(() => import('../pages/settings/Settings'));
 const AuditLogs = lazy(() => import('../pages/audit/AuditLogs'));
 
 // Course Management Pages
 const Courses = lazy(() => import('../pages/courses/Courses'));
 const CourseOfferings = lazy(() => import('../pages/offerings/CourseOfferings'));
-const Teachers = lazy(() => import('../pages/teachers/Teachers'));
-const Students = lazy(() => import('../pages/students/Students'));
+const Teachers = lazy(() => import('../pages/teachers/TeacherList'));
+const Students = lazy(() => import('../pages/students/StudentList'));
 const Enrollments = lazy(() => import('../pages/enrollments/Enrollments'));
 
 // OBE Pages
@@ -62,29 +61,6 @@ const SeatAllocation = lazy(() => import('../pages/allocation/SeatAllocation'));
 
 // OBE Dashboard
 const OBEDashboard = lazy(() => import('../pages/obe/OBEDashboard'));
-
-// Loading Component
-const SuspenseLoader = () => (
-  <div className="flex items-center justify-center min-h-screen">
-    <LoadingSpinner size="large" />
-  </div>
-);
-
-// Layout wrapper with Suspense
-const LayoutWrapper = () => (
-  <Suspense fallback={<SuspenseLoader />}>
-    <MainLayout>
-      <Outlet />
-    </MainLayout>
-  </Suspense>
-);
-
-// Auth Layout (without main layout)
-const AuthLayout = () => (
-  <Suspense fallback={<SuspenseLoader />}>
-    <Outlet />
-  </Suspense>
-);
 
 /**
  * Router Configuration

@@ -97,7 +97,7 @@ const PLOList = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <div className="flex-shrink-0 bg-blue-500 rounded-md p-3">
+            <div className="shrink-0 bg-blue-500 rounded-md p-3">
               <Target className="h-6 w-6 text-white" />
             </div>
             <div className="ml-4">
@@ -109,7 +109,7 @@ const PLOList = () => {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <div className="flex-shrink-0 bg-green-500 rounded-md p-3">
+            <div className="shrink-0 bg-green-500 rounded-md p-3">
               <BookOpen className="h-6 w-6 text-white" />
             </div>
             <div className="ml-4">
@@ -123,7 +123,7 @@ const PLOList = () => {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <div className="flex-shrink-0 bg-purple-500 rounded-md p-3">
+            <div className="shrink-0 bg-purple-500 rounded-md p-3">
               <Users className="h-6 w-6 text-white" />
             </div>
             <div className="ml-4">
@@ -137,7 +137,7 @@ const PLOList = () => {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center">
-            <div className="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+            <div className="shrink-0 bg-yellow-500 rounded-md p-3">
               <TrendingUp className="h-6 w-6 text-white" />
             </div>
             <div className="ml-4">

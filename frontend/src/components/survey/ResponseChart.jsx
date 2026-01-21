@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { BarChart3, PieChart as PieChartIcon } from 'lucide-react';
 
-const ResponseChart = ({ question, responses, analytics }) => {
+const ResponseChart = ({ question, responses }) => {
   // Calculate statistics for the question
   const stats = useMemo(() => {
     if (!responses || responses.length === 0) {

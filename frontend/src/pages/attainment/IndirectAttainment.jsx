@@ -37,14 +37,14 @@ export default function IndirectAttainment() {
   const [outcomeType, setOutcomeType] = useState(searchParams.get('outcomeType') || 'PLO');
   const [chartType, setChartType] = useState('bar');
   const [showFilters, setShowFilters] = useState(false);
-  const [threshold, setThreshold] = useState(70);
+  const [threshold] = useState(70);
 
   useEffect(() => {
     fetchSurveys({ status: 'completed' });
     if (!selectedSurvey) {
       fetchSummary({ outcome_type: outcomeType });
     }
-  }, []);
+  }, [fetchSurveys, fetchSummary, selectedSurvey, outcomeType]);
 
   useEffect(() => {
     if (selectedSurvey) {
@@ -54,7 +54,7 @@ export default function IndirectAttainment() {
       fetchSummary({ outcome_type: outcomeType });
       setSearchParams({ outcomeType });
     }
-  }, [selectedSurvey, outcomeType]);
+  }, [selectedSurvey, outcomeType, fetchBySurvey, fetchSummary, setSearchParams]);
 
   const handleRefresh = () => {
     if (selectedSurvey) {
@@ -206,7 +206,7 @@ export default function IndirectAttainment() {
       {/* Error Message */}
       {error && (
         <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start">
-          <AlertCircle className="w-5 h-5 text-red-600 mr-3 flex-shrink-0 mt-0.5" />
+          <AlertCircle className="w-5 h-5 text-red-600 mr-3 shrink-0 mt-0.5" />
           <div>
             <h3 className="text-sm font-semibold text-red-800">Error</h3>
             <p className="text-sm text-red-700 mt-1">{error}</p>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiPlus, FiEdit, FiTrash2, FiEye, FiUsers, FiMail, FiPhone, FiBook } from 'react-icons/fi';
 import DataTable from '../../components/data/DataTable';
@@ -41,7 +41,7 @@ const TeacherList = () => {
   }, []);
 
   // Fetch teachers
-  const fetchTeachers = async () => {
+  const fetchTeachers = useCallback(async () => {
     setIsLoading(true);
     setError('');
     
@@ -68,11 +68,11 @@ const TeacherList = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [currentPage, itemsPerPage, searchQuery, departmentFilter]);
 
   useEffect(() => {
     fetchTeachers();
-  }, [currentPage, itemsPerPage, searchQuery, departmentFilter]);
+  }, [currentPage, itemsPerPage, searchQuery, departmentFilter, fetchTeachers]);
 
   // Handle search
   const handleSearch = (query) => {
@@ -131,7 +131,7 @@ const TeacherList = () => {
       sortable: true,
       render: (teacher) => (
         <div className="flex items-center">
-          <div className="flex-shrink-0 h-10 w-10">
+          <div className="shrink-0 h-10 w-10">
             <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
               <FiUsers className="h-5 w-5 text-blue-600" />
             </div>

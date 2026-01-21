@@ -13,7 +13,7 @@ import degreeService from '../services/degreeService';
  * @param {Object} options - React Query options
  * @returns {Object} Query result with degrees data
  */
-const useDegrees = (params = {}, options = {}) => {
+export const useDegrees = (params = {}, options = {}) => {
   return useQuery({
     queryKey: ['degrees', params],
     queryFn: () => degreeService.getAllDegrees(params),

@@ -7,7 +7,6 @@ import * as XLSX from 'xlsx';
 
 const MarksImport = ({ 
   assessmentId,
-  courseOfferingId,
   onImportComplete,
   onCancel
 }) => {
@@ -92,7 +91,7 @@ const MarksImport = ({
       {/* Instructions */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
         <div className="flex gap-3">
-          <FiAlertCircle className="text-blue-600 text-xl flex-shrink-0 mt-0.5" />
+          <FiAlertCircle className="text-blue-600 text-xl shrink-0 mt-0.5" />
           <div className="text-sm text-blue-800">
             <p className="font-semibold mb-2">Import Instructions:</p>
             <ol className="list-decimal list-inside space-y-1">
@@ -158,9 +157,9 @@ const MarksImport = ({
         }`}>
           <div className="flex gap-3">
             {importResult.success ? (
-              <FiAlertCircle className="text-green-600 text-xl flex-shrink-0 mt-0.5" />
+              <FiAlertCircle className="text-green-600 text-xl shrink-0 mt-0.5" />
             ) : (
-              <FiAlertCircle className="text-red-600 text-xl flex-shrink-0 mt-0.5" />
+              <FiAlertCircle className="text-red-600 text-xl shrink-0 mt-0.5" />
             )}
             <div className="flex-1">
               <p className={`font-semibold ${

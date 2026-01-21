@@ -128,7 +128,7 @@ const RecentActivity = () => {
               key={activity.id}
               className="flex items-start space-x-3 pb-4 border-b border-gray-100 last:border-b-0 last:pb-0"
             >
-              <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${getActivityColor(activity.action)}`}>
+              <div className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${getActivityColor(activity.action)}`}>
                 <span className="text-lg">{getActivityIcon(activity.action)}</span>
               </div>
               

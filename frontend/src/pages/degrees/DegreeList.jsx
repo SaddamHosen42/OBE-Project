@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiPlus, FiEdit, FiTrash2, FiEye, FiAward, FiMapPin } from 'react-icons/fi';
 import DataTable from '../../components/data/DataTable';
@@ -22,7 +22,7 @@ const DegreeList = () => {
   const [degreeToDelete, setDegreeToDelete] = useState(null);
 
   // Fetch degrees
-  const fetchDegrees = async () => {
+  const fetchDegrees = useCallback(async () => {
     setIsLoading(true);
     setError('');
     
@@ -47,11 +47,11 @@ const DegreeList = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [currentPage, itemsPerPage, searchQuery]);
 
   useEffect(() => {
     fetchDegrees();
-  }, [currentPage, itemsPerPage, searchQuery]);
+  }, [currentPage, itemsPerPage, searchQuery, fetchDegrees]);
 
   // Handle search
   const handleSearch = (query) => {

@@ -17,7 +17,6 @@ const BulkMarksEntry = () => {
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState('');
   
-  const [assessment, setAssessment] = useState(null);
   const [questions, setQuestions] = useState([]);
   const [students, setStudents] = useState([]);
   const [marksData, setMarksData] = useState([]);
@@ -186,7 +185,7 @@ const BulkMarksEntry = () => {
       {/* Instructions */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
         <div className="flex gap-3">
-          <FiAlertCircle className="text-blue-600 text-xl flex-shrink-0 mt-0.5" />
+          <FiAlertCircle className="text-blue-600 text-xl shrink-0 mt-0.5" />
           <div className="text-sm text-blue-800">
             <p className="font-semibold mb-2">Instructions:</p>
             <ol className="list-decimal list-inside space-y-1">
@@ -215,7 +214,7 @@ const BulkMarksEntry = () => {
       {validationErrors.length > 0 && (
         <div className="bg-red-50 border border-red-200 rounded-lg p-4">
           <div className="flex gap-3">
-            <FiAlertCircle className="text-red-600 text-xl flex-shrink-0 mt-0.5" />
+            <FiAlertCircle className="text-red-600 text-xl shrink-0 mt-0.5" />
             <div className="flex-1">
               <p className="font-semibold text-red-900 mb-2">
                 Validation Errors ({validationErrors.length})
