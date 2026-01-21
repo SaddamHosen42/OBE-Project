@@ -150,7 +150,7 @@ const Login = () => {
         <button
           type="submit"
           disabled={isLoading}
-          className="btn btn-primary w-full"
+          className="btn btn-primary w-full text-white"
         >
           {isLoading ? (
             <>
