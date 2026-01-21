@@ -11,7 +11,7 @@ const Footer = () => {
           {/* About Section */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-linear-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">OBE</span>
               </div>
               <div>
@@ -73,15 +73,15 @@ const Footer = () => {
             <h4 className="text-sm font-semibold text-gray-900 mb-4">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-start space-x-2 text-sm text-gray-600">
-                <FiMapPin size={16} className="mt-0.5 flex-shrink-0 text-gray-400" />
+                <FiMapPin size={16} className="mt-0.5 shrink-0 text-gray-400" />
                 <span>University Campus, Education City</span>
               </li>
               <li className="flex items-center space-x-2 text-sm text-gray-600">
-                <FiPhone size={16} className="flex-shrink-0 text-gray-400" />
+                <FiPhone size={16} className="shrink-0 text-gray-400" />
                 <span>+1 (555) 123-4567</span>
               </li>
               <li className="flex items-center space-x-2 text-sm text-gray-600">
-                <FiMail size={16} className="flex-shrink-0 text-gray-400" />
+                <FiMail size={16} className="shrink-0 text-gray-400" />
                 <span>support@university.edu</span>
               </li>
             </ul>
