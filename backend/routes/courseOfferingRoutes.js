@@ -10,6 +10,9 @@ const { authorize } = require('../middlewares/roleMiddleware');
  * Admin and faculty can manage course offerings
  */
 
+// Get course progress for dashboard
+router.get('/progress', authenticate, CourseOfferingController.getProgress);
+
 // Get all course offerings with filtering
 // Query params: page, limit, orderBy, order, semesterId, teacherId, courseId, status
 router.get('/', authenticate, CourseOfferingController.index);

@@ -2,6 +2,7 @@ import { RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthProvider } from './context/AuthContext';
 import router from './router';
 import useLoadingStore from './store/useLoadingStore';
 import './App.css';
@@ -25,7 +26,8 @@ function App() {
   const { isLoading, loadingMessage } = useLoadingStore();
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
       {/* Global Loading Overlay */}
       {isLoading && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -60,6 +62,7 @@ function App() {
       {/* Main Router */}
       <RouterProvider router={router} />
     </QueryClientProvider>
+    </AuthProvider>
   );
 }
 

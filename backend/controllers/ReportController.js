@@ -1,10 +1,84 @@
 const OBEReport = require('../models/OBEReport');
+const Course = require('../models/Course');
+const Student = require('../models/Student');
+const CourseOffering = require('../models/CourseOffering');
+const db = require('../config/database');
 
 /**
  * Report Controller
  * Handles generation and export of various OBE reports
  */
 const ReportController = {
+  /**
+   * Get dashboard statistics
+   * @route GET /api/reports/dashboard-stats
+   * Returns statistics like total courses, students, average attainment, pending assessments
+   */
+  getDashboardStats: async (req, res) => {
+    try {
+      const userRole = req.user?.role;
+      const userId = req.user?.id;
+
+      // Initialize stats object
+      const stats = {
+        totalCourses: 0,
+        totalStudents: 0,
+        averageAttainment: 0,
+        pendingAssessments: 0
+      };
+
+      // Get total courses
+      const courseModel = new Course();
+      const courses = await courseModel.findAll();
+      stats.totalCourses = courses.length;
+
+      // Get total students
+      const studentModel = new Student();
+      const students = await studentModel.findAll();
+      stats.totalStudents = students.length;
+
+      // Get average attainment from CLO attainment summary
+      try {
+        const [attainmentRows] = await db.execute(`
+          SELECT AVG(attainment_percentage) as avg_attainment
+          FROM course_clo_attainment_summary
+          WHERE attainment_percentage IS NOT NULL
+        `);
+        stats.averageAttainment = attainmentRows[0]?.avg_attainment 
+          ? Math.round(attainmentRows[0].avg_attainment) 
+          : 0;
+      } catch (error) {
+        console.log('Could not fetch attainment data:', error.message);
+        stats.averageAttainment = 0;
+      }
+
+      // Get pending assessments count
+      try {
+        const [assessmentRows] = await db.execute(`
+          SELECT COUNT(*) as pending_count
+          FROM assessment_components
+          WHERE is_published = 0
+        `);
+        stats.pendingAssessments = assessmentRows[0]?.pending_count || 0;
+      } catch (error) {
+        console.log('Could not fetch pending assessments:', error.message);
+        stats.pendingAssessments = 0;
+      }
+
+      return res.status(200).json({
+        success: true,
+        message: 'Dashboard statistics retrieved successfully',
+        data: stats
+      });
+    } catch (error) {
+      console.error('Error in getDashboardStats:', error);
+      return res.status(500).json({
+        success: false,
+        message: 'Failed to retrieve dashboard statistics',
+        error: error.message
+      });
+    }
+  },
   /**
    * Generate CLO attainment report for a course offering
    * @route GET /api/reports/clo-attainment/:courseOfferingId

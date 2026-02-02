@@ -67,14 +67,29 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h1 className="text-2xl font-bold text-gray-900">
-          Welcome back, {user?.name || 'User'}
-        </h1>
-        <p className="text-gray-600 mt-1">
-          Here's an overview of your OBE system
-        </p>
+      {/* Header with Date */}
+      <div className="flex justify-between items-start">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">
+            Welcome, {user?.name || 'User'}!
+          </h1>
+          <p className="text-gray-600 mt-1">
+            Here's a snapshot of your platform's activity.
+          </p>
+        </div>
+        <div className="bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm">
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <span>🕐</span>
+            <div>
+              <div className="font-medium text-gray-900">
+                {new Date().toLocaleDateString('en-US', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' })}
+              </div>
+              <div className="text-xs">
+                {new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Stats Cards */}
@@ -109,18 +124,51 @@ const Dashboard = () => {
         />
       </div>
 
-      {/* Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left Column - Takes 2/3 width */}
-        <div className="lg:col-span-2 space-y-6">
-          <AttainmentOverview />
-          <CourseProgress />
+      {/* Pending Approvals Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="bg-yellow-100 rounded-full p-3">
+                <span className="text-2xl">👤</span>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-gray-900">0</div>
+                <div className="text-sm text-gray-600">Pending User Approvals</div>
+              </div>
+            </div>
+            <a href="#" className="text-sm text-orange-600 hover:text-orange-700 font-medium">
+              View All →
+            </a>
+          </div>
         </div>
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="bg-blue-100 rounded-full p-3">
+                <span className="text-2xl">🏢</span>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-gray-900">0</div>
+                <div className="text-sm text-gray-600">Pending Course Approvals</div>
+              </div>
+            </div>
+            <a href="#" className="text-sm text-orange-600 hover:text-orange-700 font-medium">
+              View All →
+            </a>
+          </div>
+        </div>
+      </div>
 
-        {/* Right Column - Takes 1/3 width */}
-        <div className="lg:col-span-1">
-          <RecentActivity />
-        </div>
+      {/* Charts Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <AttainmentOverview />
+        <CourseProgress />
+      </div>
+
+      {/* Recent Activity Section */}
+      <div>
+        <RecentActivity />
       </div>
     </div>
   );

@@ -11,6 +11,18 @@ const { authorize } = require('../middlewares/roleMiddleware');
  */
 
 /**
+ * Get dashboard statistics
+ * GET /api/reports/dashboard-stats
+ * Returns total courses, students, average attainment, and pending assessments
+ * Requires: Authenticated user (any role)
+ */
+router.get(
+  '/dashboard-stats',
+  authenticate,
+  ReportController.getDashboardStats
+);
+
+/**
  * Generate CLO attainment report for a course offering
  * GET /api/reports/clo-attainment/:courseOfferingId
  * Query params: {

@@ -11,6 +11,18 @@ const { authorize } = require('../middlewares/roleMiddleware');
  */
 
 /**
+ * Get PLO attainment overview for dashboard
+ * GET /api/plo-attainment/overview
+ * Returns aggregated PLO attainment data
+ * Requires: Authenticated user
+ */
+router.get(
+  '/overview',
+  authenticate,
+  PLOAttainmentController.getOverview
+);
+
+/**
  * Calculate PLO attainment for a single student
  * POST /api/plo-attainment/student/calculate
  * Body: {

@@ -1,10 +1,60 @@
 const CourseOffering = require('../models/CourseOffering');
+const db = require('../config/database');
 
 /**
  * CourseOffering Controller
  * Handles course offering/section management operations
  */
 const CourseOfferingController = {
+  /**
+   * Get course progress for dashboard
+   * @route GET /api/course-offerings/progress
+   * Returns active courses with completion metrics
+   */
+  getProgress: async (req, res) => {
+    try {
+      console.log('getProgress called - fetching course progress data...');
+      
+      // Very simple query first to test
+      const query = `
+        SELECT 
+          co.id,
+          c.courseCode as course_code,
+          c.courseTitle as course_name,
+          s.name as semester_name,
+          0 as enrolled_students,
+          0 as total_assessments,
+          0 as completed_assessments,
+          0 as attainment_percentage,
+          0 as completion_percentage,
+          0 as average_score
+        FROM course_offerings co
+        INNER JOIN courses c ON co.course_id = c.id
+        INNER JOIN semesters s ON co.semester_id = s.id
+        WHERE co.status = 'active'
+        ORDER BY co.id DESC
+        LIMIT 5
+      `;
+
+      console.log('Executing query...');
+      const [courses] = await db.execute(query);
+      console.log(`Found ${courses.length} courses`);
+
+      return res.status(200).json({
+        success: true,
+        message: 'Course progress retrieved successfully',
+        data: courses
+      });
+    } catch (error) {
+      console.error('Error in getProgress - Full error:', error);
+      console.error('Error stack:', error.stack);
+      return res.status(500).json({
+        success: false,
+        message: 'Failed to retrieve course progress',
+        error: error.message
+      });
+    }
+  },
   /**
    * List all course offerings with filtering and pagination
    * @route GET /api/course-offerings

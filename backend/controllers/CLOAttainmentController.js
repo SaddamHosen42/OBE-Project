@@ -1,11 +1,64 @@
 const StudentCLOAttainment = require('../models/StudentCLOAttainment');
 const CourseCLOAttainmentSummary = require('../models/CourseCLOAttainmentSummary');
+const db = require('../config/database');
 
 /**
  * CLO Attainment Controller
  * Handles CLO attainment calculation, retrieval, and reporting
  */
 const CLOAttainmentController = {
+  /**
+   * Get CLO attainment overview for dashboard
+   * @route GET /api/clo-attainment/overview
+   * Returns aggregated CLO attainment data for all courses
+   */
+  getOverview: async (req, res) => {
+    try {
+      // Get all CLO attainment data aggregated by CLO
+      const [rows] = await db.execute(`
+        SELECT 
+          clo.CLO_ID as label,
+          ROUND(AVG(COALESCE(ccs.average_attainment_percentage, 0)), 2) as value
+        FROM course_learning_outcomes clo
+        LEFT JOIN course_clo_attainment_summary ccs ON clo.id = ccs.course_learning_outcome_id
+        GROUP BY clo.id, clo.CLO_ID
+        ORDER BY clo.CLO_ID
+        LIMIT 10
+      `);
+
+      // If no data, return empty arrays
+      if (rows.length === 0) {
+        return res.status(200).json({
+          success: true,
+          message: 'No CLO attainment data available',
+          data: {
+            labels: [],
+            values: []
+          }
+        });
+      }
+
+      // Extract labels and values
+      const labels = rows.map(row => row.label);
+      const values = rows.map(row => parseFloat(row.value) || 0);
+
+      return res.status(200).json({
+        success: true,
+        message: 'CLO attainment overview retrieved successfully',
+        data: {
+          labels,
+          values
+        }
+      });
+    } catch (error) {
+      console.error('Error in getOverview:', error);
+      return res.status(500).json({
+        success: false,
+        message: 'Failed to retrieve CLO attainment overview',
+        error: error.message
+      });
+    }
+  },
   /**
    * Calculate CLO attainment for a single student
    * @route POST /api/clo-attainment/student/calculate

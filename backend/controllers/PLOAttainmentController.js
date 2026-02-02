@@ -1,11 +1,64 @@
 const StudentPLOAttainment = require('../models/StudentPLOAttainment');
 const ProgramPLOAttainmentSummary = require('../models/ProgramPLOAttainmentSummary');
+const db = require('../config/database');
 
 /**
  * PLO Attainment Controller
  * Handles PLO attainment calculation, retrieval, and reporting
  */
 const PLOAttainmentController = {
+  /**
+   * Get PLO attainment overview for dashboard
+   * @route GET /api/plo-attainment/overview
+   * Returns aggregated PLO attainment data for all programs
+   */
+  getOverview: async (req, res) => {
+    try {
+      // Get all PLO attainment data aggregated by PLO
+      const [rows] = await db.execute(`
+        SELECT 
+          plo.PLO_No as label,
+          ROUND(AVG(COALESCE(spa.cumulative_attainment_percentage, 0)), 2) as value
+        FROM program_learning_outcomes plo
+        LEFT JOIN student_plo_attainment spa ON plo.id = spa.program_learning_outcome_id
+        GROUP BY plo.id, plo.PLO_No
+        ORDER BY plo.PLO_No
+        LIMIT 10
+      `);
+
+      // If no data, return empty arrays
+      if (rows.length === 0) {
+        return res.status(200).json({
+          success: true,
+          message: 'No PLO attainment data available',
+          data: {
+            labels: [],
+            values: []
+          }
+        });
+      }
+
+      // Extract labels and values
+      const labels = rows.map(row => row.label);
+      const values = rows.map(row => parseFloat(row.value) || 0);
+
+      return res.status(200).json({
+        success: true,
+        message: 'PLO attainment overview retrieved successfully',
+        data: {
+          labels,
+          values
+        }
+      });
+    } catch (error) {
+      console.error('Error in getOverview:', error);
+      return res.status(500).json({
+        success: false,
+        message: 'Failed to retrieve PLO attainment overview',
+        error: error.message
+      });
+    }
+  },
   /**
    * Calculate PLO attainment for a single student
    * @route POST /api/plo-attainment/student/calculate

@@ -99,7 +99,7 @@ class AuditLog extends BaseModel {
           al.*,
           u.username,
           u.email,
-          u.full_name
+          u.name as full_name
         FROM ${this.tableName} al
         LEFT JOIN users u ON al.user_id = u.id
         WHERE al.user_id = ?
@@ -346,7 +346,7 @@ class AuditLog extends BaseModel {
           al.*,
           u.username,
           u.email,
-          u.full_name
+          u.name as full_name
         FROM ${this.tableName} al
         LEFT JOIN users u ON al.user_id = u.id
         WHERE 1=1
@@ -379,7 +379,7 @@ class AuditLog extends BaseModel {
       }
 
       if (search) {
-        query += ` AND (u.username LIKE ? OR u.email LIKE ? OR u.full_name LIKE ? OR al.table_name LIKE ?)`;
+        query += ` AND (u.username LIKE ? OR u.email LIKE ? OR u.name LIKE ? OR al.table_name LIKE ?)`;
         const searchPattern = `%${search}%`;
         params.push(searchPattern, searchPattern, searchPattern, searchPattern);
       }

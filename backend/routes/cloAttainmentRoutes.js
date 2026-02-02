@@ -11,6 +11,18 @@ const { authorize } = require('../middlewares/roleMiddleware');
  */
 
 /**
+ * Get CLO attainment overview for dashboard
+ * GET /api/clo-attainment/overview
+ * Returns aggregated CLO attainment data
+ * Requires: Authenticated user
+ */
+router.get(
+  '/overview',
+  authenticate,
+  CLOAttainmentController.getOverview
+);
+
+/**
  * Calculate CLO attainment for a single student
  * POST /api/clo-attainment/student/calculate
  * Body: {
