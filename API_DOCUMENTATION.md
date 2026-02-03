@@ -28,36 +28,17 @@
 
 ### Authentication Routes (`/api/auth`)
 
-#### Register New User
-- **POST** `/api/auth/register`
-- **Access:** Public
-- **Body:**
-```json
-{
-  "name": "string",
-  "email": "string",
-  "username": "string",
-  "password": "string",
-  "role": "admin|teacher|student",
-  "phone": "string (optional)",
-  "dob": "date (optional)",
-  "nationality": "string (optional)",
-  "nid_no": "string (optional)",
-  "blood_group": "string (optional)"
-}
-```
+| Method | Endpoint | Access | Description | Request Body |
+|--------|----------|--------|-------------|--------------|
+| POST | `/api/auth/register` | Public | Register a new user | `{ name, email, username, password, role, phone?, dob?, nationality?, nid_no?, blood_group? }` |
+| POST | `/api/auth/login` | Public | Login and get JWT token | `{ identifier, password }` |
+| POST | `/api/auth/logout` | Private | Logout current user | - |
+| POST | `/api/auth/refresh` | Public | Refresh access token | `{ refreshToken }` |
+| POST | `/api/auth/forgot-password` | Public | Request password reset | `{ email }` |
+| POST | `/api/auth/reset-password` | Public | Reset password with token | `{ token, password }` |
+| POST | `/api/auth/change-password` | Private | Change current password | `{ currentPassword, newPassword }` |
 
-#### Login
-- **POST** `/api/auth/login`
-- **Access:** Public
-- **Body:**
-```json
-{
-  "identifier": "email or username",
-  "password": "string"
-}
-```
-- **Response:**
+**Login Response:**
 ```json
 {
   "success": true,
@@ -70,95 +51,16 @@
 }
 ```
 
-#### Logout
-- **POST** `/api/auth/logout`
-- **Access:** Private (authenticated users)
-- **Headers:** `Authorization: Bearer <token>`
-
-#### Refresh Token
-- **POST** `/api/auth/refresh`
-- **Access:** Public
-- **Body:**
-```json
-{
-  "refreshToken": "string"
-}
-```
-
-#### Forgot Password
-- **POST** `/api/auth/forgot-password`
-- **Access:** Public
-- **Body:**
-```json
-{
-  "email": "string"
-}
-```
-
-#### Reset Password
-- **POST** `/api/auth/reset-password`
-- **Access:** Public
-- **Body:**
-```json
-{
-  "token": "string",
-  "password": "string"
-}
-```
-
-#### Change Password
-- **POST** `/api/auth/change-password`
-- **Access:** Private
-- **Headers:** `Authorization: Bearer <token>`
-- **Body:**
-```json
-{
-  "currentPassword": "string",
-  "newPassword": "string"
-}
-```
-
 ### User Routes (`/api/users`)
 
-#### Get All Users
-- **GET** `/api/users`
-- **Access:** Admin only
-- **Query Params:** `page`, `limit`, `role`, `search`, `orderBy`, `order`
-
-#### Get User Profile (Own)
-- **GET** `/api/users/profile`
-- **Access:** Private (any authenticated user)
-
-#### Update Own Profile
-- **PUT** `/api/users/profile`
-- **Access:** Private (any authenticated user)
-- **Body:**
-```json
-{
-  "name": "string (optional)",
-  "phone": "string (optional)",
-  "profile_image": "string (optional)",
-  "dob": "date (optional)",
-  "nationality": "string (optional)",
-  "nid_no": "string (optional)",
-  "blood_group": "string (optional)",
-  "current_password": "string (optional)",
-  "new_password": "string (optional)"
-}
-```
-
-#### Get User by ID
-- **GET** `/api/users/:id`
-- **Access:** Admin only
-
-#### Update User (Admin)
-- **PUT** `/api/users/:id`
-- **Access:** Admin only
-- **Body:** Same as registration with optional fields
-
-#### Delete User
-- **DELETE** `/api/users/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/users` | Admin | Get all users with pagination | Query: `page, limit, role, search, orderBy, order` |
+| GET | `/api/users/profile` | Private | Get own profile | - |
+| PUT | `/api/users/profile` | Private | Update own profile | Body: `{ name?, phone?, profile_image?, dob?, nationality?, nid_no?, blood_group?, current_password?, new_password? }` |
+| GET | `/api/users/:id` | Admin | Get user by ID | - |
+| PUT | `/api/users/:id` | Admin | Update user (admin) | Body: Same as registration |
+| DELETE | `/api/users/:id` | Admin | Delete user | - |
 
 ---
 
@@ -166,215 +68,62 @@
 
 ### Faculty Routes (`/api/faculties`)
 
-#### Get All Faculties
-- **GET** `/api/faculties`
-- **Access:** Private (all authenticated users)
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `withDepartments`
-
-#### Get Faculty by ID
-- **GET** `/api/faculties/:id`
-- **Access:** Private
-- **Query Params:** `withDepartments`
-
-#### Create Faculty
-- **POST** `/api/faculties`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "name": "string",
-  "short_name": "string",
-  "description": "string (optional)",
-  "dean_user_id": "number (optional)",
-  "email": "string (optional)",
-  "phone": "string (optional)",
-  "website": "string (optional)",
-  "established_date": "date (optional)"
-}
-```
-
-#### Update Faculty
-- **PUT** `/api/faculties/:id`
-- **Access:** Admin only
-
-#### Delete Faculty
-- **DELETE** `/api/faculties/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/faculties` | Private | Get all faculties | Query: `page, limit, search, orderBy, order, withDepartments` |
+| GET | `/api/faculties/:id` | Private | Get faculty by ID | Query: `withDepartments` |
+| POST | `/api/faculties` | Admin | Create new faculty | Body: `{ name, short_name, description?, dean_user_id?, email?, phone?, website?, established_date? }` |
+| PUT | `/api/faculties/:id` | Admin | Update faculty | Body: Same as create |
+| DELETE | `/api/faculties/:id` | Admin | Delete faculty | - |
 
 ### Department Routes (`/api/departments`)
 
-#### Get All Departments
-- **GET** `/api/departments`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `withDegrees`, `facultyId`
-
-#### Get Department by ID
-- **GET** `/api/departments/:id`
-- **Access:** Private
-- **Query Params:** `withDegrees`
-
-#### Get Department by Code
-- **GET** `/api/departments/code/:code`
-- **Access:** Private
-
-#### Count Departments by Faculty
-- **GET** `/api/departments/count/by-faculty/:facultyId`
-- **Access:** Private
-
-#### Create Department
-- **POST** `/api/departments`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "name": "string",
-  "dept_code": "string",
-  "faculty_id": "number",
-  "hod_user_id": "number (optional)",
-  "email": "string (optional)",
-  "phone": "string (optional)",
-  "established_date": "date (optional)"
-}
-```
-
-#### Update Department
-- **PUT** `/api/departments/:id`
-- **Access:** Admin only
-
-#### Delete Department
-- **DELETE** `/api/departments/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/departments` | Private | Get all departments | Query: `page, limit, search, orderBy, order, withDegrees, facultyId` |
+| GET | `/api/departments/:id` | Private | Get department by ID | Query: `withDegrees` |
+| GET | `/api/departments/code/:code` | Private | Get department by code | - |
+| GET | `/api/departments/count/by-faculty/:facultyId` | Private | Count departments in faculty | - |
+| POST | `/api/departments` | Admin | Create new department | Body: `{ name, dept_code, faculty_id, hod_user_id?, email?, phone?, established_date? }` |
+| PUT | `/api/departments/:id` | Admin | Update department | Body: Same as create |
+| DELETE | `/api/departments/:id` | Admin | Delete department | - |
 
 ### Degree Routes (`/api/degrees`)
 
-#### Get All Degrees
-- **GET** `/api/degrees`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `withPLOs`, `withPEOs`, `departmentId`
-
-#### Get Degree by ID
-- **GET** `/api/degrees/:id`
-- **Access:** Private
-- **Query Params:** `withPLOs`, `withPEOs`, `withBoth`
-
-#### Count Degrees by Department
-- **GET** `/api/degrees/count/by-department/:departmentId`
-- **Access:** Private
-
-#### Create Degree
-- **POST** `/api/degrees`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "name": "string",
-  "faculty_id": "number",
-  "department_id": "number",
-  "credit_hours": "number (optional)",
-  "duration_years": "number (optional)"
-}
-```
-
-#### Update Degree
-- **PUT** `/api/degrees/:id`
-- **Access:** Admin only
-
-#### Delete Degree
-- **DELETE** `/api/degrees/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/degrees` | Private | Get all degrees | Query: `page, limit, search, orderBy, order, withPLOs, withPEOs, departmentId` |
+| GET | `/api/degrees/:id` | Private | Get degree by ID | Query: `withPLOs, withPEOs, withBoth` |
+| GET | `/api/degrees/count/by-department/:departmentId` | Private | Count degrees in department | - |
+| POST | `/api/degrees` | Admin | Create new degree | Body: `{ name, faculty_id, department_id, credit_hours?, duration_years? }` |
+| PUT | `/api/degrees/:id` | Admin | Update degree | Body: Same as create |
+| DELETE | `/api/degrees/:id` | Admin | Delete degree | - |
 
 ### Academic Session Routes (`/api/academic-sessions`)
 
-#### Get All Academic Sessions
-- **GET** `/api/academic-sessions`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `withSemesters`
-
-#### Get Current Active Session
-- **GET** `/api/academic-sessions/active/current`
-- **Access:** Private
-
-#### Get Session by ID
-- **GET** `/api/academic-sessions/:id`
-- **Access:** Private
-- **Query Params:** `withSemesters`, `withCourses`
-
-#### Count Semesters in Session
-- **GET** `/api/academic-sessions/:id/semesters/count`
-- **Access:** Private
-
-#### Create Academic Session
-- **POST** `/api/academic-sessions`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "session_name": "string",
-  "start_date": "date",
-  "end_date": "date",
-  "is_active": "boolean (optional)"
-}
-```
-
-#### Update Academic Session
-- **PUT** `/api/academic-sessions/:id`
-- **Access:** Admin only
-
-#### Set Active Session
-- **PUT** `/api/academic-sessions/:id/set-active`
-- **Access:** Admin only
-
-#### Delete Academic Session
-- **DELETE** `/api/academic-sessions/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/academic-sessions` | Private | Get all academic sessions | Query: `page, limit, search, orderBy, order, withSemesters` |
+| GET | `/api/academic-sessions/active/current` | Private | Get current active session | - |
+| GET | `/api/academic-sessions/:id` | Private | Get session by ID | Query: `withSemesters, withCourses` |
+| GET | `/api/academic-sessions/:id/semesters/count` | Private | Count semesters in session | - |
+| POST | `/api/academic-sessions` | Admin | Create new session | Body: `{ session_name, start_date, end_date, is_active? }` |
+| PUT | `/api/academic-sessions/:id` | Admin | Update session | Body: Same as create |
+| PUT | `/api/academic-sessions/:id/set-active` | Admin | Set session as active | - |
+| DELETE | `/api/academic-sessions/:id` | Admin | Delete session | - |
 
 ### Semester Routes (`/api/semesters`)
 
-#### Get All Semesters
-- **GET** `/api/semesters`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `sessionId`, `includeSession`
-
-#### Get Current Active Semester
-- **GET** `/api/semesters/active/current`
-- **Access:** Private
-- **Query Params:** `includeSession`
-
-#### Get Semester by ID
-- **GET** `/api/semesters/:id`
-- **Access:** Private
-- **Query Params:** `includeSession`, `includeCourseOfferings`
-
-#### Count Course Offerings in Semester
-- **GET** `/api/semesters/:id/course-offerings/count`
-- **Access:** Private
-
-#### Create Semester
-- **POST** `/api/semesters`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "academic_session_id": "number",
-  "name": "string",
-  "semester_number": "number",
-  "start_date": "date",
-  "end_date": "date",
-  "is_active": "boolean (optional)"
-}
-```
-
-#### Update Semester
-- **PUT** `/api/semesters/:id`
-- **Access:** Admin only
-
-#### Activate Semester
-- **PATCH** `/api/semesters/:id/activate`
-- **Access:** Admin only
-
-#### Delete Semester
-- **DELETE** `/api/semesters/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/semesters` | Private | Get all semesters | Query: `page, limit, search, orderBy, order, sessionId, includeSession` |
+| GET | `/api/semesters/active/current` | Private | Get current active semester | Query: `includeSession` |
+| GET | `/api/semesters/:id` | Private | Get semester by ID | Query: `includeSession, includeCourseOfferings` |
+| GET | `/api/semesters/:id/course-offerings/count` | Private | Count course offerings | - |
+| POST | `/api/semesters` | Admin | Create new semester | Body: `{ academic_session_id, name, semester_number, start_date, end_date, is_active? }` |
+| PUT | `/api/semesters/:id` | Admin | Update semester | Body: Same as create |
+| PATCH | `/api/semesters/:id/activate` | Admin | Activate semester | - |
+| DELETE | `/api/semesters/:id` | Admin | Delete semester | - |
 
 ---
 
@@ -382,184 +131,47 @@
 
 ### Course Routes (`/api/courses`)
 
-#### Get All Courses
-- **GET** `/api/courses`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `departmentId`, `degreeId`, `level`, `semester`, `type`
-
-#### Search Courses
-- **GET** `/api/courses/search`
-- **Access:** Private
-- **Query Params:** `keyword`, `page`, `limit`, `orderBy`, `order`
-
-#### Get Course by ID
-- **GET** `/api/courses/:id`
-- **Access:** Private
-- **Query Params:** `includeAll`
-
-#### Get Course CLOs
-- **GET** `/api/courses/:id/clos`
-- **Access:** Private
-
-#### Get Courses by Department
-- **GET** `/api/courses/department/:departmentId`
-- **Access:** Private
-
-#### Get Courses by Degree
-- **GET** `/api/courses/degree/:degreeId`
-- **Access:** Private
-
-#### Create Course
-- **POST** `/api/courses`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "course_code": "string",
-  "course_title": "string",
-  "credit_hours": "number",
-  "department_id": "number",
-  "degree_id": "number",
-  "level": "number (optional)",
-  "semester": "number (optional)",
-  "course_type": "string (optional)",
-  "prerequisite_course_ids": "array (optional)",
-  "course_summary": "string (optional)"
-}
-```
-
-#### Update Course
-- **PUT** `/api/courses/:id`
-- **Access:** Admin/Teacher
-
-#### Delete Course
-- **DELETE** `/api/courses/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/courses` | Private | Get all courses | Query: `page, limit, search, orderBy, order, departmentId, degreeId, level, semester, type` |
+| GET | `/api/courses/search` | Private | Search courses | Query: `keyword, page, limit, orderBy, order` |
+| GET | `/api/courses/:id` | Private | Get course by ID | Query: `includeAll` |
+| GET | `/api/courses/:id/clos` | Private | Get course CLOs | - |
+| GET | `/api/courses/department/:departmentId` | Private | Get courses by department | - |
+| GET | `/api/courses/degree/:degreeId` | Private | Get courses by degree | - |
+| POST | `/api/courses` | Admin | Create new course | Body: `{ course_code, course_title, credit_hours, department_id, degree_id, level?, semester?, course_type?, prerequisite_course_ids?, course_summary? }` |
+| PUT | `/api/courses/:id` | Admin/Teacher | Update course | Body: Same as create |
+| DELETE | `/api/courses/:id` | Admin | Delete course | - |
 
 ### Course Offering Routes (`/api/course-offerings`)
 
-#### Get All Course Offerings
-- **GET** `/api/course-offerings`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `orderBy`, `order`, `semesterId`, `teacherId`, `courseId`, `status`
-
-#### Get Course Progress
-- **GET** `/api/course-offerings/progress`
-- **Access:** Private
-
-#### Get Course Offering by ID
-- **GET** `/api/course-offerings/:id`
-- **Access:** Private
-
-#### Get Course Offering Enrollments
-- **GET** `/api/course-offerings/:id/enrollments`
-- **Access:** Private
-
-#### Create Course Offering
-- **POST** `/api/course-offerings`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "course_id": "number",
-  "semester_id": "number",
-  "section": "string (optional)",
-  "max_students": "number (optional)",
-  "status": "string (optional)"
-}
-```
-
-#### Update Course Offering
-- **PUT** `/api/course-offerings/:id`
-- **Access:** Admin/Teacher
-
-#### Delete Course Offering
-- **DELETE** `/api/course-offerings/:id`
-- **Access:** Admin only
-
-#### Assign Teacher to Course Offering
-- **POST** `/api/course-offerings/:id/assign-teacher`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "teacher_id": "number",
-  "role": "string (optional)",
-  "lessons": "number (optional)"
-}
-```
-
-#### Update Teacher Assignment
-- **PUT** `/api/course-offerings/teacher-assignments/:assignmentId`
-- **Access:** Admin/Teacher
-
-#### Remove Teacher Assignment
-- **DELETE** `/api/course-offerings/teacher-assignments/:assignmentId`
-- **Access:** Admin/Teacher
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/course-offerings` | Private | Get all course offerings | Query: `page, limit, orderBy, order, semesterId, teacherId, courseId, status` |
+| GET | `/api/course-offerings/progress` | Private | Get course progress | - |
+| GET | `/api/course-offerings/:id` | Private | Get course offering by ID | - |
+| GET | `/api/course-offerings/:id/enrollments` | Private | Get course offering enrollments | - |
+| POST | `/api/course-offerings` | Admin/Teacher | Create course offering | Body: `{ course_id, semester_id, section?, max_students?, status? }` |
+| PUT | `/api/course-offerings/:id` | Admin/Teacher | Update course offering | Body: Same as create |
+| DELETE | `/api/course-offerings/:id` | Admin | Delete course offering | - |
+| POST | `/api/course-offerings/:id/assign-teacher` | Admin/Teacher | Assign teacher to offering | Body: `{ teacher_id, role?, lessons? }` |
+| PUT | `/api/course-offerings/teacher-assignments/:assignmentId` | Admin/Teacher | Update teacher assignment | Body: `{ role?, lessons? }` |
+| DELETE | `/api/course-offerings/teacher-assignments/:assignmentId` | Admin/Teacher | Remove teacher assignment | - |
 
 ### CLO Routes (`/api/clos`)
 
-#### Get All CLOs
-- **GET** `/api/clos`
-- **Access:** Private
-- **Query Params:** `courseId`, `includeBloomLevel`, `includePLOMappings`, `orderBy`, `order`
-
-#### Get CLO by ID
-- **GET** `/api/clos/:id`
-- **Access:** Private
-- **Query Params:** `includePLOMappings`, `includeAttainment`
-
-#### Get Course CLO Attainment Summary
-- **GET** `/api/clos/course/:courseId/attainment-summary`
-- **Access:** Admin/Faculty
-- **Query Params:** `courseOfferingId`
-
-#### Get CLO Attainment
-- **GET** `/api/clos/:id/attainment`
-- **Access:** Admin/Faculty
-- **Query Params:** `academicSessionId`, `courseOfferingId`
-
-#### Get Mapped PLOs
-- **GET** `/api/clos/:id/plos`
-- **Access:** Admin/Faculty
-
-#### Create CLO
-- **POST** `/api/clos`
-- **Access:** Admin/Faculty
-- **Body:**
-```json
-{
-  "course_id": "number",
-  "CLO_ID": "string",
-  "CLO_Description": "string",
-  "bloom_taxonomy_level_id": "number (optional)",
-  "weight_percentage": "number (optional)",
-  "target_attainment": "number (optional)"
-}
-```
-
-#### Update CLO
-- **PUT** `/api/clos/:id`
-- **Access:** Admin/Faculty
-
-#### Delete CLO
-- **DELETE** `/api/clos/:id`
-- **Access:** Admin only
-
-#### Map CLO to PLO
-- **POST** `/api/clos/:id/map-plo`
-- **Access:** Admin/Faculty
-- **Body:**
-```json
-{
-  "plo_id": "number",
-  "correlation_level": "High|Medium|Low (optional)"
-}
-```
-
-#### Unmap CLO from PLO
-- **DELETE** `/api/clos/:id/unmap-plo/:ploId`
-- **Access:** Admin/Faculty
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/clos` | Private | Get all CLOs | Query: `courseId, includeBloomLevel, includePLOMappings, orderBy, order` |
+| GET | `/api/clos/:id` | Private | Get CLO by ID | Query: `includePLOMappings, includeAttainment` |
+| GET | `/api/clos/course/:courseId/attainment-summary` | Admin/Faculty | Get course CLO attainment summary | Query: `courseOfferingId` |
+| GET | `/api/clos/:id/attainment` | Admin/Faculty | Get CLO attainment | Query: `academicSessionId, courseOfferingId` |
+| GET | `/api/clos/:id/plos` | Admin/Faculty | Get mapped PLOs | - |
+| POST | `/api/clos` | Admin/Faculty | Create new CLO | Body: `{ course_id, CLO_ID, CLO_Description, bloom_taxonomy_level_id?, weight_percentage?, target_attainment? }` |
+| PUT | `/api/clos/:id` | Admin/Faculty | Update CLO | Body: Same as create |
+| DELETE | `/api/clos/:id` | Admin | Delete CLO | - |
+| POST | `/api/clos/:id/map-plo` | Admin/Faculty | Map CLO to PLO | Body: `{ plo_id, correlation_level? }` |
+| DELETE | `/api/clos/:id/unmap-plo/:ploId` | Admin/Faculty | Unmap CLO from PLO | - |
 
 ---
 
@@ -567,161 +179,44 @@
 
 ### PLO Routes (`/api/plos`)
 
-#### Get All PLOs
-- **GET** `/api/plos`
-- **Access:** Private
-- **Query Params:** `degreeId`, `includePEOMappings`, `includeCLOMappings`, `orderBy`, `order`
-
-#### Get PLO by ID
-- **GET** `/api/plos/:id`
-- **Access:** Private
-
-#### Get Degree PLO Attainment Summary
-- **GET** `/api/plos/degree/:degreeId/attainment-summary`
-- **Access:** Admin/Faculty
-- **Query Params:** `academicSessionId`
-
-#### Get PLO Attainment
-- **GET** `/api/plos/:id/attainment`
-- **Access:** Admin/Faculty
-- **Query Params:** `academicSessionId`, `degreeId`
-
-#### Get Mapped PEOs
-- **GET** `/api/plos/:id/peos`
-- **Access:** Admin/Faculty
-
-#### Get Mapped CLOs
-- **GET** `/api/plos/:id/clos`
-- **Access:** Admin/Faculty
-
-#### Create PLO
-- **POST** `/api/plos`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "degree_id": "number",
-  "PLO_ID": "string",
-  "PLO_Description": "string",
-  "weight_percentage": "number (optional)",
-  "target_attainment": "number (optional)"
-}
-```
-
-#### Update PLO
-- **PUT** `/api/plos/:id`
-- **Access:** Admin only
-
-#### Delete PLO
-- **DELETE** `/api/plos/:id`
-- **Access:** Admin only
-
-#### Map PLO to PEO
-- **POST** `/api/plos/:id/map-peo`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "peo_id": "number",
-  "correlation_level": "High|Medium|Low (optional)"
-}
-```
-
-#### Unmap PLO from PEO
-- **DELETE** `/api/plos/:id/unmap-peo/:peoId`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/plos` | Private | Get all PLOs | Query: `degreeId, includePEOMappings, includeCLOMappings, orderBy, order` |
+| GET | `/api/plos/:id` | Private | Get PLO by ID | - |
+| GET | `/api/plos/degree/:degreeId/attainment-summary` | Admin/Faculty | Get degree PLO attainment summary | Query: `academicSessionId` |
+| GET | `/api/plos/:id/attainment` | Admin/Faculty | Get PLO attainment | Query: `academicSessionId, degreeId` |
+| GET | `/api/plos/:id/peos` | Admin/Faculty | Get mapped PEOs | - |
+| GET | `/api/plos/:id/clos` | Admin/Faculty | Get mapped CLOs | - |
+| POST | `/api/plos` | Admin | Create new PLO | Body: `{ degree_id, PLO_ID, PLO_Description, weight_percentage?, target_attainment? }` |
+| PUT | `/api/plos/:id` | Admin | Update PLO | Body: Same as create |
+| DELETE | `/api/plos/:id` | Admin | Delete PLO | - |
+| POST | `/api/plos/:id/map-peo` | Admin | Map PLO to PEO | Body: `{ peo_id, correlation_level? }` |
+| DELETE | `/api/plos/:id/unmap-peo/:peoId` | Admin | Unmap PLO from PEO | - |
 
 ### PEO Routes (`/api/peos`)
 
-#### Get All PEOs
-- **GET** `/api/peos`
-- **Access:** Private
-- **Query Params:** `degreeId`, `includePLOMappings`, `orderBy`, `order`
-
-#### Get PEO by ID
-- **GET** `/api/peos/:id`
-- **Access:** Private
-
-#### Get PEO Statistics by Degree
-- **GET** `/api/peos/degree/:degreeId/stats`
-- **Access:** Admin/Faculty
-
-#### Get Mapped PLOs
-- **GET** `/api/peos/:id/plos`
-- **Access:** Admin/Faculty
-
-#### Create PEO
-- **POST** `/api/peos`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "degree_id": "number",
-  "PEO_ID": "string",
-  "PEO_Description": "string"
-}
-```
-
-#### Update PEO
-- **PUT** `/api/peos/:id`
-- **Access:** Admin only
-
-#### Delete PEO
-- **DELETE** `/api/peos/:id`
-- **Access:** Admin only
-
-#### Map PEO to PLO
-- **POST** `/api/peos/:id/plos`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "plo_id": "number",
-  "correlation_level": "High|Medium|Low (optional)"
-}
-```
-
-#### Bulk Map PLOs to PEO
-- **POST** `/api/peos/:id/plos/bulk`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "mappings": [
-    {
-      "plo_id": "number",
-      "correlation_level": "High|Medium|Low (optional)"
-    }
-  ]
-}
-```
-
-#### Update PEO-PLO Mapping
-- **PUT** `/api/peos/:id/plos/:ploId`
-- **Access:** Admin only
-
-#### Remove PLO Mapping from PEO
-- **DELETE** `/api/peos/:id/plos/:ploId`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/peos` | Private | Get all PEOs | Query: `degreeId, includePLOMappings, orderBy, order` |
+| GET | `/api/peos/:id` | Private | Get PEO by ID | - |
+| GET | `/api/peos/degree/:degreeId/stats` | Admin/Faculty | Get PEO statistics by degree | - |
+| GET | `/api/peos/:id/plos` | Admin/Faculty | Get mapped PLOs | - |
+| POST | `/api/peos` | Admin | Create new PEO | Body: `{ degree_id, PEO_ID, PEO_Description }` |
+| PUT | `/api/peos/:id` | Admin | Update PEO | Body: Same as create |
+| DELETE | `/api/peos/:id` | Admin | Delete PEO | - |
+| POST | `/api/peos/:id/plos` | Admin | Map PEO to PLO | Body: `{ plo_id, correlation_level? }` |
+| POST | `/api/peos/:id/plos/bulk` | Admin | Bulk map PLOs to PEO | Body: `{ mappings: [{ plo_id, correlation_level? }] }` |
+| PUT | `/api/peos/:id/plos/:ploId` | Admin | Update PEO-PLO mapping | Body: `{ correlation_level? }` |
+| DELETE | `/api/peos/:id/plos/:ploId` | Admin | Remove PLO mapping from PEO | - |
 
 ### Bloom Taxonomy Routes (`/api/bloom-taxonomy`)
 
-#### Get All Bloom Levels
-- **GET** `/api/bloom-taxonomy`
-- **Access:** Private
-- **Query Params:** `search`, `levelNumber`, `startLevel`, `endLevel`, `orderBy`, `order`
-
-#### Get Bloom Level by ID
-- **GET** `/api/bloom-taxonomy/:id`
-- **Access:** Private
-
-#### Get Bloom Level by Name
-- **GET** `/api/bloom-taxonomy/name/:name`
-- **Access:** Private
-
-#### Get Bloom Levels Count
-- **GET** `/api/bloom-taxonomy/stats/count`
-- **Access:** Private
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/bloom-taxonomy` | Private | Get all Bloom levels | Query: `search, levelNumber, startLevel, endLevel, orderBy, order` |
+| GET | `/api/bloom-taxonomy/:id` | Private | Get Bloom level by ID | - |
+| GET | `/api/bloom-taxonomy/name/:name` | Private | Get Bloom level by name | - |
+| GET | `/api/bloom-taxonomy/stats/count` | Private | Get Bloom levels count | - |
 
 ---
 
@@ -729,185 +224,48 @@
 
 ### Student Routes (`/api/students`)
 
-#### Get All Students
-- **GET** `/api/students`
-- **Access:** Admin/Teacher
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `departmentId`, `degreeId`, `academicStatus`, `batchYear`
-
-#### Get Student by ID
-- **GET** `/api/students/:id`
-- **Access:** Private
-
-#### Get Student by SID
-- **GET** `/api/students/sid/:sid`
-- **Access:** Private
-
-#### Get Students by Department
-- **GET** `/api/students/department/:departmentId`
-- **Access:** Admin/Teacher
-
-#### Get Students by Degree
-- **GET** `/api/students/degree/:degreeId`
-- **Access:** Admin/Teacher
-
-#### Get Student Enrollments
-- **GET** `/api/students/:id/enrollments`
-- **Access:** Private
-- **Query Params:** `status`, `academicSessionId`, `semesterId`
-
-#### Get Student Results
-- **GET** `/api/students/:id/results`
-- **Access:** Private
-
-#### Get Student Attainment Report
-- **GET** `/api/students/:id/attainment`
-- **Access:** Private
-- **Query Params:** `courseOfferingId`, `semesterId`
-
-#### Create Student
-- **POST** `/api/students`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "user_id": "number",
-  "student_id": "string",
-  "faculty_id": "number",
-  "department_id": "number",
-  "degree_id": "number",
-  "batch_year": "number",
-  "section": "string (optional)",
-  "academic_status": "string (optional)"
-}
-```
-
-#### Update Student
-- **PUT** `/api/students/:id`
-- **Access:** Admin only
-
-#### Delete Student
-- **DELETE** `/api/students/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/students` | Admin/Teacher | Get all students | Query: `page, limit, search, orderBy, order, departmentId, degreeId, academicStatus, batchYear` |
+| GET | `/api/students/:id` | Private | Get student by ID | - |
+| GET | `/api/students/sid/:sid` | Private | Get student by SID | - |
+| GET | `/api/students/department/:departmentId` | Admin/Teacher | Get students by department | - |
+| GET | `/api/students/degree/:degreeId` | Admin/Teacher | Get students by degree | - |
+| GET | `/api/students/:id/enrollments` | Private | Get student enrollments | Query: `status, academicSessionId, semesterId` |
+| GET | `/api/students/:id/results` | Private | Get student results | - |
+| GET | `/api/students/:id/attainment` | Private | Get student attainment report | Query: `courseOfferingId, semesterId` |
+| POST | `/api/students` | Admin | Create new student | Body: `{ user_id, student_id, faculty_id, department_id, degree_id, batch_year, section?, academic_status? }` |
+| PUT | `/api/students/:id` | Admin | Update student | Body: Same as create |
+| DELETE | `/api/students/:id` | Admin | Delete student | - |
 
 ### Teacher Routes (`/api/teachers`)
 
-#### Get All Teachers
-- **GET** `/api/teachers`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `withDetails`, `departmentId`
-
-#### Get Teacher by ID
-- **GET** `/api/teachers/:id`
-- **Access:** Private
-- **Query Params:** `withDetails`
-
-#### Get Teachers by Department
-- **GET** `/api/teachers/department/:departmentId`
-- **Access:** Private
-
-#### Get Teacher Courses
-- **GET** `/api/teachers/:id/courses`
-- **Access:** Private
-
-#### Create Teacher
-- **POST** `/api/teachers`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "user_id": "number",
-  "faculty_id": "number",
-  "department_id": "number",
-  "designation_id": "number",
-  "employee_id": "string",
-  "joining_date": "date",
-  "career_obj": "string (optional)"
-}
-```
-
-#### Update Teacher
-- **PUT** `/api/teachers/:id`
-- **Access:** Admin only
-
-#### Delete Teacher
-- **DELETE** `/api/teachers/:id`
-- **Access:** Admin only
-
-#### Assign Course to Teacher
-- **POST** `/api/teachers/:id/courses`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "course_offering_id": "number",
-  "role": "string (optional)",
-  "lessons": "number (optional)"
-}
-```
-
-#### Update Course Assignment
-- **PUT** `/api/teachers/:id/courses/:assignmentId`
-- **Access:** Admin only
-
-#### Remove Course Assignment
-- **DELETE** `/api/teachers/:id/courses/:assignmentId`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/teachers` | Private | Get all teachers | Query: `page, limit, search, orderBy, order, withDetails, departmentId` |
+| GET | `/api/teachers/:id` | Private | Get teacher by ID | Query: `withDetails` |
+| GET | `/api/teachers/department/:departmentId` | Private | Get teachers by department | - |
+| GET | `/api/teachers/:id/courses` | Private | Get teacher courses | - |
+| POST | `/api/teachers` | Admin | Create new teacher | Body: `{ user_id, faculty_id, department_id, designation_id, employee_id, joining_date, career_obj? }` |
+| PUT | `/api/teachers/:id` | Admin | Update teacher | Body: Same as create |
+| DELETE | `/api/teachers/:id` | Admin | Delete teacher | - |
+| POST | `/api/teachers/:id/courses` | Admin | Assign course to teacher | Body: `{ course_offering_id, role?, lessons? }` |
+| PUT | `/api/teachers/:id/courses/:assignmentId` | Admin | Update course assignment | Body: `{ role?, lessons? }` |
+| DELETE | `/api/teachers/:id/courses/:assignmentId` | Admin | Remove course assignment | - |
 
 ### Enrollment Routes (`/api/enrollments`)
 
-#### Enroll Student
-- **POST** `/api/enrollments`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "student_id": "number",
-  "course_offering_id": "number",
-  "enrollment_date": "date (optional)",
-  "status": "string (optional)"
-}
-```
-
-#### Check Enrollment
-- **GET** `/api/enrollments/check`
-- **Access:** Private
-- **Query Params:** `student_id`, `course_offering_id`
-
-#### Get Enrollment Statistics
-- **GET** `/api/enrollments/offering/:id/stats`
-- **Access:** Admin/Teacher
-
-#### Get Enrollments by Course Offering
-- **GET** `/api/enrollments/offering/:id`
-- **Access:** Admin/Teacher
-- **Query Params:** `status`, `orderBy`, `order`
-
-#### Get Enrollments by Student
-- **GET** `/api/enrollments/student/:id`
-- **Access:** Private
-- **Query Params:** `status`, `orderBy`, `order`
-
-#### Get Enrollment by ID
-- **GET** `/api/enrollments/:id`
-- **Access:** Private
-
-#### Drop Enrollment
-- **PUT** `/api/enrollments/:id/drop`
-- **Access:** Admin/Teacher
-
-#### Update Enrollment Status
-- **PUT** `/api/enrollments/:id/status`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "status": "string"
-}
-```
-
-#### Delete Enrollment
-- **DELETE** `/api/enrollments/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| POST | `/api/enrollments` | Admin/Teacher | Enroll student | Body: `{ student_id, course_offering_id, enrollment_date?, status? }` |
+| GET | `/api/enrollments/check` | Private | Check enrollment | Query: `student_id, course_offering_id` |
+| GET | `/api/enrollments/offering/:id/stats` | Admin/Teacher | Get enrollment statistics | - |
+| GET | `/api/enrollments/offering/:id` | Admin/Teacher | Get enrollments by course offering | Query: `status, orderBy, order` |
+| GET | `/api/enrollments/student/:id` | Private | Get enrollments by student | Query: `status, orderBy, order` |
+| GET | `/api/enrollments/:id` | Private | Get enrollment by ID | - |
+| PUT | `/api/enrollments/:id/drop` | Admin/Teacher | Drop enrollment | - |
+| PUT | `/api/enrollments/:id/status` | Admin/Teacher | Update enrollment status | Body: `{ status }` |
+| DELETE | `/api/enrollments/:id` | Admin | Delete enrollment | - |
 
 ---
 
@@ -915,355 +273,82 @@
 
 ### Assessment Routes (`/api/assessments`)
 
-#### Get Assessment Types
-- **GET** `/api/assessments/types`
-- **Access:** Private
-- **Query Params:** `category`, `groupByCategory`
-
-#### Get Assessment Type by ID
-- **GET** `/api/assessments/types/:id`
-- **Access:** Private
-
-#### Create Assessment Type
-- **POST** `/api/assessments/types`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "type_name": "string",
-  "category": "Continuous|Terminal",
-  "description": "string (optional)"
-}
-```
-
-#### Update Assessment Type
-- **PUT** `/api/assessments/types/:id`
-- **Access:** Admin only
-
-#### Delete Assessment Type
-- **DELETE** `/api/assessments/types/:id`
-- **Access:** Admin only
-
-#### Get Assessment Components
-- **GET** `/api/assessments/components`
-- **Access:** Private
-- **Query Params:** `courseOfferingId`, `courseId`, `semesterId`, `published`
-
-#### Get Assessment Component by ID
-- **GET** `/api/assessments/components/:id`
-- **Access:** Private
-
-#### Create Assessment Component
-- **POST** `/api/assessments/components`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "course_offering_id": "number",
-  "assessment_type_id": "number",
-  "title": "string",
-  "max_marks": "number",
-  "weightage": "number",
-  "assessment_date": "date",
-  "is_published": "boolean (optional)"
-}
-```
-
-#### Update Assessment Component
-- **PUT** `/api/assessments/components/:id`
-- **Access:** Admin/Teacher
-
-#### Delete Assessment Component
-- **DELETE** `/api/assessments/components/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/assessments/types` | Private | Get assessment types | Query: `category, groupByCategory` |
+| GET | `/api/assessments/types/:id` | Private | Get assessment type by ID | - |
+| POST | `/api/assessments/types` | Admin | Create assessment type | Body: `{ type_name, category, description? }` |
+| PUT | `/api/assessments/types/:id` | Admin | Update assessment type | Body: Same as create |
+| DELETE | `/api/assessments/types/:id` | Admin | Delete assessment type | - |
+| GET | `/api/assessments/components` | Private | Get assessment components | Query: `courseOfferingId, courseId, semesterId, published` |
+| GET | `/api/assessments/components/:id` | Private | Get assessment component by ID | - |
+| POST | `/api/assessments/components` | Admin/Teacher | Create assessment component | Body: `{ course_offering_id, assessment_type_id, title, max_marks, weightage, assessment_date, is_published? }` |
+| PUT | `/api/assessments/components/:id` | Admin/Teacher | Update assessment component | Body: Same as create |
+| DELETE | `/api/assessments/components/:id` | Admin | Delete assessment component | - |
 
 ### Question Routes (`/api/questions`)
 
-#### Get All Questions
-- **GET** `/api/questions`
-- **Access:** Private
-- **Query Params:** `assessmentComponentId`, `courseOfferingId`, `difficultyLevel`, `questionType`, `includeCLOMapping`
-
-#### Get Question by ID
-- **GET** `/api/questions/:id`
-- **Access:** Private
-- **Query Params:** `includeCLOMapping`, `includeBloomLevel`, `includeAssessment`
-
-#### Get Questions by Assessment
-- **GET** `/api/questions/assessment/:assessmentComponentId`
-- **Access:** Private
-
-#### Get Question Statistics
-- **GET** `/api/questions/statistics/:assessmentComponentId`
-- **Access:** Private
-
-#### Create Question
-- **POST** `/api/questions`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "assessment_component_id": "number",
-  "question_number": "string",
-  "question_text": "string",
-  "question_type": "string",
-  "marks": "number",
-  "difficulty_level": "string (optional)",
-  "bloom_taxonomy_level_id": "number (optional)"
-}
-```
-
-#### Update Question
-- **PUT** `/api/questions/:id`
-- **Access:** Admin/Teacher
-
-#### Delete Question
-- **DELETE** `/api/questions/:id`
-- **Access:** Admin only
-
-#### Map Question to CLO
-- **POST** `/api/questions/:id/map-clo`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "clo_mappings": [
-    {
-      "course_learning_outcome_id": "number",
-      "marks_allocated": "number"
-    }
-  ]
-}
-```
-
-#### Get Question CLO Mappings
-- **GET** `/api/questions/:id/clo-mappings`
-- **Access:** Private
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/questions` | Private | Get all questions | Query: `assessmentComponentId, courseOfferingId, difficultyLevel, questionType, includeCLOMapping` |
+| GET | `/api/questions/:id` | Private | Get question by ID | Query: `includeCLOMapping, includeBloomLevel, includeAssessment` |
+| GET | `/api/questions/assessment/:assessmentComponentId` | Private | Get questions by assessment | - |
+| GET | `/api/questions/statistics/:assessmentComponentId` | Private | Get question statistics | - |
+| POST | `/api/questions` | Admin/Teacher | Create new question | Body: `{ assessment_component_id, question_number, question_text, question_type, marks, difficulty_level?, bloom_taxonomy_level_id? }` |
+| PUT | `/api/questions/:id` | Admin/Teacher | Update question | Body: Same as create |
+| DELETE | `/api/questions/:id` | Admin | Delete question | - |
+| POST | `/api/questions/:id/map-clo` | Admin/Teacher | Map question to CLO | Body: `{ clo_mappings: [{ course_learning_outcome_id, marks_allocated }] }` |
+| GET | `/api/questions/:id/clo-mappings` | Private | Get question CLO mappings | - |
 
 ### Rubric Routes (`/api/rubrics`)
 
-#### Get All Rubrics
-- **GET** `/api/rubrics`
-- **Access:** Private
-- **Query Params:** `cloId`, `createdBy`, `includeCriteria`, `includeLevels`
-
-#### Get Rubric by ID
-- **GET** `/api/rubrics/:id`
-- **Access:** Private
-- **Query Params:** `includeLevels`, `includeCLO`, `includeCreator`
-
-#### Get Rubrics by CLO
-- **GET** `/api/rubrics/clo/:cloId`
-- **Access:** Private
-
-#### Create Rubric
-- **POST** `/api/rubrics`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "name": "string",
-  "description": "string (optional)",
-  "course_learning_outcome_id": "number",
-  "created_by": "number"
-}
-```
-
-#### Update Rubric
-- **PUT** `/api/rubrics/:id`
-- **Access:** Admin/Teacher
-
-#### Delete Rubric
-- **DELETE** `/api/rubrics/:id`
-- **Access:** Admin only
-
-#### Add Criterion to Rubric
-- **POST** `/api/rubrics/:id/criteria`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "criterion_name": "string",
-  "description": "string (optional)",
-  "max_score": "number",
-  "weight_percentage": "number",
-  "order": "number (optional)"
-}
-```
-
-#### Get Rubric Criteria
-- **GET** `/api/rubrics/:id/criteria`
-- **Access:** Private
-- **Query Params:** `includeLevels`
-
-#### Update Criterion
-- **PUT** `/api/rubrics/criteria/:criteriaId`
-- **Access:** Admin/Teacher
-
-#### Delete Criterion
-- **DELETE** `/api/rubrics/criteria/:criteriaId`
-- **Access:** Admin only
-
-#### Add Level to Criterion
-- **POST** `/api/rubrics/criteria/:criteriaId/levels`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "level_name": "string",
-  "level_score": "number",
-  "description": "string (optional)"
-}
-```
-
-#### Update Level
-- **PUT** `/api/rubrics/levels/:levelId`
-- **Access:** Admin/Teacher
-
-#### Delete Level
-- **DELETE** `/api/rubrics/levels/:levelId`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/rubrics` | Private | Get all rubrics | Query: `cloId, createdBy, includeCriteria, includeLevels` |
+| GET | `/api/rubrics/:id` | Private | Get rubric by ID | Query: `includeLevels, includeCLO, includeCreator` |
+| GET | `/api/rubrics/clo/:cloId` | Private | Get rubrics by CLO | - |
+| POST | `/api/rubrics` | Admin/Teacher | Create new rubric | Body: `{ name, description?, course_learning_outcome_id, created_by }` |
+| PUT | `/api/rubrics/:id` | Admin/Teacher | Update rubric | Body: Same as create |
+| DELETE | `/api/rubrics/:id` | Admin | Delete rubric | - |
+| POST | `/api/rubrics/:id/criteria` | Admin/Teacher | Add criterion to rubric | Body: `{ criterion_name, description?, max_score, weight_percentage, order? }` |
+| GET | `/api/rubrics/:id/criteria` | Private | Get rubric criteria | Query: `includeLevels` |
+| PUT | `/api/rubrics/criteria/:criteriaId` | Admin/Teacher | Update criterion | Body: Same as add criterion |
+| DELETE | `/api/rubrics/criteria/:criteriaId` | Admin | Delete criterion | - |
+| POST | `/api/rubrics/criteria/:criteriaId/levels` | Admin/Teacher | Add level to criterion | Body: `{ level_name, level_score, description? }` |
+| PUT | `/api/rubrics/levels/:levelId` | Admin/Teacher | Update level | Body: Same as add level |
+| DELETE | `/api/rubrics/levels/:levelId` | Admin | Delete level | - |
 
 ### Marks Routes (`/api/marks`)
 
-#### Enter Assessment Marks
-- **POST** `/api/marks/assessment`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "student_id": "number",
-  "assessment_component_id": "number",
-  "marks_obtained": "number (nullable)",
-  "is_absent": "boolean",
-  "is_exempted": "boolean",
-  "remarks": "string (optional)"
-}
-```
-
-#### Enter Question Marks
-- **POST** `/api/marks/question`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "student_id": "number",
-  "question_id": "number",
-  "marks_obtained": "number",
-  "feedback": "string (optional)"
-}
-```
-
-#### Bulk Enter Marks
-- **POST** `/api/marks/bulk`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "type": "assessment|question",
-  "marks": []
-}
-```
-
-#### Get Marks by Assessment
-- **GET** `/api/marks/assessment/:assessmentComponentId`
-- **Access:** Private
-- **Query Params:** `includeStudentDetails`, `includeStatistics`, `type`
-
-#### Get Marks by Student
-- **GET** `/api/marks/student/:studentId`
-- **Access:** Private
-- **Query Params:** `courseOfferingId`, `assessmentComponentId`, `assessmentTypeId`, `type`, `includeDetails`
-
-#### Get Marks by Question
-- **GET** `/api/marks/question/:questionId`
-- **Access:** Private
-- **Query Params:** `includeStudentDetails`
-
-#### Get Assessment Statistics
-- **GET** `/api/marks/statistics/assessment/:assessmentComponentId`
-- **Access:** Private
-
-#### Get Question Statistics
-- **GET** `/api/marks/statistics/questions/:assessmentComponentId`
-- **Access:** Private
-
-#### Get Student Total Marks for Course Offering
-- **GET** `/api/marks/student/:studentId/course-offering/:courseOfferingId/total`
-- **Access:** Private
-
-#### Update Assessment Marks
-- **PUT** `/api/marks/assessment/:marksId`
-- **Access:** Admin/Teacher
-
-#### Update Question Marks
-- **PUT** `/api/marks/question/:marksId`
-- **Access:** Admin/Teacher
-
-#### Delete Assessment Marks
-- **DELETE** `/api/marks/assessment/:marksId`
-- **Access:** Admin only
-
-#### Delete Question Marks
-- **DELETE** `/api/marks/question/:marksId`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| POST | `/api/marks/assessment` | Admin/Teacher | Enter assessment marks | Body: `{ student_id, assessment_component_id, marks_obtained?, is_absent, is_exempted, remarks? }` |
+| POST | `/api/marks/question` | Admin/Teacher | Enter question marks | Body: `{ student_id, question_id, marks_obtained, feedback? }` |
+| POST | `/api/marks/bulk` | Admin/Teacher | Bulk enter marks | Body: `{ type, marks: [] }` |
+| GET | `/api/marks/assessment/:assessmentComponentId` | Private | Get marks by assessment | Query: `includeStudentDetails, includeStatistics, type` |
+| GET | `/api/marks/student/:studentId` | Private | Get marks by student | Query: `courseOfferingId, assessmentComponentId, assessmentTypeId, type, includeDetails` |
+| GET | `/api/marks/question/:questionId` | Private | Get marks by question | Query: `includeStudentDetails` |
+| GET | `/api/marks/statistics/assessment/:assessmentComponentId` | Private | Get assessment statistics | - |
+| GET | `/api/marks/statistics/questions/:assessmentComponentId` | Private | Get question statistics | - |
+| GET | `/api/marks/student/:studentId/course-offering/:courseOfferingId/total` | Private | Get student total marks for offering | - |
+| PUT | `/api/marks/assessment/:marksId` | Admin/Teacher | Update assessment marks | Body: Same as enter |
+| PUT | `/api/marks/question/:marksId` | Admin/Teacher | Update question marks | Body: Same as enter |
+| DELETE | `/api/marks/assessment/:marksId` | Admin | Delete assessment marks | - |
+| DELETE | `/api/marks/question/:marksId` | Admin | Delete question marks | - |
 
 ### Rubric Score Routes (`/api/rubric-scores`)
 
-#### Enter Rubric Score
-- **POST** `/api/rubric-scores`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "student_id": "number",
-  "assessment_component_id": "number",
-  "rubric_criteria_id": "number",
-  "rubric_level_id": "number",
-  "score": "number",
-  "feedback": "string (optional)"
-}
-```
-
-#### Bulk Enter Rubric Scores
-- **POST** `/api/rubric-scores/bulk`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "scores": []
-}
-```
-
-#### Get Scores by Student
-- **GET** `/api/rubric-scores/student/:studentId`
-- **Access:** Private
-- **Query Params:** `assessment_component_id`, `rubric_criteria_id`
-
-#### Get Scores by Assessment
-- **GET** `/api/rubric-scores/assessment/:assessmentComponentId`
-- **Access:** Admin/Teacher
-- **Query Params:** `student_id`, `rubric_criteria_id`
-
-#### Get Assessment Summary
-- **GET** `/api/rubric-scores/assessment/:assessmentComponentId/summary`
-- **Access:** Admin/Teacher
-
-#### Calculate Total Score
-- **GET** `/api/rubric-scores/calculate/:studentId/:assessmentComponentId`
-- **Access:** Private
-
-#### Get Score by ID
-- **GET** `/api/rubric-scores/:scoreId`
-- **Access:** Private
-
-#### Delete Rubric Score
-- **DELETE** `/api/rubric-scores/:scoreId`
-- **Access:** Admin/Teacher
-
-#### Delete Student Assessment Scores
-- **DELETE** `/api/rubric-scores/student/:studentId/assessment/:assessmentComponentId`
-- **Access:** Admin/Teacher
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| POST | `/api/rubric-scores` | Admin/Teacher | Enter rubric score | Body: `{ student_id, assessment_component_id, rubric_criteria_id, rubric_level_id, score, feedback? }` |
+| POST | `/api/rubric-scores/bulk` | Admin/Teacher | Bulk enter rubric scores | Body: `{ scores: [] }` |
+| GET | `/api/rubric-scores/student/:studentId` | Private | Get scores by student | Query: `assessment_component_id, rubric_criteria_id` |
+| GET | `/api/rubric-scores/assessment/:assessmentComponentId` | Admin/Teacher | Get scores by assessment | Query: `student_id, rubric_criteria_id` |
+| GET | `/api/rubric-scores/assessment/:assessmentComponentId/summary` | Admin/Teacher | Get assessment summary | - |
+| GET | `/api/rubric-scores/calculate/:studentId/:assessmentComponentId` | Private | Calculate total score | - |
+| GET | `/api/rubric-scores/:scoreId` | Private | Get score by ID | - |
+| DELETE | `/api/rubric-scores/:scoreId` | Admin/Teacher | Delete rubric score | - |
+| DELETE | `/api/rubric-scores/student/:studentId/assessment/:assessmentComponentId` | Admin/Teacher | Delete student assessment scores | - |
 
 ---
 
@@ -1271,212 +356,47 @@
 
 ### Grade Routes (`/api/grades`)
 
-#### Get All Grade Scales
-- **GET** `/api/grades/scales`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `activeOnly`
-
-#### Get Grade Scale by ID
-- **GET** `/api/grades/scales/:id`
-- **Access:** Private
-- **Query Params:** `includeGradePoints`
-
-#### Create Grade Scale
-- **POST** `/api/grades/scales`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "name": "string",
-  "is_active": "boolean (optional)"
-}
-```
-
-#### Update Grade Scale
-- **PUT** `/api/grades/scales/:id`
-- **Access:** Admin only
-
-#### Delete Grade Scale
-- **DELETE** `/api/grades/scales/:id`
-- **Access:** Admin only
-
-#### Activate Grade Scale
-- **PATCH** `/api/grades/scales/:id/activate`
-- **Access:** Admin only
-
-#### Deactivate Grade Scale
-- **PATCH** `/api/grades/scales/:id/deactivate`
-- **Access:** Admin only
-
-#### Get Grade Points for Scale
-- **GET** `/api/grades/scales/:scaleId/points`
-- **Access:** Private
-- **Query Params:** `orderBy`, `order`
-
-#### Add Grade Point to Scale
-- **POST** `/api/grades/scales/:scaleId/points`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "grade_letter": "string",
-  "min_percentage": "number",
-  "max_percentage": "number",
-  "grade_point": "number",
-  "description": "string (optional)"
-}
-```
-
-#### Update Grade Point
-- **PUT** `/api/grades/points/:pointId`
-- **Access:** Admin only
-
-#### Delete Grade Point
-- **DELETE** `/api/grades/points/:pointId`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/grades/scales` | Private | Get all grade scales | Query: `page, limit, search, orderBy, order, activeOnly` |
+| GET | `/api/grades/scales/:id` | Private | Get grade scale by ID | Query: `includeGradePoints` |
+| POST | `/api/grades/scales` | Admin | Create grade scale | Body: `{ name, is_active? }` |
+| PUT | `/api/grades/scales/:id` | Admin | Update grade scale | Body: Same as create |
+| DELETE | `/api/grades/scales/:id` | Admin | Delete grade scale | - |
+| PATCH | `/api/grades/scales/:id/activate` | Admin | Activate grade scale | - |
+| PATCH | `/api/grades/scales/:id/deactivate` | Admin | Deactivate grade scale | - |
+| GET | `/api/grades/scales/:scaleId/points` | Private | Get grade points for scale | Query: `orderBy, order` |
+| POST | `/api/grades/scales/:scaleId/points` | Admin | Add grade point to scale | Body: `{ grade_letter, min_percentage, max_percentage, grade_point, description? }` |
+| PUT | `/api/grades/points/:pointId` | Admin | Update grade point | Body: Same as add |
+| DELETE | `/api/grades/points/:pointId` | Admin | Delete grade point | - |
 
 ### Course Result Routes (`/api/course-results`)
 
-#### Calculate Single Student Result
-- **POST** `/api/course-results/calculate`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "student_id": "number",
-  "course_offering_id": "number"
-}
-```
-
-#### Calculate All Students Results
-- **POST** `/api/course-results/calculate-all`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "course_offering_id": "number"
-}
-```
-
-#### Publish/Unpublish Results
-- **PATCH** `/api/course-results/publish/:courseOfferingId`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "publish_status": "boolean"
-}
-```
-
-#### Get Course Statistics
-- **GET** `/api/course-results/statistics/:courseOfferingId`
-- **Access:** Admin/Teacher
-
-#### Get Student Results
-- **GET** `/api/course-results/student/:studentId`
-- **Access:** Private
-- **Query Params:** `published_only`, `semester_id`
-
-#### Get Course Offering Results
-- **GET** `/api/course-results/course-offering/:courseOfferingId`
-- **Access:** Admin/Teacher
-- **Query Params:** `published_only`
-
-#### Get Result by ID
-- **GET** `/api/course-results/:id`
-- **Access:** Private
-
-#### Update Result Remarks
-- **PATCH** `/api/course-results/:id/remarks`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "remarks": "string"
-}
-```
-
-#### Delete Result
-- **DELETE** `/api/course-results/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| POST | `/api/course-results/calculate` | Admin/Teacher | Calculate single student result | Body: `{ student_id, course_offering_id }` |
+| POST | `/api/course-results/calculate-all` | Admin/Teacher | Calculate all students results | Body: `{ course_offering_id }` |
+| PATCH | `/api/course-results/publish/:courseOfferingId` | Admin | Publish/unpublish results | Body: `{ publish_status }` |
+| GET | `/api/course-results/statistics/:courseOfferingId` | Admin/Teacher | Get course statistics | - |
+| GET | `/api/course-results/student/:studentId` | Private | Get student results | Query: `published_only, semester_id` |
+| GET | `/api/course-results/course-offering/:courseOfferingId` | Admin/Teacher | Get course offering results | Query: `published_only` |
+| GET | `/api/course-results/:id` | Private | Get result by ID | - |
+| PATCH | `/api/course-results/:id/remarks` | Admin/Teacher | Update result remarks | Body: `{ remarks }` |
+| DELETE | `/api/course-results/:id` | Admin | Delete result | - |
 
 ### Semester Result Routes (`/api/semester-results`)
 
-#### Calculate SGPA
-- **POST** `/api/semester-results/calculate-sgpa`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "student_id": "number",
-  "semester_id": "number"
-}
-```
-
-#### Calculate CGPA
-- **POST** `/api/semester-results/calculate-cgpa`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "student_id": "number",
-  "semester_id": "number"
-}
-```
-
-#### Calculate Semester Results
-- **POST** `/api/semester-results/calculate`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "student_id": "number",
-  "semester_id": "number"
-}
-```
-
-#### Calculate All Student Results
-- **POST** `/api/semester-results/calculate-all`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "semester_id": "number"
-}
-```
-
-#### Publish Semester Results
-- **PATCH** `/api/semester-results/publish/:semesterId`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "student_ids": ["number (optional)"]
-}
-```
-
-#### Unpublish Semester Results
-- **PATCH** `/api/semester-results/unpublish/:semesterId`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "student_ids": ["number (optional)"]
-}
-```
-
-#### Get Semester Summary
-- **GET** `/api/semester-results/semester/:semesterId/summary`
-- **Access:** Admin/Teacher
-
-#### Get Student Semester Result
-- **GET** `/api/semester-results/student/:studentId/semester/:semesterId`
-- **Access:** Private
-
-#### Get Student All Results
-- **GET** `/api/semester-results/student/:studentId`
-- **Access:** Private
-- **Query Params:** `include_unpublished`
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| POST | `/api/semester-results/calculate-sgpa` | Admin/Teacher | Calculate SGPA | Body: `{ student_id, semester_id }` |
+| POST | `/api/semester-results/calculate-cgpa` | Admin/Teacher | Calculate CGPA | Body: `{ student_id, semester_id }` |
+| POST | `/api/semester-results/calculate` | Admin/Teacher | Calculate semester results | Body: `{ student_id, semester_id }` |
+| POST | `/api/semester-results/calculate-all` | Admin | Calculate all student results | Body: `{ semester_id }` |
+| PATCH | `/api/semester-results/publish/:semesterId` | Admin | Publish semester results | Body: `{ student_ids?: [] }` |
+| PATCH | `/api/semester-results/unpublish/:semesterId` | Admin | Unpublish semester results | Body: `{ student_ids?: [] }` |
+| GET | `/api/semester-results/semester/:semesterId/summary` | Admin/Teacher | Get semester summary | - |
+| GET | `/api/semester-results/student/:studentId/semester/:semesterId` | Private | Get student semester result | - |
+| GET | `/api/semester-results/student/:studentId` | Private | Get student all results | Query: `include_unpublished` |
 
 ---
 
@@ -1484,236 +404,59 @@
 
 ### CLO Attainment Routes (`/api/clo-attainment`)
 
-#### Get CLO Attainment Overview
-- **GET** `/api/clo-attainment/overview`
-- **Access:** Private
-
-#### Calculate Student CLO Attainment
-- **POST** `/api/clo-attainment/student/calculate`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "student_id": "number",
-  "course_offering_id": "number",
-  "clo_id": "number (optional)"
-}
-```
-
-#### Calculate Course CLO Attainment
-- **POST** `/api/clo-attainment/course/calculate`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "course_offering_id": "number"
-}
-```
-
-#### Get Student CLO Report
-- **GET** `/api/clo-attainment/student/:studentId/course-offering/:courseOfferingId`
-- **Access:** Admin/Teacher/Student
-
-#### Get Student All CLO Attainment
-- **GET** `/api/clo-attainment/student/:studentId`
-- **Access:** Admin/Teacher/Student
-
-#### Get Course CLO Report
-- **GET** `/api/clo-attainment/course/:courseOfferingId`
-- **Access:** Admin/Teacher
-- **Query Params:** `clo_id`, `status`
-
-#### Get CLO Details
-- **GET** `/api/clo-attainment/course/:courseOfferingId/clo/:cloId/details`
-- **Access:** Admin/Teacher
-
-#### Get CLO Trends
-- **GET** `/api/clo-attainment/course/:courseId/trends`
-- **Access:** Admin/Teacher
-- **Query Params:** `limit`
-
-#### Compare Course Offerings
-- **POST** `/api/clo-attainment/compare`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "course_offering_ids": ["number"]
-}
-```
-
-#### Recalculate Session Attainment
-- **POST** `/api/clo-attainment/recalculate-session`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "academic_session_id": "number"
-}
-```
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/clo-attainment/overview` | Private | Get CLO attainment overview | - |
+| POST | `/api/clo-attainment/student/calculate` | Admin/Teacher | Calculate student CLO attainment | Body: `{ student_id, course_offering_id, clo_id? }` |
+| POST | `/api/clo-attainment/course/calculate` | Admin/Teacher | Calculate course CLO attainment | Body: `{ course_offering_id }` |
+| GET | `/api/clo-attainment/student/:studentId/course-offering/:courseOfferingId` | Admin/Teacher/Student | Get student CLO report | - |
+| GET | `/api/clo-attainment/student/:studentId` | Admin/Teacher/Student | Get student all CLO attainment | - |
+| GET | `/api/clo-attainment/course/:courseOfferingId` | Admin/Teacher | Get course CLO report | Query: `clo_id, status` |
+| GET | `/api/clo-attainment/course/:courseOfferingId/clo/:cloId/details` | Admin/Teacher | Get CLO details | - |
+| GET | `/api/clo-attainment/course/:courseId/trends` | Admin/Teacher | Get CLO trends | Query: `limit` |
+| POST | `/api/clo-attainment/compare` | Admin/Teacher | Compare course offerings | Body: `{ course_offering_ids: [] }` |
+| POST | `/api/clo-attainment/recalculate-session` | Admin | Recalculate session attainment | Body: `{ academic_session_id }` |
 
 ### PLO Attainment Routes (`/api/plo-attainment`)
 
-#### Get PLO Attainment Overview
-- **GET** `/api/plo-attainment/overview`
-- **Access:** Private
-
-#### Calculate Student PLO Attainment
-- **POST** `/api/plo-attainment/student/calculate`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "student_id": "number",
-  "degree_id": "number",
-  "plo_id": "number (optional)"
-}
-```
-
-#### Calculate Program PLO Attainment
-- **POST** `/api/plo-attainment/program/calculate`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "degree_id": "number"
-}
-```
-
-#### Get Student PLO Report
-- **GET** `/api/plo-attainment/student/:studentId/degree/:degreeId`
-- **Access:** Admin/Teacher/Student
-
-#### Get Student All PLO Attainment
-- **GET** `/api/plo-attainment/student/:studentId`
-- **Access:** Admin/Teacher/Student
-
-#### Get Program PLO Report
-- **GET** `/api/plo-attainment/program/:degreeId`
-- **Access:** Admin/Teacher
-- **Query Params:** `plo_id`, `status`
-
-#### Get PLO Details
-- **GET** `/api/plo-attainment/program/:degreeId/plo/:ploId/details`
-- **Access:** Admin/Teacher
-
-#### Get PLO Trends
-- **GET** `/api/plo-attainment/program/:degreeId/trends`
-- **Access:** Admin/Teacher
-- **Query Params:** `plo_id`, `limit`
-
-#### Get PLO Breakdown
-- **GET** `/api/plo-attainment/student/:studentId/degree/:degreeId/plo/:ploId/breakdown`
-- **Access:** Admin/Teacher/Student
-
-#### Get Student Distribution
-- **GET** `/api/plo-attainment/program/:degreeId/plo/:ploId/distribution`
-- **Access:** Admin/Teacher
-
-#### Get Program Statistics
-- **GET** `/api/plo-attainment/program/:degreeId/stats`
-- **Access:** Admin/Teacher
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/plo-attainment/overview` | Private | Get PLO attainment overview | - |
+| POST | `/api/plo-attainment/student/calculate` | Admin/Teacher | Calculate student PLO attainment | Body: `{ student_id, degree_id, plo_id? }` |
+| POST | `/api/plo-attainment/program/calculate` | Admin/Teacher | Calculate program PLO attainment | Body: `{ degree_id }` |
+| GET | `/api/plo-attainment/student/:studentId/degree/:degreeId` | Admin/Teacher/Student | Get student PLO report | - |
+| GET | `/api/plo-attainment/student/:studentId` | Admin/Teacher/Student | Get student all PLO attainment | - |
+| GET | `/api/plo-attainment/program/:degreeId` | Admin/Teacher | Get program PLO report | Query: `plo_id, status` |
+| GET | `/api/plo-attainment/program/:degreeId/plo/:ploId/details` | Admin/Teacher | Get PLO details | - |
+| GET | `/api/plo-attainment/program/:degreeId/trends` | Admin/Teacher | Get PLO trends | Query: `plo_id, limit` |
+| GET | `/api/plo-attainment/student/:studentId/degree/:degreeId/plo/:ploId/breakdown` | Admin/Teacher/Student | Get PLO breakdown | - |
+| GET | `/api/plo-attainment/program/:degreeId/plo/:ploId/distribution` | Admin/Teacher | Get student distribution | - |
+| GET | `/api/plo-attainment/program/:degreeId/stats` | Admin/Teacher | Get program statistics | - |
 
 ### Attainment Threshold Routes (`/api/attainment-thresholds`)
 
-#### Get All Attainment Thresholds
-- **GET** `/api/attainment-thresholds`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `thresholdType`, `degreeId`
-
-#### Get Thresholds by Degree
-- **GET** `/api/attainment-thresholds/degree/:degreeId`
-- **Access:** Private
-- **Query Params:** `thresholdType`
-
-#### Get Thresholds by Type
-- **GET** `/api/attainment-thresholds/type/:thresholdType`
-- **Access:** Private
-
-#### Evaluate Attainment Level
-- **POST** `/api/attainment-thresholds/evaluate`
-- **Access:** Private
-- **Body:**
-```json
-{
-  "degree_id": "number",
-  "threshold_type": "CLO|PLO|PEO",
-  "percentage": "number"
-}
-```
-
-#### Get Threshold by ID
-- **GET** `/api/attainment-thresholds/:id`
-- **Access:** Private
-
-#### Create Attainment Threshold
-- **POST** `/api/attainment-thresholds`
-- **Access:** Admin/Faculty
-- **Body:**
-```json
-{
-  "degree_id": "number",
-  "threshold_type": "CLO|PLO|PEO",
-  "level_name": "string",
-  "min_percentage": "number",
-  "max_percentage": "number",
-  "is_attained": "boolean (optional)"
-}
-```
-
-#### Update Attainment Threshold
-- **PUT** `/api/attainment-thresholds/:id`
-- **Access:** Admin/Faculty
-
-#### Delete Attainment Threshold
-- **DELETE** `/api/attainment-thresholds/:id`
-- **Access:** Admin only
-
-#### Delete All Thresholds for Degree
-- **DELETE** `/api/attainment-thresholds/degree/:degreeId`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/attainment-thresholds` | Private | Get all attainment thresholds | Query: `page, limit, search, orderBy, order, thresholdType, degreeId` |
+| GET | `/api/attainment-thresholds/degree/:degreeId` | Private | Get thresholds by degree | Query: `thresholdType` |
+| GET | `/api/attainment-thresholds/type/:thresholdType` | Private | Get thresholds by type | - |
+| POST | `/api/attainment-thresholds/evaluate` | Private | Evaluate attainment level | Body: `{ degree_id, threshold_type, percentage }` |
+| GET | `/api/attainment-thresholds/:id` | Private | Get threshold by ID | - |
+| POST | `/api/attainment-thresholds` | Admin/Faculty | Create attainment threshold | Body: `{ degree_id, threshold_type, level_name, min_percentage, max_percentage, is_attained? }` |
+| PUT | `/api/attainment-thresholds/:id` | Admin/Faculty | Update attainment threshold | Body: Same as create |
+| DELETE | `/api/attainment-thresholds/:id` | Admin | Delete attainment threshold | - |
+| DELETE | `/api/attainment-thresholds/degree/:degreeId` | Admin | Delete all thresholds for degree | - |
 
 ### Indirect Attainment Routes (`/api/indirect-attainment`)
 
-#### Calculate Indirect Attainment
-- **POST** `/api/indirect-attainment/calculate`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "survey_id": "number",
-  "outcome_type": "PLO|CLO",
-  "outcome_id": "number (optional)"
-}
-```
-
-#### Recalculate Survey Attainment
-- **POST** `/api/indirect-attainment/recalculate/:surveyId`
-- **Access:** Admin/Teacher
-- **Body:**
-```json
-{
-  "outcome_type": "PLO|CLO"
-}
-```
-
-#### Get Attainment by Survey
-- **GET** `/api/indirect-attainment/survey/:surveyId`
-- **Access:** Admin/Teacher
-- **Query Params:** `outcome_type`
-
-#### Get Attainment by Outcome
-- **GET** `/api/indirect-attainment/outcome/:outcomeType/:outcomeId`
-- **Access:** Admin/Teacher
-
-#### Get Program Indirect Attainment Report
-- **GET** `/api/indirect-attainment/report/program/:degreeId`
-- **Access:** Admin/Teacher
-
-#### Get Indirect Attainment Summary
-- **GET** `/api/indirect-attainment/summary`
-- **Access:** Admin/Teacher
-- **Query Params:** `degree_id`, `outcome_type`
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| POST | `/api/indirect-attainment/calculate` | Admin/Teacher | Calculate indirect attainment | Body: `{ survey_id, outcome_type, outcome_id? }` |
+| POST | `/api/indirect-attainment/recalculate/:surveyId` | Admin/Teacher | Recalculate survey attainment | Body: `{ outcome_type }` |
+| GET | `/api/indirect-attainment/survey/:surveyId` | Admin/Teacher | Get attainment by survey | Query: `outcome_type` |
+| GET | `/api/indirect-attainment/outcome/:outcomeType/:outcomeId` | Admin/Teacher | Get attainment by outcome | - |
+| GET | `/api/indirect-attainment/report/program/:degreeId` | Admin/Teacher | Get program indirect report | - |
+| GET | `/api/indirect-attainment/summary` | Admin/Teacher | Get indirect attainment summary | Query: `degree_id, outcome_type` |
 
 ---
 
@@ -1721,169 +464,36 @@
 
 ### Action Plan Routes (`/api/action-plans`)
 
-#### Get All Action Plans
-- **GET** `/api/action-plans`
-- **Access:** Admin/Faculty
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `degreeId`, `status`
-
-#### Get Overdue Action Plans
-- **GET** `/api/action-plans/overdue`
-- **Access:** Admin/Faculty
-- **Query Params:** `degreeId`
-
-#### Get Action Plan Statistics
-- **GET** `/api/action-plans/statistics`
-- **Access:** Admin/Faculty
-- **Query Params:** `degreeId`
-
-#### Get Action Plans by Status
-- **GET** `/api/action-plans/status/:status`
-- **Access:** Admin/Faculty
-- **Query Params:** `degreeId`, `includeOutcomes`
-
-#### Get Action Plan by ID
-- **GET** `/api/action-plans/:id`
-- **Access:** Admin/Faculty
-
-#### Get Action Plan Outcomes
-- **GET** `/api/action-plans/:id/outcomes`
-- **Access:** Admin/Faculty
-- **Query Params:** `status`, `orderBy`, `order`
-
-#### Get Outcome Statistics
-- **GET** `/api/action-plans/:id/outcomes/statistics`
-- **Access:** Admin/Faculty
-
-#### Create Action Plan
-- **POST** `/api/action-plans`
-- **Access:** Admin/Faculty
-- **Body:**
-```json
-{
-  "degree_id": "number",
-  "plan_title": "string",
-  "description": "string",
-  "start_date": "date",
-  "target_date": "date",
-  "status": "string (optional)",
-  "responsible_person": "number (optional)"
-}
-```
-
-#### Update Action Plan
-- **PUT** `/api/action-plans/:id`
-- **Access:** Admin/Faculty
-
-#### Delete Action Plan
-- **DELETE** `/api/action-plans/:id`
-- **Access:** Admin only
-
-#### Add Outcome to Action Plan
-- **POST** `/api/action-plans/:id/outcomes`
-- **Access:** Admin/Faculty
-- **Body:**
-```json
-{
-  "outcome_type": "string",
-  "outcome_id": "number",
-  "description": "string (optional)",
-  "target_value": "number (optional)",
-  "current_value": "number (optional)",
-  "status": "string (optional)"
-}
-```
-
-#### Bulk Add Outcomes
-- **POST** `/api/action-plans/:id/outcomes/bulk`
-- **Access:** Admin/Faculty
-- **Body:**
-```json
-{
-  "outcomes": [
-    {
-      "outcome_type": "string",
-      "outcome_id": "number",
-      "description": "string (optional)",
-      "target_value": "number (optional)",
-      "current_value": "number (optional)",
-      "status": "string (optional)"
-    }
-  ]
-}
-```
-
-#### Update Action Plan Outcome
-- **PUT** `/api/action-plans/outcomes/:outcomeId`
-- **Access:** Admin/Faculty
-
-#### Delete Action Plan Outcome
-- **DELETE** `/api/action-plans/outcomes/:outcomeId`
-- **Access:** Admin/Faculty
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/action-plans` | Admin/Faculty | Get all action plans | Query: `page, limit, search, orderBy, order, degreeId, status` |
+| GET | `/api/action-plans/overdue` | Admin/Faculty | Get overdue action plans | Query: `degreeId` |
+| GET | `/api/action-plans/statistics` | Admin/Faculty | Get action plan statistics | Query: `degreeId` |
+| GET | `/api/action-plans/status/:status` | Admin/Faculty | Get action plans by status | Query: `degreeId, includeOutcomes` |
+| GET | `/api/action-plans/:id` | Admin/Faculty | Get action plan by ID | - |
+| GET | `/api/action-plans/:id/outcomes` | Admin/Faculty | Get action plan outcomes | Query: `status, orderBy, order` |
+| GET | `/api/action-plans/:id/outcomes/statistics` | Admin/Faculty | Get outcome statistics | - |
+| POST | `/api/action-plans` | Admin/Faculty | Create action plan | Body: `{ degree_id, plan_title, description, start_date, target_date, status?, responsible_person? }` |
+| PUT | `/api/action-plans/:id` | Admin/Faculty | Update action plan | Body: Same as create |
+| DELETE | `/api/action-plans/:id` | Admin | Delete action plan | - |
+| POST | `/api/action-plans/:id/outcomes` | Admin/Faculty | Add outcome to action plan | Body: `{ outcome_type, outcome_id, description?, target_value?, current_value?, status? }` |
+| POST | `/api/action-plans/:id/outcomes/bulk` | Admin/Faculty | Bulk add outcomes | Body: `{ outcomes: [{ outcome_type, outcome_id, description?, target_value?, current_value?, status? }] }` |
+| PUT | `/api/action-plans/outcomes/:outcomeId` | Admin/Faculty | Update action plan outcome | Body: Same as add outcome |
+| DELETE | `/api/action-plans/outcomes/:outcomeId` | Admin/Faculty | Delete action plan outcome | - |
 
 ### OBE Review Cycle Routes (`/api/obe-review-cycles`)
 
-#### Get All Review Cycles
-- **GET** `/api/obe-review-cycles`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `degreeId`, `status`, `reviewType`, `withDegree`
-
-#### Get Ongoing Review Cycles
-- **GET** `/api/obe-review-cycles/status/ongoing`
-- **Access:** Admin/Faculty
-
-#### Get Review Cycles by Date Range
-- **GET** `/api/obe-review-cycles/date-range`
-- **Access:** Admin/Faculty
-- **Query Params:** `start_date`, `end_date`
-
-#### Get Review Cycle by ID
-- **GET** `/api/obe-review-cycles/:id`
-- **Access:** Private
-- **Query Params:** `withDegree`
-
-#### Create Review Cycle
-- **POST** `/api/obe-review-cycles`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "degree_id": "number",
-  "cycle_name": "string",
-  "start_date": "date",
-  "end_date": "date",
-  "review_type": "string",
-  "status": "string (optional)",
-  "summary_report": "string (optional)"
-}
-```
-
-#### Update Review Cycle
-- **PUT** `/api/obe-review-cycles/:id`
-- **Access:** Admin only
-
-#### Update Review Cycle Status
-- **PATCH** `/api/obe-review-cycles/:id/status`
-- **Access:** Admin/Faculty
-- **Body:**
-```json
-{
-  "status": "string"
-}
-```
-
-#### Update Summary Report
-- **PATCH** `/api/obe-review-cycles/:id/summary-report`
-- **Access:** Admin/Faculty
-- **Body:**
-```json
-{
-  "summary_report": "string"
-}
-```
-
-#### Delete Review Cycle
-- **DELETE** `/api/obe-review-cycles/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/obe-review-cycles` | Private | Get all review cycles | Query: `page, limit, search, orderBy, order, degreeId, status, reviewType, withDegree` |
+| GET | `/api/obe-review-cycles/status/ongoing` | Admin/Faculty | Get ongoing review cycles | - |
+| GET | `/api/obe-review-cycles/date-range` | Admin/Faculty | Get review cycles by date range | Query: `start_date, end_date` |
+| GET | `/api/obe-review-cycles/:id` | Private | Get review cycle by ID | Query: `withDegree` |
+| POST | `/api/obe-review-cycles` | Admin | Create review cycle | Body: `{ degree_id, cycle_name, start_date, end_date, review_type, status?, summary_report? }` |
+| PUT | `/api/obe-review-cycles/:id` | Admin | Update review cycle | Body: Same as create |
+| PATCH | `/api/obe-review-cycles/:id/status` | Admin/Faculty | Update review cycle status | Body: `{ status }` |
+| PATCH | `/api/obe-review-cycles/:id/summary-report` | Admin/Faculty | Update summary report | Body: `{ summary_report }` |
+| DELETE | `/api/obe-review-cycles/:id` | Admin | Delete review cycle | - |
 
 ---
 
@@ -1891,127 +501,31 @@
 
 ### Report Routes (`/api/reports`)
 
-#### Get Dashboard Statistics
-- **GET** `/api/reports/dashboard-stats`
-- **Access:** Private
-
-#### Generate CLO Attainment Report
-- **GET** `/api/reports/clo-attainment/:courseOfferingId`
-- **Access:** Admin/Teacher
-- **Query Params:** `includeStudents`, `includeAssessments`
-
-#### Generate PLO Attainment Report
-- **GET** `/api/reports/plo-attainment/:degreeId`
-- **Access:** Admin/HOD/Teacher
-- **Query Params:** `sessionId`, `includeCourses`, `includeTrends`
-
-#### Generate Course Report
-- **GET** `/api/reports/course/:courseOfferingId`
-- **Access:** Admin/Teacher
-
-#### Generate Program Report
-- **GET** `/api/reports/program/:degreeId`
-- **Access:** Admin/HOD
-- **Query Params:** `sessionId`
-
-#### Export Report
-- **POST** `/api/reports/export`
-- **Access:** Admin/Teacher/HOD
-- **Body:**
-```json
-{
-  "reportType": "clo|plo|course|program",
-  "reportId": "number",
-  "format": "pdf|excel|csv|json",
-  "reportData": "object (optional)"
-}
-```
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/reports/dashboard-stats` | Private | Get dashboard statistics | - |
+| GET | `/api/reports/clo-attainment/:courseOfferingId` | Admin/Teacher | Generate CLO attainment report | Query: `includeStudents, includeAssessments` |
+| GET | `/api/reports/plo-attainment/:degreeId` | Admin/HOD/Teacher | Generate PLO attainment report | Query: `sessionId, includeCourses, includeTrends` |
+| GET | `/api/reports/course/:courseOfferingId` | Admin/Teacher | Generate course report | - |
+| GET | `/api/reports/program/:degreeId` | Admin/HOD | Generate program report | Query: `sessionId` |
+| POST | `/api/reports/export` | Admin/Teacher/HOD | Export report | Body: `{ reportType, reportId, format, reportData? }` |
 
 ### Survey Routes (`/api/surveys`)
 
-#### Get All Surveys
-- **GET** `/api/surveys`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `type`, `target_audience`, `is_active`
-
-#### Get Active Surveys
-- **GET** `/api/surveys/active`
-- **Access:** Private
-
-#### Get My Survey Responses
-- **GET** `/api/surveys/my-responses`
-- **Access:** Private
-
-#### Get Surveys by Type
-- **GET** `/api/surveys/type/:type`
-- **Access:** Private
-
-#### Get Survey by ID
-- **GET** `/api/surveys/:id`
-- **Access:** Private
-- **Query Params:** `includeQuestions`, `includeStats`
-
-#### Create Survey
-- **POST** `/api/surveys`
-- **Access:** Admin/Faculty/Coordinator
-- **Body:**
-```json
-{
-  "title": "string",
-  "description": "string",
-  "survey_type": "string",
-  "target_audience": "string",
-  "start_date": "date",
-  "end_date": "date",
-  "is_active": "boolean (optional)",
-  "is_anonymous": "boolean (optional)"
-}
-```
-
-#### Update Survey
-- **PUT** `/api/surveys/:id`
-- **Access:** Admin/Faculty/Coordinator
-
-#### Delete Survey
-- **DELETE** `/api/surveys/:id`
-- **Access:** Admin only
-
-#### Submit Survey Response
-- **POST** `/api/surveys/:id/responses`
-- **Access:** Private
-- **Body:**
-```json
-{
-  "responses": [
-    {
-      "question_id": "number",
-      "answer": "string|number"
-    }
-  ]
-}
-```
-
-#### Get Survey Responses
-- **GET** `/api/surveys/:id/responses`
-- **Access:** Admin/Faculty/Coordinator
-
-#### Get Survey Analytics
-- **GET** `/api/surveys/:id/analytics`
-- **Access:** Admin/Faculty/Coordinator
-
-#### Add Question to Survey
-- **POST** `/api/surveys/:id/questions`
-- **Access:** Admin/Faculty/Coordinator
-- **Body:**
-```json
-{
-  "question_text": "string",
-  "question_type": "string",
-  "options": "array (optional)",
-  "is_required": "boolean (optional)",
-  "order": "number (optional)"
-}
-```
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/surveys` | Private | Get all surveys | Query: `page, limit, type, target_audience, is_active` |
+| GET | `/api/surveys/active` | Private | Get active surveys | - |
+| GET | `/api/surveys/my-responses` | Private | Get my survey responses | - |
+| GET | `/api/surveys/type/:type` | Private | Get surveys by type | - |
+| GET | `/api/surveys/:id` | Private | Get survey by ID | Query: `includeQuestions, includeStats` |
+| POST | `/api/surveys` | Admin/Faculty/Coordinator | Create new survey | Body: `{ title, description, survey_type, target_audience, start_date, end_date, is_active?, is_anonymous? }` |
+| PUT | `/api/surveys/:id` | Admin/Faculty/Coordinator | Update survey | Body: Same as create |
+| DELETE | `/api/surveys/:id` | Admin | Delete survey | - |
+| POST | `/api/surveys/:id/responses` | Private | Submit survey response | Body: `{ responses: [{ question_id, answer }] }` |
+| GET | `/api/surveys/:id/responses` | Admin/Faculty/Coordinator | Get survey responses | - |
+| GET | `/api/surveys/:id/analytics` | Admin/Faculty/Coordinator | Get survey analytics | - |
+| POST | `/api/surveys/:id/questions` | Admin/Faculty/Coordinator | Add question to survey | Body: `{ question_text, question_type, options?, is_required?, order? }` |
 
 ---
 
@@ -2019,164 +533,47 @@
 
 ### Audit Log Routes (`/api/audit-logs`)
 
-#### Get All Audit Logs
-- **GET** `/api/audit-logs`
-- **Access:** Admin only
-- **Query Params:** `page`, `limit`, `orderBy`, `order`, `action`, `table_name`, `user_id`, `startDate`, `endDate`, `search`
-
-#### Get Audit Statistics
-- **GET** `/api/audit-logs/statistics`
-- **Access:** Admin only
-- **Query Params:** `startDate`, `endDate`, `user_id`, `table_name`
-
-#### Get Recent Activities
-- **GET** `/api/audit-logs/recent`
-- **Access:** Admin only
-- **Query Params:** `hours`, `limit`, `action`, `table_name`, `user_id`
-
-#### Get Logs by User
-- **GET** `/api/audit-logs/user/:userId`
-- **Access:** Admin or own logs
-- **Query Params:** `page`, `limit`, `orderBy`, `order`, `action`, `table_name`, `startDate`, `endDate`
-
-#### Get Logs by Table
-- **GET** `/api/audit-logs/table/:tableName`
-- **Access:** Admin only
-- **Query Params:** `page`, `limit`, `orderBy`, `order`, `action`, `record_id`, `user_id`, `startDate`, `endDate`
-
-#### Get Logs by Record
-- **GET** `/api/audit-logs/record/:tableName/:recordId`
-- **Access:** Admin/Teacher
-- **Query Params:** `orderBy`, `order`, `action`
-
-#### Get Audit Log by ID
-- **GET** `/api/audit-logs/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/audit-logs` | Admin | Get all audit logs | Query: `page, limit, orderBy, order, action, table_name, user_id, startDate, endDate, search` |
+| GET | `/api/audit-logs/statistics` | Admin | Get audit statistics | Query: `startDate, endDate, user_id, table_name` |
+| GET | `/api/audit-logs/recent` | Admin | Get recent activities | Query: `hours, limit, action, table_name, user_id` |
+| GET | `/api/audit-logs/user/:userId` | Admin or own logs | Get logs by user | Query: `page, limit, orderBy, order, action, table_name, startDate, endDate` |
+| GET | `/api/audit-logs/table/:tableName` | Admin | Get logs by table | Query: `page, limit, orderBy, order, action, record_id, user_id, startDate, endDate` |
+| GET | `/api/audit-logs/record/:tableName/:recordId` | Admin/Teacher | Get logs by record | Query: `orderBy, order, action` |
+| GET | `/api/audit-logs/:id` | Admin | Get audit log by ID | - |
 
 ### Seat Allocation Routes (`/api/seat-allocations`)
 
-#### Get All Seat Allocations
-- **GET** `/api/seat-allocations`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`
-
-#### Get Available Rooms
-- **GET** `/api/seat-allocations/available-rooms`
-- **Access:** Private
-
-#### Get Statistics by Building
-- **GET** `/api/seat-allocations/statistics/buildings`
-- **Access:** Admin/Faculty
-
-#### Get Allocations by Room
-- **GET** `/api/seat-allocations/room/:roomId`
-- **Access:** Private
-
-#### Get Room Occupancy
-- **GET** `/api/seat-allocations/room/:roomId/occupancy`
-- **Access:** Private
-
-#### Get Allocation by Student
-- **GET** `/api/seat-allocations/student/:studentId`
-- **Access:** Private
-
-#### Get Seat Allocation by ID
-- **GET** `/api/seat-allocations/:id`
-- **Access:** Private
-
-#### Allocate Seat
-- **POST** `/api/seat-allocations/allocate`
-- **Access:** Admin/Faculty
-- **Body:**
-```json
-{
-  "room_id": "number",
-  "student_id": "number"
-}
-```
-
-#### Reallocate Seat
-- **PUT** `/api/seat-allocations/reallocate/:studentId`
-- **Access:** Admin/Faculty
-- **Body:**
-```json
-{
-  "new_room_id": "number"
-}
-```
-
-#### Deallocate Seat
-- **DELETE** `/api/seat-allocations/deallocate/:studentId`
-- **Access:** Admin/Faculty
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/seat-allocations` | Private | Get all seat allocations | Query: `page, limit, search, orderBy, order` |
+| GET | `/api/seat-allocations/available-rooms` | Private | Get available rooms | - |
+| GET | `/api/seat-allocations/statistics/buildings` | Admin/Faculty | Get statistics by building | - |
+| GET | `/api/seat-allocations/room/:roomId` | Private | Get allocations by room | - |
+| GET | `/api/seat-allocations/room/:roomId/occupancy` | Private | Get room occupancy | - |
+| GET | `/api/seat-allocations/student/:studentId` | Private | Get allocation by student | - |
+| GET | `/api/seat-allocations/:id` | Private | Get seat allocation by ID | - |
+| POST | `/api/seat-allocations/allocate` | Admin/Faculty | Allocate seat | Body: `{ room_id, student_id }` |
+| PUT | `/api/seat-allocations/reallocate/:studentId` | Admin/Faculty | Reallocate seat | Body: `{ new_room_id }` |
+| DELETE | `/api/seat-allocations/deallocate/:studentId` | Admin/Faculty | Deallocate seat | - |
 
 ### Building Routes (`/api/buildings`)
 
-#### Get All Buildings
-- **GET** `/api/buildings`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `orderBy`, `order`, `withFloors`
-
-#### Get Building by ID
-- **GET** `/api/buildings/:id`
-- **Access:** Private
-- **Query Params:** `withDetails`
-
-#### Get Building by Code
-- **GET** `/api/buildings/code/:code`
-- **Access:** Private
-
-#### Get Building Capacity
-- **GET** `/api/buildings/:id/capacity`
-- **Access:** Private
-
-#### Create Building
-- **POST** `/api/buildings`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "name": "string",
-  "code": "string",
-  "address": "string (optional)",
-  "description": "string (optional)"
-}
-```
-
-#### Update Building
-- **PUT** `/api/buildings/:id`
-- **Access:** Admin only
-
-#### Delete Building
-- **DELETE** `/api/buildings/:id`
-- **Access:** Admin only
-
-#### Get All Floors
-- **GET** `/api/buildings/floors`
-- **Access:** Private
-- **Query Params:** `page`, `limit`, `search`, `buildingId`, `orderBy`, `order`
-
-#### Get Floor by ID
-- **GET** `/api/buildings/floors/:id`
-- **Access:** Private
-
-#### Create Floor
-- **POST** `/api/buildings/:id/floors`
-- **Access:** Admin only
-- **Body:**
-```json
-{
-  "floor_number": "number",
-  "floor_name": "string"
-}
-```
-
-#### Update Floor
-- **PUT** `/api/buildings/floors/:id`
-- **Access:** Admin only
-
-#### Delete Floor
-- **DELETE** `/api/buildings/floors/:id`
-- **Access:** Admin only
+| Method | Endpoint | Access | Description | Query/Body Parameters |
+|--------|----------|--------|-------------|----------------------|
+| GET | `/api/buildings` | Private | Get all buildings | Query: `page, limit, search, orderBy, order, withFloors` |
+| GET | `/api/buildings/:id` | Private | Get building by ID | Query: `withDetails` |
+| GET | `/api/buildings/code/:code` | Private | Get building by code | - |
+| GET | `/api/buildings/:id/capacity` | Private | Get building capacity | - |
+| POST | `/api/buildings` | Admin | Create new building | Body: `{ name, code, address?, description? }` |
+| PUT | `/api/buildings/:id` | Admin | Update building | Body: Same as create |
+| DELETE | `/api/buildings/:id` | Admin | Delete building | - |
+| GET | `/api/buildings/floors` | Private | Get all floors | Query: `page, limit, search, buildingId, orderBy, order` |
+| GET | `/api/buildings/floors/:id` | Private | Get floor by ID | - |
+| POST | `/api/buildings/:id/floors` | Admin | Create floor | Body: `{ floor_number, floor_name }` |
+| PUT | `/api/buildings/floors/:id` | Admin | Update floor | Body: Same as create |
+| DELETE | `/api/buildings/floors/:id` | Admin | Delete floor | - |
 
 ---
 
